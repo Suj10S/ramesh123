@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramesh Magar | Portfolio</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff3e0;
+    color: #263238;
+    scroll-behavior: smooth;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(90deg, #e53935, #ff9800);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  }
+  header h2 {font-size: 22px; color: #fff;}
+  nav {display: flex;}
+  nav ul {display: flex; list-style: none;}
+  nav ul li {margin: 0 15px;}
+  nav ul li a {color: white; text-decoration: none; font-weight: bold; transition: color 0.3s;}
+  nav ul li a:hover {color: #ffe082;}
+
+  /* Hamburger Menu */
+  .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
+  .menu-toggle div {width: 25px; height: 3px; background: white; margin: 5px; transition: 0.3s;}
+
+  /* Hero Section */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff7043, #ff5722);
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  #home h1 {font-size: 50px; text-shadow: 2px 2px 6px rgba(0,0,0,0.4);}
+  #home p {font-size: 20px; margin-top: 10px; color: #ffe0b2;}
+
+  /* Photo Animation */
+  .photo-container {
+    position: relative;
+    width: 400px;
+    max-width: 90%;
+    height: 300px;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  .photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    animation: photoAnimation 6s infinite;
+  }
+
+  .dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: dotsAnimation 6s infinite;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  @keyframes photoAnimation {
+    0%, 40% { filter: blur(10px); }
+    70%, 100% { filter: blur(0px); }
+  }
+
+  @keyframes dotsAnimation {
+    0%, 29%, 51%, 100% { opacity: 0; }
+    30%, 50% { opacity: 1; }
+  }
+
+  /* About */
+  #about {padding: 60px 20px; text-align: center;}
+  #about h2 {color: #e53935; margin-bottom: 20px;}
+  #about p {line-height: 1.6; font-size: 18px; color: #444;}
+
+  /* Qualification */
+  #qualification {
+    padding: 50px 20px;
+    background: #f9f9f9;
+    text-align: center;
+  }
+  #qualification h2 {font-size: 2rem; margin-bottom: 30px; color: #222;}
+  .qualification-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
+  .qualification-box {
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .qualification-box:hover {transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
+  .box-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
+  .box-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
+  .qualification-box h3 {font-size: 1.2rem; margin-bottom: 10px;}
+  .qualification-box p {font-size: 0.95rem;}
+
+  /* Skills */
+  #skills {padding: 60px 20px; background: #fff; text-align: center;}
+  #skills h2 {font-size: 2.2rem; margin-bottom: 40px; color: #222; font-weight: 700; text-transform: uppercase;}
+  .skills-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; justify-items: center;}
+  .skill-box {
+    padding: 25px;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 250px;
+  }
+  .skill-box:hover {transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.25);}
+  .skill-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
+  .skill-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
+  .skill-box h3 {font-size: 1.2rem; margin-bottom: 10px; font-weight: 600;}
+  .skill-box p {font-size: 0.95rem; font-weight: 400;}
+
+  /* Contact */
+  #contact {padding: 60px 20px; background: #fff3e0; text-align: center;}
+  #contact h2 {color: #e53935; margin-bottom: 20px;}
+  form {max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;}
+  input, textarea {
+    padding: 12px;
+    border: 1px solid #ff7043;
+    border-radius: 8px;
+    background: #fff;
+    color: #444;
+  }
+  button {
+    padding: 12px;
+    background: linear-gradient(90deg, #e53935, #ff9800);
+    color: white; border: none; border-radius: 8px;
+    cursor: pointer; transition: 0.3s;
+  }
+  button:hover {opacity: 0.9;}
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(90deg, #e53935, #ff7043);
+    color: white; font-size: 16px;
+  }
+  .footer-social {margin-bottom: 15px;}
+  .footer-social a {
+    margin: 0 12px; font-size: 24px;
+    text-decoration: none; color: #ffe082; transition: color 0.3s;
+  }
+  .footer-social a:hover {color: #fff;}
+  footer a.email-btn {
+    display:inline-block; font-size:18px;
+    color:#fff; background:#d32f2f;
+    padding:10px 20px; border-radius:5px;
+    text-decoration:none; margin-bottom: 10px;
+    transition: background 0.3s;
+  }
+  footer a.email-btn:hover {background:#ff5722;}
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {display: none; flex-direction: column; background: #e53935; position: absolute; top: 60px; right: 0; width: 200px; text-align: center; border-radius: 0 0 8px 8px;}
+    nav ul.active {display: flex;}
+    .menu-toggle {display: flex;}
+    #home h1 {font-size: 36px;}
+    #home p {font-size: 18px;}
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Ramesh Magar</h2>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#qualification">Qualification</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
+</header>
+
+<!-- Home -->
+<section id="home">
+  
+  
+  <h1><br><br>Hello, I'm <br> Ramesh Magar</h1>
+  <p>Korean Instructor | Japanese Instructor | Computer Trainer | Accounting Expert | Graphic Designer</p>
+  <div class="photo-container">
+    <img src="ramesh3.jpg" alt="Photo">
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am <b>Ramesh Magar</b>, a passionate instructor and trainer with expertise in 
+    <b>Korean, Japanese, Computer Skills, Accounting Software, and Graphic Design</b>. 
+    With years of teaching and training experience, I aim to empower students and professionals 
+    with practical knowledge and skills for career growth. I currently work as Head Coordinator at SUNRISE EDUCATION FOUNDATION.
+  </p>
+</section>
+
+<!-- Qualification -->
+<section id="qualification">
+  <h2>Qualification</h2>
+  <div class="qualification-container">
+    <div class="qualification-box box-red">
+      <h3>Bachelor in Business Studies</h3>
+      <p>Tribhuvan University, 2075</p>
+    </div>
+    <div class="qualification-box box-orange">
+      <h3>Japanese Language Instructor</h3>
+      <p>JLPT N2 Certified</p>
+    </div>
+    <div class="qualification-box box-red">
+      <h3>Korean Language Instructor</h3>
+      <p>TOPIK Level 4 Certified</p>
+    </div>
+    <div class="qualification-box box-orange">
+      <h3>Computer Expert</h3>
+      <p>MS Office, Web & IT Training</p>
+    </div>
+    <div class="qualification-box box-red">
+      <h3>Accounting Software Expert</h3>
+      <p>Tally, Swastik, Busy & Other Software</p>
+    </div>
+    <div class="qualification-box box-orange">
+      <h3>Graphic Designer</h3>
+      <p>Adobe Photoshop</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <div class="skill-box skill-red">
+      <h3>Japanese Language</h3>
+      <p>JLPT N2</p>
+    </div>
+    <div class="skill-box skill-orange">
+      <h3>Korean Language</h3>
+      <p>TOPIK Level 4</p>
+    </div>
+    <div class="skill-box skill-red">
+      <h3>Computer</h3>
+      <p>MS Office, Web & IT Training</p>
+    </div>
+    <div class="skill-box skill-orange">
+      <h3>Accounting Software</h3>
+      <p>Tally, Swastik, Busy</p>
+    </div>
+    <div class="skill-box skill-red">
+      <h3>Graphic Design</h3>
+      <p>Photoshop, Illustrator, Canva</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/illameliramesh" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/illameliramesh" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@rmsmgr2" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/9779810094146" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <a href="mailto:rameshshamal99@gmail.com" class="email-btn">📧 Email Me</a>
+  <p>&copy; 2025 RAMESH MAGAR. All Rights Reserved.<br>Powered by RAMESH MAGAR</p>
+</footer>
+
+</body>
+</html>
