@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +60,8 @@
   #home h1 {font-size: 50px; text-shadow: 2px 2px 6px rgba(0,0,0,0.4);}
   #home p {font-size: 20px; margin-top: 10px; color: #ffe0b2;}
 
-  /* Image Slider */
-  .slider-container {
+  /* Photo Animation */
+  .photo-container {
     position: relative;
     width: 400px;
     max-width: 90%;
@@ -68,77 +69,46 @@
     margin-top: 30px;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   }
-  
-  .slides {
-    display: flex;
-    width: 300%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .slide {
-    width: 33.33%;
-    height: 100%;
-  }
-  
-  .slide img {
+
+  .photo-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(10px);
+    animation: photoAnimation 6s infinite;
   }
-  
-  .slider-nav {
+
+  .dots {
     position: absolute;
-    bottom: 15px;
+    top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    gap: 10px;
-  }
-  
-  .slider-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .slider-dot.active {
-    background: white;
-  }
-  
-  .slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    animation: dotsAnimation 6s infinite;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+    background: white;
     border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-    z-index: 10;
+    opacity: 0.7;
   }
-  
-  .slider-arrow:hover {
-    background: rgba(0,0,0,0.7);
+
+  @keyframes photoAnimation {
+    0%, 40% { filter: blur(10px); }
+    70%, 100% { filter: blur(0px); }
   }
-  
-  .slider-arrow.prev {
-    left: 15px;
-  }
-  
-  .slider-arrow.next {
-    right: 15px;
+
+  @keyframes dotsAnimation {
+    0%, 29%, 51%, 100% { opacity: 0; }
+    30%, 50% { opacity: 1; }
   }
 
   /* About */
@@ -160,13 +130,12 @@
     color: #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
   }
   .qualification-box:hover {transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
   .box-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
   .box-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
-  .qualification-box h3 {font-size: 1.2rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;}
-  .qualification-box p {font-size: 0.95rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 5px;}
+  .qualification-box h3 {font-size: 1.2rem; margin-bottom: 10px;}
+  .qualification-box p {font-size: 0.95rem;}
 
   /* Skills */
   #skills {padding: 60px 20px; background: #fff; text-align: center;}
@@ -184,60 +153,8 @@
   .skill-box:hover {transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.25);}
   .skill-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
   .skill-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
-  .skill-box h3 {font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;}
-  .skill-box p {font-size: 0.95rem; font-weight: 400; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 5px;}
-
-  /* WhatsApp Form */
-  .whatsapp-form-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin: 40px auto 0;
-  }
-  
-  .whatsapp-form-container h3 {
-    color: #25D366;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .whatsapp-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .whatsapp-form input,
-  .whatsapp-form textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
-    color: #444;
-  }
-  
-  .whatsapp-form button {
-    padding: 12px;
-    background: #25D366;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .whatsapp-form button:hover {
-    background: #128C7E;
-  }
+  .skill-box h3 {font-size: 1.2rem; margin-bottom: 10px; font-weight: 600;}
+  .skill-box p {font-size: 0.95rem; font-weight: 400;}
 
   /* Contact */
   #contact {padding: 60px 20px; background: #fff3e0; text-align: center;}
@@ -280,12 +197,6 @@
   }
   footer a.email-btn:hover {background:#ff5722;}
 
-  /* Custom symbols */
-  .symbol {
-    font-weight: bold;
-    margin: 0 3px;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     nav ul {display: none; flex-direction: column; background: #e53935; position: absolute; top: 60px; right: 0; width: 200px; text-align: center; border-radius: 0 0 8px 8px;}
@@ -293,9 +204,6 @@
     .menu-toggle {display: flex;}
     #home h1 {font-size: 36px;}
     #home p {font-size: 18px;}
-    .slider-container {
-      height: 250px;
-    }
   }
 
 </style>
@@ -320,22 +228,16 @@
 
 <!-- Home -->
 <section id="home">
+  
+  
   <h1>Hello, I'm <br> Ramesh Magar</h1>
   <p>Korean Instructor | Japanese Instructor | Computer Trainer | Accounting Expert | Graphic Designer</p>
-  
-  <!-- Image Slider -->
-  <div class="slider-container">
-    <div class="slides">
-      <div class="slide"><img src="ramesh1.jpg" alt="Ramesh Magar 1"></div>
-      <div class="slide"><img src="ramesh2.jpg" alt="Ramesh Magar 2"></div>
-      <div class="slide"><img src="ramesh3.jpg" alt="Ramesh Magar 3"></div>
-    </div>
-    <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
-    <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
-    <div class="slider-nav">
-      <div class="slider-dot active" data-slide="0"></div>
-      <div class="slider-dot" data-slide="1"></div>
-      <div class="slider-dot" data-slide="2"></div>
+  <div class="photo-container">
+    <img src="ramesh3.jpg" alt="Photo">
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
 </section>
@@ -356,64 +258,66 @@
   <h2>Qualification</h2>
   <div class="qualification-container">
     <div class="qualification-box box-red">
-      <h3><i class="fas fa-graduation-cap"></i> Bachelor in Business Studies</h3>
-      <p><i class="fas fa-university"></i> Tribhuvan University, 2075</p>
+      <h3>Bachelor in Business Studies</h3>
+      <p>Tribhuvan University, 2075</p>
     </div>
     <div class="qualification-box box-orange">
-      <h3><i class="fas fa-language"></i> Japanese Language Instructor</h3>
-      <p><i class="fas fa-certificate"></i> JLPT N4, <i class="fas fa-certificate"></i> J-Test Certified</p>
+      <h3>Japanese Language Instructor</h3>
+      <p>JLPT N4,J-Test Certified</p>
     </div>
     <div class="qualification-box box-red">
-      <h3><i class="fas fa-language"></i> Korean Language Instructor</h3>
-      <p><i class="fas fa-certificate"></i> TOPIK Level 4 Certified</p>
+      <h3>Korean Language Instructor</h3>
+      <p>TOPIK Level 4 Certified</p>
     </div>
     <div class="qualification-box box-orange">
-      <h3><i class="fas fa-laptop-code"></i> Computer Expert</h3>
-      <p><i class="fas fa-desktop"></i> MS Office, <i class="fas fa-globe"></i> Web & IT Training</p>
+      <h3>Computer Expert</h3>
+      <p>MS Office, Web & IT Training</p>
     </div>
     <div class="qualification-box box-red">
-      <h3><i class="fas fa-calculator"></i> Accounting Software Expert</h3>
-      <p><span class="symbol">T</span> Tally, <span class="symbol">卐</span> Swastik, <span class="symbol">B</span> Busy, <span class="symbol">F</span> Fact & Other Software</p>
+      <h3>Accounting Software Expert</h3>
+      <p>Tally, Swastik, Busy & Other Software</p>
     </div>
     <div class="qualification-box box-orange">
-      <h3><i class="fas fa-paint-brush"></i> Graphic Designer</h3>
-      <p><i class="fas fa-palette"></i> Adobe Photoshop</p>
+      <h3>Graphic Designer</h3>
+      <p>Adobe Photoshop</p>
     </div>
   </div>
 </section>
 
+<!-- Skills -->
 <!-- Skills -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills-container">
 
     <a href="https://www.jlpt.jp/e/" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3><i class="fas fa-language"></i> Japanese Language</h3>
-      <p><i class="fas fa-certificate"></i> JLPT N4, <i class="fas fa-certificate"></i> J-Test</p>
+      <h3>Japanese Language</h3>
+      <p>JLPT N4,J-Test</p>
     </a>
 
     <a href="https://www.topik.go.kr/" target="_blank" class="skill-box skill-orange" style="text-decoration:none; color:white;">
-      <h3><i class="fas fa-language"></i> Korean Language</h3>
-      <p><i class="fas fa-certificate"></i> TOPIK Level 4</p>
+      <h3>Korean Language</h3>
+      <p>TOPIK Level 4</p>
     </a>
 
     <a href="https://learn.microsoft.com/" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3><i class="fas fa-laptop-code"></i> Computer</h3>
-      <p><i class="fas fa-desktop"></i> MS Office, <i class="fas fa-globe"></i> Web & IT Training</p>
+      <h3>Computer</h3>
+      <p>MS Office, Web & IT Training</p>
     </a>
 
     <a href="https://tallysolutions.com/" target="_blank" class="skill-box skill-orange" style="text-decoration:none; color:white;">
-      <h3><i class="fas fa-calculator"></i> Accounting Software</h3>
-      <p><span class="symbol">T</span> Tally, <span class="symbol">卐</span> Swastik, <span class="symbol">B</span> Busy, <span class="symbol">F</span> Fact</p>
+      <h3>Accounting Software</h3>
+      <p>Tally, Swastik, Busy,Fact</p>
     </a>
 
     <a href="https://www.adobe.com/creativecloud.html" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3><i class="fas fa-paint-brush"></i> Graphic Design</h3>
-      <p><i class="fas fa-palette"></i> Adobe Photoshop</p>
+      <h3>Graphic Design</h3>
+      <p>Adobe Photoshop</p>
     </a>
 
   </div>
 </section>
+
 
 <!-- Contact -->
 <section id="contact">
@@ -424,17 +328,6 @@
     <textarea placeholder="Your Message" rows="5" required></textarea>
     <button type="submit">Send Message</button>
   </form>
-  
-  <!-- WhatsApp Form -->
-  <div class="whatsapp-form-container">
-    <h3><i class="fab fa-whatsapp"></i> Message me on WhatsApp</h3>
-    <form class="whatsapp-form" id="whatsappForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="text" id="phone" placeholder="Your Phone Number" required>
-      <textarea id="message" placeholder="Your Message" rows="3" required></textarea>
-      <button type="submit"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
-    </form>
-  </div>
 </section>
 
 <!-- Footer -->
@@ -450,89 +343,9 @@
   <p>&copy; 2025 RAMESH MAGAR. All Rights Reserved.<br>Powered by RAMESH MAGAR</p>
 </footer>
 
-<script>
-  // Image Slider Functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelector('.slides');
-    const dots = document.querySelectorAll('.slider-dot');
-    const prevBtn = document.querySelector('.slider-arrow.prev');
-    const nextBtn = document.querySelector('.slider-arrow.next');
-    let currentSlide = 0;
-    let slideInterval;
-
-    // Function to show a specific slide
-    function showSlide(n) {
-      currentSlide = (n + 3) % 3; // Ensure it's between 0-2
-      slides.style.transform = translateX(-${currentSlide * 33.33}%);
-      
-      // Update dots
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
-    }
-
-    // Next slide function
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    // Start auto sliding
-    function startSlideShow() {
-      slideInterval = setInterval(nextSlide, 3000);
-    }
-
-    // Stop auto sliding
-    function stopSlideShow() {
-      clearInterval(slideInterval);
-    }
-
-    // Event listeners for manual navigation
-    prevBtn.addEventListener('click', () => {
-      stopSlideShow();
-      showSlide(currentSlide - 1);
-      startSlideShow();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      stopSlideShow();
-      nextSlide();
-      startSlideShow();
-    });
-
-    // Event listeners for dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        stopSlideShow();
-        showSlide(index);
-        startSlideShow();
-      });
-    });
-
-    // Pause slider when hovering
-    const slider = document.querySelector('.slider-container');
-    slider.addEventListener('mouseenter', stopSlideShow);
-    slider.addEventListener('mouseleave', startSlideShow);
-
-    // Start the slideshow
-    startSlideShow();
-
-    // WhatsApp Form Functionality
-    const whatsappForm = document.getElementById('whatsappForm');
-    whatsappForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const message = document.getElementById('message').value;
-      
-      // Format the message for WhatsApp
-      const formattedMessage = Hello Ramesh,%0A%0AMy name is ${name}.%0A${message}%0A%0AYou can contact me at: ${phone};
-      
-      // Open WhatsApp with the message
-      window.open(https://wa.me/9779810094146?text=${formattedMessage}, '_blank');
-    });
-  });
-</script>
-
 </body>
 </html>
+
+
+
+
