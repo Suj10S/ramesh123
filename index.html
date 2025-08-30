@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,202 +9,164 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff3e0;
-    color: #263238;
-    scroll-behavior: smooth;
+  body{
+    background:#fff3e0;
+    color:#263238;
+    scroll-behavior:smooth;
   }
 
-  /* Header */
-  header {
-    background: linear-gradient(90deg, #e53935, #ff9800);
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  /* Vibrant Header */
+  header{
+    background:linear-gradient(90deg,#e53935,#ff9800);
+    color:white;
+    padding:15px 30px;
+    display:flex;justify-content:space-between;align-items:center;
+    position:fixed;top:0;width:100%;z-index:1000;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
   }
-  header h2 {font-size: 22px; color: #fff;}
-  nav {display: flex;}
-  nav ul {display: flex; list-style: none;}
-  nav ul li {margin: 0 15px;}
-  nav ul li a {color: white; text-decoration: none; font-weight: bold; transition: color 0.3s;}
-  nav ul li a:hover {color: #ffe082;}
+  header h2{font-size:24px;font-weight:bold;}
+  nav ul{display:flex;list-style:none;}
+  nav ul li{margin:0 15px;}
+  nav ul li a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+  nav ul li a:hover{color:#ffe082;text-shadow:0 0 6px #fff;}
 
-  /* Hamburger Menu */
-  .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
-  .menu-toggle div {width: 25px; height: 3px; background: white; margin: 5px; transition: 0.3s;}
+  /* Hamburger */
+  .menu-toggle{display:none;flex-direction:column;cursor:pointer;}
+  .menu-toggle div{width:25px;height:3px;background:white;margin:5px;transition:.3s;}
 
   /* Hero Section */
-  #home {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #ff7043, #ff5722);
-    color: white;
-    text-align: center;
-    padding: 20px;
+  #home{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    background:linear-gradient(to right,#ff7043,#e53935);
+    color:white;text-align:center;padding:20px;
   }
-  #home h1 {font-size: 50px; text-shadow: 2px 2px 6px rgba(0,0,0,0.4);}
-  #home p {font-size: 20px; margin-top: 10px; color: #ffe0b2;}
+  #home h1{font-size:54px;text-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+  #home p{font-size:20px;margin-top:12px;color:#ffe0b2;}
 
-  /* Photo Animation */
-  .photo-container {
-    position: relative;
-    width: 400px;
-    max-width: 90%;
-    height: 300px;
-    margin-top: 30px;
-    overflow: hidden;
-    border-radius: 15px;
-  }
+  /* Slider */
+  .slider{position:relative;width:90%;max-width:800px;height:400px;margin-top:40px;overflow:hidden;border-radius:15px;box-shadow:0 6px 20px rgba(0,0,0,0.3);}
+  .slides{display:flex;width:300%;height:100%;transition:transform 0.6s ease-in-out;}
+  .slides img{width:100%;height:100%;object-fit:cover;}
+  .controls{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);}
+  .controls span{cursor:pointer;background:rgba(0,0,0,0.5);color:#fff;padding:10px 16px;border-radius:50%;font-size:20px;transition:.3s;}
+  .controls span:hover{background:rgba(0,0,0,0.8);}
+  .dots-nav{position:absolute;bottom:12px;width:100%;text-align:center;}
+  .dots-nav span{display:inline-block;width:12px;height:12px;margin:0 5px;background:rgba(255,255,255,0.7);border-radius:50%;cursor:pointer;transition:.3s;}
+  .dots-nav span.active{background:#ff9800;box-shadow:0 0 8px #fff;}
 
-  .photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: blur(10px);
-    animation: photoAnimation 6s infinite;
-  }
-
-  .dots {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    opacity: 0;
-    animation: dotsAnimation 6s infinite;
-  }
-
-  .dot {
-    width: 15px;
-    height: 15px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.7;
-  }
-
-  @keyframes photoAnimation {
-    0%, 40% { filter: blur(10px); }
-    70%, 100% { filter: blur(0px); }
-  }
-
-  @keyframes dotsAnimation {
-    0%, 29%, 51%, 100% { opacity: 0; }
-    30%, 50% { opacity: 1; }
-  }
-
-  /* About */
-  #about {padding: 60px 20px; text-align: center;}
-  #about h2 {color: #e53935; margin-bottom: 20px;}
-  #about p {line-height: 1.6; font-size: 18px; color: #444;}
+  /* Section Headings */
+  section h2{text-align:center;font-size:2.2rem;margin-bottom:25px;color:#e53935;font-weight:bold;text-transform:uppercase;}
 
   /* Qualification */
-  #qualification {
-    padding: 50px 20px;
-    background: #f9f9f9;
-    text-align: center;
-  }
-  #qualification h2 {font-size: 2rem; margin-bottom: 30px; color: #222;}
-  .qualification-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
-  .qualification-box {
-    padding: 20px;
-    border-radius: 12px;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .qualification-box:hover {transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
-  .box-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
-  .box-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
-  .qualification-box h3 {font-size: 1.2rem; margin-bottom: 10px;}
-  .qualification-box p {font-size: 0.95rem;}
+  #qualification{padding:60px 20px;background:#fff;}
+  .qualification-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .qualification-box{padding:25px;border-radius:15px;color:#fff;text-align:center;
+    background:linear-gradient(135deg,#ff512f,#f09819);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:.4s;}
+  .qualification-box:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 12px 25px rgba(0,0,0,0.3);}
+  .qualification-box i{font-size:30px;margin-bottom:10px;}
 
   /* Skills */
-  #skills {padding: 60px 20px; background: #fff; text-align: center;}
-  #skills h2 {font-size: 2.2rem; margin-bottom: 40px; color: #222; font-weight: 700; text-transform: uppercase;}
-  .skills-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; justify-items: center;}
-  .skill-box {
-    padding: 25px;
-    border-radius: 15px;
-    color: #fff;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  #skills{padding:60px 20px;background:#fff3e0;}
+  .skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;justify-items:center;}
+  
+  /* Make entire skill box clickable without breaking hover effect */
+  .skill-box-link {
+    text-decoration: none;
     width: 100%;
     max-width: 250px;
+    display: block;
   }
-  .skill-box:hover {transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.25);}
-  .skill-red {background: linear-gradient(135deg, #ff4e50, #f9d423);}
-  .skill-orange {background: linear-gradient(135deg, #ff7e5f, #feb47b);}
-  .skill-box h3 {font-size: 1.2rem; margin-bottom: 10px; font-weight: 600;}
-  .skill-box p {font-size: 0.95rem; font-weight: 400;}
+
+  .skill-box-link .skill-box {
+    width: 100%;
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+
+  .skill-box-link:hover .skill-box {
+    transform: translateY(-12px) scale(1.07);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+  }
+
+  .skill-box{
+    padding:25px;
+    border-radius:15px;
+    color:#fff;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    transition:.4s;
+    width:100%;
+    max-width:250px;
+    text-align:center;
+    background:linear-gradient(135deg,#ff512f,#f09819);
+  }
+  
+  .skill-box i{font-size:32px;margin-bottom:12px;}
+
+  /* Accounting Software Placeholder Icons */
+  .software-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .software-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff512f, #f09819);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+
+  .software-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  }
 
   /* Contact */
-  #contact {padding: 60px 20px; background: #fff3e0; text-align: center;}
-  #contact h2 {color: #e53935; margin-bottom: 20px;}
-  form {max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;}
-  input, textarea {
-    padding: 12px;
-    border: 1px solid #ff7043;
-    border-radius: 8px;
-    background: #fff;
-    color: #444;
-  }
-  button {
-    padding: 12px;
-    background: linear-gradient(90deg, #e53935, #ff9800);
-    color: white; border: none; border-radius: 8px;
-    cursor: pointer; transition: 0.3s;
-  }
-  button:hover {opacity: 0.9;}
+  #contact{padding:60px 20px;background:#fff;}
+  form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;}
+  input,textarea{padding:14px;border:1px solid #ff7043;border-radius:10px;background:#fff;color:#444;font-size:16px;}
+  button{padding:14px;background:linear-gradient(90deg,#e53935,#ff9800);color:white;border:none;border-radius:10px;font-size:16px;cursor:pointer;transition:.3s;}
+  button:hover{box-shadow:0 0 12px rgba(229,57,53,0.7);}
+
+  /* WhatsApp Floating */
+  .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25d366;color:white;border-radius:50%;
+    width:55px;height:55px;display:flex;align-items:center;justify-content:center;font-size:28px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:.3s;}
+  .whatsapp-float:hover{transform:scale(1.1);background:#1ebd5a;}
 
   /* Footer */
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(90deg, #e53935, #ff7043);
-    color: white; font-size: 16px;
-  }
-  .footer-social {margin-bottom: 15px;}
-  .footer-social a {
-    margin: 0 12px; font-size: 24px;
-    text-decoration: none; color: #ffe082; transition: color 0.3s;
-  }
-  .footer-social a:hover {color: #fff;}
-  footer a.email-btn {
-    display:inline-block; font-size:18px;
-    color:#fff; background:#d32f2f;
-    padding:10px 20px; border-radius:5px;
-    text-decoration:none; margin-bottom: 10px;
-    transition: background 0.3s;
-  }
-  footer a.email-btn:hover {background:#ff5722;}
+  footer{padding:35px 20px;background:linear-gradient(90deg,#e53935,#ff7043);color:white;text-align:center;}
+  .footer-social a{margin:0 10px;font-size:26px;color:#ffe082;transition:.3s;}
+  .footer-social a:hover{color:#fff;transform:scale(1.2);}
+  footer a.email-btn{display:inline-block;margin-top:15px;background:#d32f2f;padding:10px 22px;border-radius:8px;
+    color:#fff;text-decoration:none;font-weight:bold;transition:.3s;}
+  footer a.email-btn:hover{background:#ff5722;box-shadow:0 0 10px #fff;}
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav ul {display: none; flex-direction: column; background: #e53935; position: absolute; top: 60px; right: 0; width: 200px; text-align: center; border-radius: 0 0 8px 8px;}
-    nav ul.active {display: flex;}
-    .menu-toggle {display: flex;}
-    #home h1 {font-size: 36px;}
-    #home p {font-size: 18px;}
-  }
+  /* Animations */
+  .fade-up{opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
 
+  @media(max-width:768px){
+    nav ul{display:none;flex-direction:column;background:#e53935;position:absolute;top:60px;right:0;width:200px;text-align:center;border-radius:0 0 8px 8px;}
+    nav ul.active{display:flex;}
+    .menu-toggle{display:flex;}
+    #home h1{font-size:38px;}
+    #home p{font-size:18px;}
+    .slider{height:250px;}
+  }
 </style>
 </head>
 <body>
@@ -228,99 +189,105 @@
 
 <!-- Home -->
 <section id="home">
-  
-  
   <h1>Hello, I'm <br> Ramesh Magar</h1>
   <p>Korean Instructor | Japanese Instructor | Computer Trainer | Accounting Expert | Graphic Designer</p>
-  <div class="photo-container">
-    <img src="ramesh3.jpg" alt="Photo">
-    <div class="dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="ramesh1.jpg" alt="Slide 1">
+      <img src="ramesh2.jpg" alt="Slide 2">
+      <img src="ramesh3.jpg" alt="Slide 3">
     </div>
+    <div class="controls">
+      <span onclick="prevSlide()">&#10094;</span>
+      <span onclick="nextSlide()">&#10095;</span>
+    </div>
+    <div class="dots-nav" id="dots"></div>
   </div>
 </section>
 
 <!-- About -->
-<section id="about">
+<section id="about" class="fade-up">
   <h2>About Me</h2>
-  <p>
-    I am <b>Ramesh Magar</b>, a passionate instructor and trainer with expertise in 
+  <p>I am <b>Ramesh Magar</b>, a passionate instructor and trainer with expertise in 
     <b>Korean, Japanese, Computer Skills, Accounting Software, and Graphic Design</b>. 
     With years of teaching and training experience, I aim to empower students and professionals 
-    with practical knowledge and skills for career growth. I currently work as Head Coordinator at SUNRISE EDUCATION FOUNDATION.
-  </p>
+    with practical knowledge and skills for career growth. Currently Head Coordinator at SUNRISE EDUCATION FOUNDATION.</p>
 </section>
 
 <!-- Qualification -->
-<section id="qualification">
+<section id="qualification" class="fade-up">
   <h2>Qualification</h2>
   <div class="qualification-container">
-    <div class="qualification-box box-red">
-      <h3>Bachelor in Business Studies</h3>
-      <p>Tribhuvan University, 2075</p>
-    </div>
-    <div class="qualification-box box-orange">
-      <h3>Japanese Language Instructor</h3>
-      <p>JLPT N4,J-Test Certified</p>
-    </div>
-    <div class="qualification-box box-red">
-      <h3>Korean Language Instructor</h3>
-      <p>TOPIK Level 4 Certified</p>
-    </div>
-    <div class="qualification-box box-orange">
-      <h3>Computer Expert</h3>
-      <p>MS Office, Web & IT Training</p>
-    </div>
-    <div class="qualification-box box-red">
+    <div class="qualification-box"><i class="fas fa-university"></i><h3>Bachelor in Business Studies</h3><p>Tribhuvan University, 2075</p></div>
+    <div class="qualification-box"><i class="fas fa-language"></i><h3>Japanese Language Instructor</h3><p>JLPT N4, J-Test Certified</p></div>
+    <div class="qualification-box"><i class="fas fa-language"></i><h3>Korean Language Instructor</h3><p>TOPIK Level 4 Certified</p></div>
+    <div class="qualification-box"><i class="fas fa-computer"></i><h3>Computer Expert</h3><p>MS Office, Web & IT Training</p></div>
+    <div class="qualification-box">
       <h3>Accounting Software Expert</h3>
-      <p>Tally, Swastik, Busy & Other Software</p>
+      <div class="software-icons">
+        <span class="software-icon">T</span>
+        <span class="software-icon">卐</span>
+        <span class="software-icon">B</span>
+        <span class="software-icon">F</span>
+      </div>
     </div>
-    <div class="qualification-box box-orange">
-      <h3>Graphic Designer</h3>
-      <p>Adobe Photoshop</p>
-    </div>
+    <div class="qualification-box"><i class="fas fa-paint-brush"></i><h3>Graphic Designer</h3><p>Adobe Photoshop</p></div>
   </div>
 </section>
 
 <!-- Skills -->
-<!-- Skills -->
-<section id="skills">
+<section id="skills" class="fade-up">
   <h2>Skills</h2>
   <div class="skills-container">
-
-    <a href="https://www.jlpt.jp/e/" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3>Japanese Language</h3>
-      <p>JLPT N4,J-Test</p>
+    <a href="https://www.jlpt.jp/e/" target="_blank" class="skill-box-link">
+      <div class="skill-box">
+        <i class="fas fa-language"></i>
+        <h3>Japanese Language</h3>
+        <p>JLPT N4, J-Test</p>
+      </div>
     </a>
 
-    <a href="https://www.topik.go.kr/" target="_blank" class="skill-box skill-orange" style="text-decoration:none; color:white;">
-      <h3>Korean Language</h3>
-      <p>TOPIK Level 4</p>
+    <a href="https://www.topik.go.kr/" target="_blank" class="skill-box-link">
+      <div class="skill-box">
+        <i class="fas fa-language"></i>
+        <h3>Korean Language</h3>
+        <p>TOPIK Level 4</p>
+      </div>
     </a>
 
-    <a href="https://learn.microsoft.com/" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3>Computer</h3>
-      <p>MS Office, Web & IT Training</p>
+    <a href="https://www.microsoft.com/en-us/microsoft-365" target="_blank" class="skill-box-link">
+      <div class="skill-box">
+        <i class="fas fa-computer"></i>
+        <h3>Computer</h3>
+        <p>MS Office, Web & IT</p>
+      </div>
     </a>
 
-    <a href="https://tallysolutions.com/" target="_blank" class="skill-box skill-orange" style="text-decoration:none; color:white;">
-      <h3>Accounting Software</h3>
-      <p>Tally, Swastik, Busy,Fact</p>
+    <a href="https://tallysolutions.com/" target="_blank" class="skill-box-link">
+      <div class="skill-box">
+        <h3>Accounting</h3>
+        <div class="software-icons">
+          <a href="https://tallysolutions.com/" target="_blank" class="software-icon">T</a>
+          <a href="#" target="_blank" class="software-icon">卐</a>
+          <a href="#" target="_blank" class="software-icon">B</a>
+          <a href="#" target="_blank" class="software-icon">F</a>
+        </div>
+      </div>
     </a>
 
-    <a href="https://www.adobe.com/creativecloud.html" target="_blank" class="skill-box skill-red" style="text-decoration:none; color:white;">
-      <h3>Graphic Design</h3>
-      <p>Adobe Photoshop</p>
+    <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="skill-box-link">
+      <div class="skill-box">
+        <i class="fas fa-paint-brush"></i>
+        <h3>Graphic Design</h3>
+        <p>Adobe Photoshop</p>
+      </div>
     </a>
-
   </div>
 </section>
 
-
 <!-- Contact -->
-<section id="contact">
+<section id="contact" class="fade-up">
   <h2>Contact Me</h2>
   <form>
     <input type="text" placeholder="Your Name" required>
@@ -343,9 +310,46 @@
   <p>&copy; 2025 RAMESH MAGAR. All Rights Reserved.<br>Powered by RAMESH MAGAR</p>
 </footer>
 
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/9779810094146?text=Hello%20Ramesh%2C%20I%20want%20to%20know%20more%20about%20your%20services." 
+   class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- JS for Slider & Animation -->
+<script>
+let slideIndex=0;
+const slides=document.getElementById('slides');
+const dotsContainer=document.getElementById('dots');
+const totalSlides=slides.children.length;
+
+// Create dots
+for(let i=0;i<totalSlides;i++){
+  const dot=document.createElement('span');
+  dot.addEventListener('click',()=>goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+const dots=dotsContainer.children;
+
+function showSlide(index){
+  slideIndex=(index+totalSlides)%totalSlides;
+  slides.style.transform='translateX('+(-slideIndex*100)+'%)';
+  for(let i=0;i<dots.length;i++){dots[i].classList.remove('active');}
+  dots[slideIndex].classList.add('active');
+}
+function nextSlide(){showSlide(slideIndex+1);}
+function prevSlide(){showSlide(slideIndex-1);}
+function goToSlide(i){showSlide(i);}
+setInterval(nextSlide,3000);
+showSlide(0);
+
+// Fade-up animation
+const faders=document.querySelectorAll('.fade-up');
+window.addEventListener('scroll',()=>{
+  faders.forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-100){el.classList.add('visible');}
+  });
+});
+</script>
+
 </body>
 </html>
-
-
-
-
