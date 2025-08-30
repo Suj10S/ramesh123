@@ -17,6 +17,25 @@
     scroll-behavior:smooth;
   }
 
+  /* Watermark */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('ramesh3.jpg') center center no-repeat;
+    background-size: 300px auto; /* Adjust size as needed */
+    opacity: 0.05; /* Adjust transparency */
+    pointer-events: none; /* Allows clicks through watermark */
+    z-index: 0; /* Behind all content */
+  }
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Vibrant Header */
   header{
     background:linear-gradient(90deg,#e53935,#ff9800);
@@ -59,6 +78,21 @@
 
   /* Section Headings */
   section h2{text-align:center;font-size:2.2rem;margin-bottom:25px;color:#e53935;font-weight:bold;text-transform:uppercase;}
+
+  /* About Section - Updated */
+  #about {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fff;
+  }
+  #about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 20px;
+  }
 
   /* Qualification */
   #qualification{padding:60px 20px;background:#fff;}
