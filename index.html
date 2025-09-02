@@ -1,411 +1,1062 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramesh Magar | Portfolio</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-    
-    body{
-      background:#fff3e0;
-      color:#263238;
-      scroll-behavior:smooth;
-    }
-    
-    /* Watermark */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('ramesh3.jpg') center center no-repeat;
-      background-size: 300px auto; /* Adjust size as needed */
-      opacity: 0.05; /* Adjust transparency */
-      pointer-events: none; /* Allows clicks through watermark */
-      z-index: 0; /* Behind all content */
-    }
-    body > * {
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Vibrant Header */
-    header{
-      background:linear-gradient(90deg,#e53935,#ff9800);
-      color:white;
-      padding:15px 30px;
-      display:flex;justify-content:space-between;align-items:center;
-      position:fixed;top:0;width:100%;z-index:1000;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    }
-    header h2{font-size:24px;font-weight:bold;}
-    nav ul{display:flex;list-style:none;}
-    nav ul li{margin:0 15px;}
-    nav ul li a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
-    nav ul li a:hover{color:#ffe082;text-shadow:0 0 6px #fff;}
-    
-    /* Hamburger */
-    .menu-toggle{display:none;flex-direction:column;cursor:pointer;}
-    .menu-toggle div{width:25px;height:3px;background:white;margin:5px;transition:.3s;}
-    
-    /* Hero Section */
-    #home{
-      min-height:100vh;
-      display:flex;flex-direction:column;justify-content:center;align-items:center;
-      background:linear-gradient(to right,#ff7043,#e53935);
-      color:white;text-align:center;padding:20px;
-    }
-    #home h1{font-size:54px;text-shadow:2px 2px 8px rgba(0,0,0,0.5);}
-    #home p{font-size:20px;margin-top:12px;color:#ffe0b2;}
-    
-    /* Animated Image Container */
-    .animated-image-container{
-      position: relative;
-      width: 90%;
-      max-width: 800px;
-      height: 400px;
-      margin: 40px auto 0;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-    
-    .animated-image{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(20px);
-      transition: filter 3s ease;
-    }
-    
-    /* Dots Overlay */
-    .animated-image-container .dots-nav{
-      position: absolute;
-      bottom: 12px;
-      width: 100%;
-      text-align: center;
-    }
-    .animated-image-container .dots-nav span{
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin: 0 5px;
-      background: rgba(255,255,255,0.7);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: .3s;
-    }
-    .animated-image-container .dots-nav span.active{
-      background: #ff9800;
-      box-shadow: 0 0 8px #fff;
-    }
-    
-    /* Blur removal animation */
-    .animated-image.clear{
-      filter: blur(0);
-    }
-    
-    /* Section Headings */
-    section h2{text-align:center;font-size:2.2rem;margin-bottom:25px;color:#e53935;font-weight:bold;text-transform:uppercase;}
-    
-    /* About Section - Updated */
-    #about {
-      padding: 80px 20px;
-      text-align: center;
-      background: #fff;
-    }
-    #about p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: center;
-      padding: 0 20px;
-    }
-    
-    /* Qualification */
-    #qualification{padding:60px 20px;background:#fff;}
-    .qualification-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-    .qualification-box{padding:25px;border-radius:15px;color:#fff;text-align:center;
-      background:linear-gradient(135deg,#ff512f,#f09819);
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:.4s;}
-    .qualification-box:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 12px 25px rgba(0,0,0,0.3);}
-    .qualification-box i{font-size:30px;margin-bottom:10px;}
-    
-    /* Skills */
-    #skills{padding:60px 20px;background:#fff3e0;}
-    .skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;justify-items:center;}
-    
-    /* Make entire skill box clickable without breaking hover effect */
-    .skill-box-link {
-      text-decoration: none;
-      width: 100%;
-      max-width: 250px;
-      display: block;
-    }
-    
-    .skill-box-link .skill-box {
-      width: 100%;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    
-    .skill-box-link:hover .skill-box {
-      transform: translateY(-12px) scale(1.07);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-    }
-    
-    .skill-box{
-      padding:25px;
-      border-radius:15px;
-      color:#fff;
-      box-shadow:0 6px 15px rgba(0,0,0,0.2);
-      transition:.4s;
-      width:100%;
-      max-width:250px;
-      text-align:center;
-      background:linear-gradient(135deg,#ff512f,#f09819);
-    }
-    
-    .skill-box i{font-size:32px;margin-bottom:12px;}
-    
-    /* Accounting Software Placeholder Icons */
-    .software-icons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    
-    .software-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff512f, #f09819);
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-    }
-    
-    .software-icon:hover {
-      transform: scale(1.2);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    
-    /* Contact */
-    #contact{padding:60px 20px;background:#fff;}
-    form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;}
-    input,textarea{padding:14px;border:1px solid #ff7043;border-radius:10px;background:#fff;color:#444;font-size:16px;}
-    button{padding:14px;background:linear-gradient(90deg,#e53935,#ff9800);color:white;border:none;border-radius:10px;font-size:16px;cursor:pointer;transition:.3s;}
-    button:hover{box-shadow:0 0 12px rgba(229,57,53,0.7);}
-    
-    /* WhatsApp Floating */
-    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25d366;color:white;border-radius:50%;
-      width:55px;height:55px;display:flex;align-items:center;justify-content:center;font-size:28px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transition:.3s;}
-    .whatsapp-float:hover{transform:scale(1.1);background:#1ebd5a;}
-    
-    /* Footer */
-    footer{padding:35px 20px;background:linear-gradient(90deg,#e53935,#ff7043);color:white;text-align:center;}
-    .footer-social a{margin:0 10px;font-size:26px;color:#ffe082;transition:.3s;}
-    .footer-social a:hover{color:#fff;transform:scale(1.2);}
-    footer a.email-btn{display:inline-block;margin-top:15px;background:#d32f2f;padding:10px 22px;border-radius:8px;
-      color:#fff;text-decoration:none;font-weight:bold;transition:.3s;}
-    footer a.email-btn:hover{background:#ff5722;box-shadow:0 0 10px #fff;}
-    
-    /* Animations */
-    .fade-up{opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
-    .fade-up.visible{opacity:1;transform:translateY(0);}
-    
-    @media(max-width:768px){
-      nav ul{display:none;flex-direction:column;background:#e53935;position:absolute;top:60px;right:0;width:200px;text-align:center;border-radius:0 0 8px 8px;}
-      nav ul.active{display:flex;}
-      .menu-toggle{display:flex;}
-      #home h1{font-size:38px;}
-      #home p{font-size:18px;}
-      .animated-image-container{height:300px;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramesh Magar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --vibrant-orange: #ff6d00;
+            --light-orange: #ffab40;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-red), var(--vibrant-orange), #ff4757);
+        }
+        
+        .photo-animation {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: url('ramesh3.jpg') center/cover;
+            animation: photoReveal 4s ease-in-out forwards;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(255, 109, 0, 0.5);
+        }
+        
+        @keyframes photoReveal {
+            0% { 
+                filter: blur(20px);
+                transform: scale(0.9);
+            }
+            25% { 
+                filter: blur(10px);
+                transform: scale(0.95);
+            }
+            50% { 
+                filter: blur(0px) contrast(0.3) brightness(0.3);
+                background-image: radial-gradient(circle, var(--primary-red) 2px, transparent 2px), url('ramesh3.jpg');
+                background-size: 20px 20px, cover;
+                transform: scale(1);
+            }
+            75% { 
+                filter: blur(0px) contrast(0.7) brightness(0.7);
+                background-image: none;
+                transform: scale(1.05);
+                box-shadow: 0 0 60px rgba(255, 109, 0, 0.7);
+            }
+            100% { 
+                filter: blur(0px) contrast(1) brightness(1);
+                transform: scale(1);
+                box-shadow: 0 0 80px rgba(255, 109, 0, 0.9);
+            }
+        }
+        
+        .floating-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-btn {
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+        }
+        
+        .phone-btn {
+            bottom: 90px;
+            right: 20px;
+            background: var(--primary-red);
+        }
+        
+        .skill-card, .experience-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .skill-card:hover, .experience-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(211, 47, 47, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #ffab40;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: var(--light-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            font-weight: bold;
+            color: rgba(211, 47, 47, 0.05);
+            z-index: -1;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .faq-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background-color: #ffebee;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-red);
+        }
+        
+        /* Image upload styling */
+        .image-upload-container {
+            border: 2px dashed var(--primary-red);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .image-upload-container:hover {
+            background-color: rgba(255, 109, 0, 0.1);
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 15px;
+            display: none;
+            border-radius: 5px;
+        }
+        
+        /* Skill icon styling */
+        .tally-icon {
+            background: linear-gradient(135deg, #0c7cce, #004d99);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Enhanced red-orange consistency */
+        #about, #skills, #experience, #reviews, footer {
+            box-shadow: 0 0 20px rgba(255, 109, 0, 0.1);
+        }
+
+        #about .bg-white {
+            border: 1px solid var(--light-orange);
+        }
+
+        #skills .bg-gray-100 {
+            background: linear-gradient(to bottom, rgba(211, 47, 47, 0.05), rgba(255, 109, 0, 0.05));
+        }
+
+        #experience .bg-white {
+            border-top: 3px solid var(--primary-red);
+        }
+
+        #reviews .bg-gray-100 {
+            background: linear-gradient(to bottom, rgba(255, 109, 0, 0.05), rgba(211, 47, 47, 0.05));
+        }
+
+        footer.bg-gray-900 {
+            background: linear-gradient(to top, #1a1a1a, rgba(211, 47, 47, 0.1));
+        }
+
+        .faq-item {
+            border-left: 4px solid var(--vibrant-orange);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h2>Ramesh Magar</h2>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#qualification">Qualification</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="menu-toggle" onclick="document.getElementById('nav-links').classList.toggle('active')">
-        <div></div><div></div><div></div>
-      </div>
+<body class="bg-gray-50 relative">
+    <!-- Watermark -->
+    <div class="watermark">RM</div>
+    
+    <!-- Navigation -->
+    <nav class="gradient-bg shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="bg-white text-red-600 font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center mr-4 pulse">
+                        RM
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white font-medium">Home</a>
+                    <a href="#about" class="nav-link text-white font-medium">About</a>
+                    <a href="#skills" class="nav-link text-white font-medium">Skills</a>
+                    <a href="#experience" class="nav-link text-white font-medium">Experience</a>
+                    <a href="#reviews" class="nav-link text-white font-medium">Reviews</a>
+                    <a href="#contact" class="nav-link text-white font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-red-800">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block text-white py-2">Home</a>
+                <a href="#about" class="block text-white py-2">About</a>
+                <a href="#skills" class="block text-white py-2">Skills</a>
+                <a href="#experience" class="block text-white py-2">Experience</a>
+                <a href="#reviews" class="block text-white py-2">Reviews</a>
+                <a href="#contact" class="block text-white py-2">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
-  
-  <!-- Home -->
-  <section id="home">
-    <h1>Hello, I'm <br> Ramesh Magar</h1>
-    <p>Korean Instructor | Japanese Instructor | Computer Trainer | Accounting Expert | Graphic Designer</p>
+
+    <!-- Home Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 text-white mb-8 lg:mb-0">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-4">Hello, I'm</h1>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-yellow-300">Ramesh Magar</h2>
+                    <p class="text-xl mb-8 leading-relaxed">Korean Instructor | Japanese Instructor | Computer Trainer | Accounting Expert | Graphic Designer</p>
+                    <div class="space-x-4">
+                        <a href="#contact" class="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">Get In Touch</a>
+                        <a href="#about" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-red-600 transition duration-300">Learn More</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="photo-animation"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-red-50 to-orange-50 p-8 rounded-lg shadow-lg mb-12 border-l-4 border-red-500">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        I am Ramesh Magar, a passionate instructor and trainer with expertise in Korean, Japanese, Computer Skills, Accounting Software, and Graphic Design. With years of teaching and training experience, I aim to empower students and professionals with practical knowledge and skills for career growth.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Currently working as <span class="font-semibold text-red-600">Head Coordinator at SUNRISE EDUCATION FOUNDATION</span>.
+                    </p>
+                </div>
+                
+                <h3 class="text-3xl font-bold mb-8 text-gray-800">Qualifications</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="#" class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-lg shadow-lg border-l-4 border-red-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-graduation-cap text-red-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Education</h4>
+                        </div>
+                        <p class="text-gray-700">Bachelor in Business Studies</p>
+                        <p class="text-gray-600">Tribhuvan University, 2075</p>
+                    </a>
+                    
+                    <a href="#" class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-language text-orange-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Japanese Language Instructor</h4>
+                        </div>
+                        <p class="text-gray-700">JLPT N4, J-Test Certified</p>
+                    </a>
+                    
+                    <a href="#" class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-lg shadow-lg border-l-4 border-red-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-globe-asia text-red-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Korean Language Instructor</h4>
+                        </div>
+                        <p class="text-gray-700">TOPIK Level 4 Certified</p>
+                    </a>
+                    
+                    <a href="#" class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-computer text-orange-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Computer Expert</h4>
+                        </div>
+                        <p class="text-gray-700">MS Office, Web & IT Training</p>
+                    </a>
+                    
+                    <a href="#" class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-lg shadow-lg border-l-4 border-red-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-calculator text-red-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Accounting Software Expert</h4>
+                        </div>
+                        <p class="text-gray-700">Tally, Busy, Swastik, Fact</p>
+                    </a>
+                    
+                    <a href="#" class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg shadow-lg border-l-4 border-orange-500 hover:shadow-xl transition duration-300 skill-card">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-paint-brush text-orange-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-semibold">Graphic Designer</h4>
+                        </div>
+                        <p class="text-gray-700">Adobe Photoshop</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Skills</h2>
+                <button id="skills-admin-btn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">
+                    <i class="fas fa-cog mr-2"></i>Admin
+                </button>
+            </div>
+            
+            <!-- Skills Admin Form -->
+            <div id="skills-admin-form" class="hidden bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Manage Skills</h3>
+                
+                <div class="image-upload-container mb-4" id="image-upload-area">
+                    <i class="fas fa-cloud-upload-alt text-4xl text-red-500 mb-2"></i>
+                    <p>Drag & drop an image here or click to browse</p>
+                    <p class="text-sm text-gray-500 mt-1">Supports JPG, PNG, SVG (Max 2MB)</p>
+                    <input type="file" id="skill-image-upload" accept="image/*" class="hidden">
+                    <img id="image-preview" class="image-preview">
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-4 mb-4">
+                    <input type="text" id="skill-name" placeholder="Skill Name" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="text" id="skill-level" placeholder="Skill Level %" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="text" id="skill-link" placeholder="Documentation Link" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div class="flex space-x-4">
+                    <button id="add-skill-btn" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300">Add Skill</button>
+                    <button id="cancel-skills-btn" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 transition duration-300">Cancel</button>
+                </div>
+            </div>
+            
+            <div id="skills-grid" class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Skills will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Experience</h2>
+                <button id="experience-admin-btn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">
+                    <i class="fas fa-cog mr-2"></i>Admin
+                </button>
+            </div>
+            
+            <!-- Experience Admin Form -->
+            <div id="experience-admin-form" class="hidden bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Manage Experience</h3>
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <input type="text" id="exp-title" placeholder="Job Title" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="text" id="exp-company" placeholder="Company Name" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="text" id="exp-duration" placeholder="Duration (e.g., 2020-2023)" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="text" id="exp-location" placeholder="Location" class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <textarea id="exp-description" placeholder="Job Description" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-red-500" rows="3"></textarea>
+                <div class="flex space-x-4">
+                    <button id="add-experience-btn" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300">Add Experience</button>
+                    <button id="cancel-experience-btn" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 transition duration-300">Cancel</button>
+                </div>
+            </div>
+            
+            <div id="experience-container" class="max-w-4xl mx-auto">
+                <!-- Experience items will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Student Reviews</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">SS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sujan Subedi</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Excellent Korean language instructor! Ramesh sir made learning Korean so easy and enjoyable. Highly recommended!"</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">SP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sudeep Pokhrel</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Best computer training I've ever received. The accounting software training was particularly helpful for my business."</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">SG</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sabu Gautam</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Amazing Japanese language classes! Passed JLPT N4 with his guidance. Very patient and knowledgeable teacher."</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">KK</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Khesav Khanal</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Professional graphic design training. Learned Photoshop from basics to advanced level. Great instructor!"</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h3>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-lg" onclick="toggleFAQ(0)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-semibold text-gray-800 flex items-center">
+                                <i class="fas fa-question-circle text-red-500 mr-3"></i>
+                                What languages do you teach?
+                            </h4>
+                            <i class="fas fa-chevron-down text-red-500 transition-transform duration-300" id="faq-icon-0"></i>
+                        </div>
+                        <div class="faq-answer mt-4" id="faq-answer-0">
+                            <p class="text-gray-700">I teach Korean (TOPIK Level 4) and Japanese (JLPT N4, J-Test certified) languages with comprehensive curriculum and exam preparation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-lg" onclick="toggleFAQ(1)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-semibold text-gray-800 flex items-center">
+                                <i class="fas fa-question-circle text-orange-500 mr-3"></i>
+                                Do you provide computer training?
+                            </h4>
+                            <i class="fas fa-chevron-down text-orange-500 transition-transform duration-300" id="faq-icon-1"></i>
+                        </div>
+                        <div class="faq-answer mt-4" id="faq-answer-1">
+                            <p class="text-gray-700">Yes, I provide comprehensive computer training including MS Office, accounting software (Tally, Busy, Swastik, Fact), and basic web development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-lg" onclick="toggleFAQ(2)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-semibold text-gray-800 flex items-center">
+                                <i class="fas fa-question-circle text-red-500 mr-3"></i>
+                                What is your teaching experience?
+                            </h4>
+                            <i class="fas fa-chevron-down text-red-500 transition-transform duration-300" id="faq-icon-2"></i>
+                        </div>
+                        <div class="faq-answer mt-4" id="faq-answer-2">
+                            <p class="text-gray-700">I have over 5 years of teaching and training experience, currently serving as Head Coordinator at Sunrise Education Foundation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-lg" onclick="toggleFAQ(3)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-semibold text-gray-800 flex items-center">
+                                <i class="fas fa-question-circle text-orange-500 mr-3"></i>
+                                Do you offer graphic design services?
+                            </h4>
+                            <i class="fas fa-chevron-down text-orange-500 transition-transform duration-300" id="faq-icon-3"></i>
+                        </div>
+                        <div class="faq-answer mt-4" id="faq-answer-3">
+                            <p class="text-gray-700">Yes, I provide graphic design services and training, specializing in Adobe Photoshop for various design needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white">Contact Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="text-white">
+                        <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-2xl mr-4"></i>
+                                <span>ramesh.magar@email.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-2xl mr-4"></i>
+                                <span>+977-9800000000</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
+                                <span>Urlabari, Nepal</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/illameliramesh" target="_blank" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-red-600 hover:bg-gray-200 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/illameliramesh" target="_blank" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-red-600 hover:bg-gray-200 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@rmsmgr2" target="_blank" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-red-600 hover:bg-gray-200 transition duration-300">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" target="_blank" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-red-600 hover:bg-gray-200 transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-xl">
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                <input type="text" id="fullname" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-semibold mb-2">Address</label>
+                                <input type="text" id="address" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                                <input type="tel" id="phone" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-semibold mb-2">Inquiry</label>
+                                <textarea id="inquiry" required rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="https://www.facebook.com/illameliramesh" target="_blank" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fab fa-facebook-f text-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/illameliramesh" target="_blank" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@rmsmgr2" target="_blank" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/9779810094146" target="_blank" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="mailto:rameshshamal99@gmail.com" class="text-gray-400 hover:text-var(--light-orange) transition duration-300">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 mt-6 text-center">
+                <p>&copy; 2025 RAMESH MAGAR. All Rights Reserved.</p>
+                <p class="text-sm text-gray-400 mt-2">Powered by RAMESH MAGAR</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/9779810094146?text=Hello%20Ramesh%20sir,%20I%20would%20like%20to%20inquire%20about%20your%20training%20services.%20Please%20provide%20me%20with%20more%20information." class="floating-btn whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
     
-    <!-- Animated Image -->
-    <div class="animated-image-container">
-      <img src="ramesh3.jpg" alt="Ramesh Magar" class="animated-image">
-      <div class="dots-nav">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-      </div>
+    <a href="tel:+9779810094146" class="floating-btn phone-btn">
+        <i class="fas fa-phone text-white text-xl"></i>
+    </a>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Admin Login</h3>
+            <input type="password" id="admin-password" placeholder="Enter password" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-red-500">
+            <div class="flex space-x-4">
+                <button id="login-submit" class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition duration-300">Login</button>
+                <button id="login-cancel" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 transition duration-300">Cancel</button>
+            </div>
+        </div>
     </div>
-  </section>
-  
-  <!-- About -->
-  <section id="about" class="fade-up">
-    <h2>About Me</h2>
-    <p>I am <b>Ramesh Magar</b>, a passionate instructor and trainer with expertise in
-      <b>Korean, Japanese, Computer Skills, Accounting Software, and Graphic Design</b>.
-      With years of teaching and training experience, I aim to empower students and professionals
-      with practical knowledge and skills for career growth. Currently Head Coordinator at SUNRISE EDUCATION FOUNDATION.</p>
-  </section>
-  
-  <!-- Qualification -->
-  <section id="qualification" class="fade-up">
-    <h2>Qualification</h2>
-    <div class="qualification-container">
-      <div class="qualification-box"><i class="fas fa-university"></i><h3>Bachelor in Business Studies</h3><p>Tribhuvan University, 2075</p></div>
-      <div class="qualification-box"><i class="fas fa-language"></i><h3>Japanese Language Instructor</h3><p>JLPT N4, J-Test Certified</p></div>
-      <div class="qualification-box"><i class="fas fa-language"></i><h3>Korean Language Instructor</h3><p>TOPIK Level 4 Certified</p></div>
-      <div class="qualification-box"><i class="fas fa-computer"></i><h3>Computer Expert</h3><p>MS Office, Web & IT Training</p></div>
-      <div class="qualification-box">
-        <h3>Accounting Software Expert</h3>
-        <div class="software-icons">
-          <span class="software-icon">T</span>
-          <span class="software-icon">卐</span>
-          <span class="software-icon">B</span>
-          <span class="software-icon">F</span>
-        </div>
-      </div>
-      <div class="qualification-box"><i class="fas fa-paint-brush"></i><h3>Graphic Designer</h3><p>Adobe Photoshop</p></div>
-    </div>
-  </section>
-  
-  <!-- Skills -->
-  <section id="skills" class="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-container">
-      <a href="https://www.jlpt.jp/e/" target="_blank" class="skill-box-link">
-        <div class="skill-box">
-          <i class="fas fa-language"></i>
-          <h3>Japanese Language</h3>
-          <p>JLPT N4, J-Test</p>
-        </div>
-      </a>
-      
-      <a href="https://www.topik.go.kr/" target="_blank" class="skill-box-link">
-        <div class="skill-box">
-          <i class="fas fa-language"></i>
-          <h3>Korean Language</h3>
-          <p>TOPIK Level 4</p>
-        </div>
-      </a>
-      
-      <a href="https://www.microsoft.com/en-us/microsoft-365" target="_blank" class="skill-box-link">
-        <div class="skill-box">
-          <i class="fas fa-computer"></i>
-          <h3>Computer</h3>
-          <p>MS Office, Web & IT</p>
-        </div>
-      </a>
-      
-      <a href="https://tallysolutions.com/" target="_blank" class="skill-box-link">
-        <div class="skill-box">
-          <h3>Accounting</h3>
-          <div class="software-icons">
-            <a href="https://tallysolutions.com/" target="_blank" class="software-icon">T</a>
-            <a href="#" target="_blank" class="software-icon">卐</a>
-            <a href="#" target="_blank" class="software-icon">B</a>
-            <a href="#" target="_blank" class="software-icon">F</a>
-          </div>
-        </div>
-      </a>
-      
-      <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="skill-box-link">
-        <div class="skill-box">
-          <i class="fas fa-paint-brush"></i>
-          <h3>Graphic Design</h3>
-          <p>Adobe Photoshop</p>
-        </div>
-      </a>
-    </div>
-  </section>
-  
-  <!-- Contact -->
-  <section id="contact" class="fade-up">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/illameliramesh" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/illameliramesh" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@rmsmgr2" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://wa.me/9779810094146" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <a href="mailto:rameshshamal99@gmail.com" class="email-btn">📧 Email Me</a>
-    <p>&copy; 2025 RAMESH MAGAR. All Rights Reserved.<br>Powered by RAMESH MAGAR</p>
-  </footer>
-  
-  <!-- WhatsApp Floating -->
-  <a href="https://wa.me/9779810094146?text=Hello%20Ramesh%2C%20I%20want%20to%20know%20more%20about%20your%20services."
-    class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  
-  <!-- JS for Animation -->
-  <script>
-    // Animate image blur removal after 2 seconds
-    const animatedImg = document.querySelector('.animated-image');
-    setTimeout(() => {
-      animatedImg.classList.add('clear');
-    }, 2000);
-    
-    // Dots hover functionality (for visual effect)
-    const dots = document.querySelectorAll('.dots-nav span');
-    dots.forEach((dot, i) => {
-      dot.addEventListener('mouseenter', () => {
-        dots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-        // Optionally add small zoom on hover
-        animatedImg.style.transform = `scale(${1 + i*0.01})`;
-        setTimeout(()=> animatedImg.style.transform = 'scale(1)', 500);
-      });
-    });
-    
-    // Fade-up animation
-    const faders = document.querySelectorAll('.fade-up');
-    window.addEventListener('scroll', () => {
-      faders.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) { el.classList.add('visible'); }
-      });
-    });
-  </script>
+
+    <script>
+        // Initialize data
+        let skills = [
+            { name: "Japanese Language (JLPT N4, J-Test)", level: 90, icon: "fas fa-language", link: "#" },
+            { name: "Korean Language (TOPIK Level 4)", level: 88, icon: "fas fa-globe-asia", link: "#" },
+            { name: "MS Office Suite", level: 95, icon: "fas fa-file-word", link: "#" },
+            { name: "Photoshop", level: 85, icon: "fas fa-paint-brush", link: "#" },
+            { name: "HTML", level: 80, icon: "fab fa-html5", link: "#" },
+            { name: "CSS", level: 78, icon: "fab fa-css3-alt", link: "#" },
+            { name: "Java", level: 75, icon: "fab fa-java", link: "#" },
+            { name: "Tally", level: 92, icon: "tally", link: "#" }, // Custom tally icon
+            { name: "Busy", level: 88, icon: "fas fa-chart-line", link: "#" },
+            { name: "Swastik", level: 85, icon: "fas fa-coins", link: "#" },
+            { name: "Fact", level: 87, icon: "fas fa-file-invoice", link: "#" },
+            { name: "Computer Operator", level: 93, icon: "fas fa-desktop", link: "#" }
+        ];
+
+        let experiences = [
+            {
+                title: "Computer Instructor",
+                company: "Multi-Technical College",
+                location: "Urlabari",
+                duration: "2020 - 2023",
+                description: "Taught computer fundamentals, MS Office, and accounting software to students. Developed curriculum and conducted practical training sessions."
+            },
+            {
+                title: "Head Coordinator",
+                company: "Sunrise Education Foundation",
+                location: "Urlabari",
+                duration: "2023 - Present",
+                description: "Leading educational programs, coordinating training sessions for Korean, Japanese, and Computer skills. Managing institutional operations and student affairs."
+            }
+        ];
+
+        let isAdminLoggedIn = false;
+        let currentAdminSection = '';
+        let uploadedImage = null;
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Image upload functionality
+        const imageUploadArea = document.getElementById('image-upload-area');
+        const imageUploadInput = document.getElementById('skill-image-upload');
+        const imagePreview = document.getElementById('image-preview');
+        
+        imageUploadArea.addEventListener('click', () => {
+            imageUploadInput.click();
+        });
+        
+        imageUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imageUploadArea.classList.add('bg-red-50');
+        });
+        
+        imageUploadArea.addEventListener('dragleave', () => {
+            imageUploadArea.classList.remove('bg-red-50');
+        });
+        
+        imageUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imageUploadArea.classList.remove('bg-red-50');
+            
+            if (e.dataTransfer.files.length) {
+                handleImageUpload(e.dataTransfer.files[0]);
+            }
+        });
+        
+        imageUploadInput.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+                handleImageUpload(e.target.files[0]);
+            }
+        });
+        
+        function handleImageUpload(file) {
+            if (!file.type.match('image.*')) {
+                alert('Please select an image file');
+                return;
+            }
+            
+            if (file.size > 2 * 1024 * 1024) {
+                alert('Image size should be less than 2MB');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                uploadedImage = e.target.result;
+                imagePreview.src = uploadedImage;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Admin functionality
+        function showAdminModal(section) {
+            currentAdminSection = section;
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        document.getElementById('skills-admin-btn').addEventListener('click', () => showAdminModal('skills'));
+        document.getElementById('experience-admin-btn').addEventListener('click', () => showAdminModal('experience'));
+
+        document.getElementById('login-cancel').addEventListener('click', function() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.getElementById('admin-password').value = '';
+        });
+
+        document.getElementById('login-submit').addEventListener('click', function() {
+            const password = document.getElementById('admin-password').value;
+            if (password === 'Ramesh@123') {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-modal').classList.add('hidden');
+                document.getElementById('admin-password').value = '';
+                
+                if (currentAdminSection === 'skills') {
+                    document.getElementById('skills-admin-form').classList.remove('hidden');
+                } else if (currentAdminSection === 'experience') {
+                    document.getElementById('experience-admin-form').classList.remove('hidden');
+                }
+                
+                alert('Admin login successful!');
+            } else {
+                alert('Incorrect password!');
+            }
+        });
+
+        // Skills management
+        function renderSkills() {
+            const skillsGrid = document.getElementById('skills-grid');
+            skillsGrid.innerHTML = '';
+
+            skills.forEach((skill, index) => {
+                const skillCard = document.createElement('div');
+                skillCard.className = 'skill-card bg-white p-6 rounded-lg shadow-lg text-center relative';
+                
+                let iconHTML = '';
+                if (skill.icon === 'tally') {
+                    iconHTML = '<div class="tally-icon">T</div>';
+                } else if (skill.icon.startsWith('http') || skill.icon.startsWith('data:image')) {
+                    iconHTML = `<img src="${skill.icon}" alt="${skill.name}" class="w-16 h-16 mx-auto mb-4 rounded-full object-cover">`;
+                } else {
+                    iconHTML = `<i class="${skill.icon} text-4xl text-red-500 mb-4"></i>`;
+                }
+                
+                skillCard.innerHTML = `
+                    <a href="${skill.link}" class="block" target="_blank">
+                        ${iconHTML}
+                        <h3 class="text-lg font-semibold mb-2">${skill.name}</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-red-500 h-2 rounded-full" style="width: ${skill.level}%"></div>
+                        </div>
+                        <span class="text-sm text-gray-600">${skill.level}%</span>
+                    </a>
+                    ${isAdminLoggedIn ? `
+                        <div class="absolute top-2 right-2 space-x-2">
+                            <button onclick="editSkill(${index})" class="text-blue-500 hover:text-blue-700">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="deleteSkill(${index})" class="text-red-500 hover:text-red-700">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    ` : ''}
+                `;
+                skillsGrid.appendChild(skillCard);
+            });
+        }
+
+        document.getElementById('add-skill-btn').addEventListener('click', function() {
+            const name = document.getElementById('skill-name').value;
+            const level = document.getElementById('skill-level').value;
+            const link = document.getElementById('skill-link').value;
+            
+            let icon = "fas fa-code";
+            if (uploadedImage) {
+                icon = uploadedImage;
+            }
+
+            if (name && level) {
+                skills.push({ name, level: parseInt(level), icon, link: link || "#" });
+                renderSkills();
+                
+                document.getElementById('skill-name').value = '';
+                document.getElementById('skill-level').value = '';
+                document.getElementById('skill-link').value = '';
+                uploadedImage = null;
+                imagePreview.style.display = 'none';
+                
+                alert('Skill added successfully!');
+            } else {
+                alert('Please fill in all required fields!');
+            }
+        });
+
+        document.getElementById('cancel-skills-btn').addEventListener('click', function() {
+            document.getElementById('skills-admin-form').classList.add('hidden');
+            isAdminLoggedIn = false;
+            uploadedImage = null;
+            imagePreview.style.display = 'none';
+            renderSkills();
+        });
+
+        function deleteSkill(index) {
+            if (confirm('Are you sure you want to delete this skill?')) {
+                skills.splice(index, 1);
+                renderSkills();
+            }
+        }
+
+        function editSkill(index) {
+            const skill = skills[index];
+            document.getElementById('skill-name').value = skill.name;
+            document.getElementById('skill-level').value = skill.level;
+            document.getElementById('skill-link').value = skill.link;
+            
+            if (skill.icon.startsWith('data:image')) {
+                uploadedImage = skill.icon;
+                imagePreview.src = uploadedImage;
+                imagePreview.style.display = 'block';
+            } else {
+                uploadedImage = null;
+                imagePreview.style.display = 'none';
+            }
+            
+            deleteSkill(index);
+        }
+
+        // Experience management
+        function renderExperience() {
+            const experienceContainer = document.getElementById('experience-container');
+            experienceContainer.innerHTML = '';
+
+            const timeline = document.createElement('div');
+            timeline.className = 'relative';
+            timeline.innerHTML = '<div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-red-500 to-orange-500"></div>';
+
+            experiences.forEach((exp, index) => {
+                const expCard = document.createElement('div');
+                expCard.className = 'experience-card mb-8 ml-12 relative';
+                expCard.innerHTML = `
+                    <div class="absolute left-2 w-4 h-4 bg-${index % 2 === 0 ? 'red' : 'orange'}-500 rounded-full -ml-2"></div>
+                    <div class="bg-gradient-to-r from-${index % 2 === 0 ? 'red' : 'orange'}-50 to-${index % 2 === 0 ? 'orange' : 'red'}-50 p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${exp.title}</h3>
+                                <p class="text-${index % 2 === 0 ? 'red' : 'orange'}-600 font-semibold mb-1">${exp.company}</p>
+                                <p class="text-gray-600 mb-1">${exp.location}</p>
+                                <p class="text-gray-600 mb-3">${exp.duration}</p>
+                            </div>
+                            ${isAdminLoggedIn ? `
+                                <div class="space-x-2">
+                                    <button onclick="editExperience(${index})" class="text-blue-500 hover:text-blue-700">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button onclick="deleteExperience(${index})" class="text-red-500 hover:text-red-700">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                        <p class="text-gray-700">${exp.description}</p>
+                    </div>
+                `;
+                timeline.appendChild(expCard);
+            });
+
+            experienceContainer.appendChild(timeline);
+        }
+
+        document.getElementById('add-experience-btn').addEventListener('click', function() {
+            const title = document.getElementById('exp-title').value;
+            const company = document.getElementById('exp-company').value;
+            const duration = document.getElementById('exp-duration').value;
+            const location = document.getElementById('exp-location').value;
+            const description = document.getElementById('exp-description').value;
+
+            if (title && company && duration && location && description) {
+                experiences.push({ title, company, duration, location, description });
+                renderExperience();
+                
+                document.getElementById('exp-title').value = '';
+                document.getElementById('exp-company').value = '';
+                document.getElementById('exp-duration').value = '';
+                document.getElementById('exp-location').value = '';
+                document.getElementById('exp-description').value = '';
+                
+                alert('Experience added successfully!');
+            } else {
+                alert('Please fill in all fields!');
+            }
+        });
+
+        document.getElementById('cancel-experience-btn').addEventListener('click', function() {
+            document.getElementById('experience-admin-form').classList.add('hidden');
+            isAdminLoggedIn = false;
+            renderExperience();
+        });
+
+        function deleteExperience(index) {
+            if (confirm('Are you sure you want to delete this experience?')) {
+                experiences.splice(index, 1);
+                renderExperience();
+            }
+        }
+
+        function editExperience(index) {
+            const exp = experiences[index];
+            document.getElementById('exp-title').value = exp.title;
+            document.getElementById('exp-company').value = exp.company;
+            document.getElementById('exp-duration').value = exp.duration;
+            document.getElementById('exp-location').value = exp.location;
+            document.getElementById('exp-description').value = exp.description;
+            
+            deleteExperience(index);
+        }
+
+        // FAQ functionality
+        function toggleFAQ(index) {
+            const answer = document.getElementById(`faq-answer-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const inquiry = document.getElementById('inquiry').value;
+            
+            alert(`Thank you ${fullname}! Your message has been received. We will contact you soon at ${phone}.`);
+            this.reset();
+        });
+
+        // Initialize page
+        renderSkills();
+        renderExperience();
+    </script>
 </body>
 </html>
