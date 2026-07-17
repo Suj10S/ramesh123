@@ -127,7 +127,115 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* ----- DELIVERY BANNER (removed as requested) ----- */
+    /* ----- NOTICE POPUP (appears after intro) ----- */
+    #notice-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      display: none; /* hidden by default, shown via JS after intro */
+      align-items: center;
+      justify-content: center;
+      z-index: 99998;
+      padding: 24px;
+      animation: popupFade 0.4s ease;
+    }
+    #notice-popup.open { display: flex; }
+    @keyframes popupFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .notice-card {
+      max-width: 540px;
+      width: 100%;
+      background: #fff;
+      border-radius: 32px;
+      padding: 40px 36px 32px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+      border: 1px solid rgba(212,184,122,0.2);
+      position: relative;
+      text-align: center;
+    }
+    .notice-card .close-notice {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: #aaa;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 4px 8px;
+      border-radius: 50%;
+      line-height: 1;
+    }
+    .notice-card .close-notice:hover { color: var(--primary); transform: rotate(90deg); background: rgba(0,0,0,0.03); }
+    .notice-card .notice-icon {
+      font-size: 3.2rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .notice-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .notice-card p {
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .notice-card .notice-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .notice-card .notice-actions .btn-notice {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .notice-card .notice-actions .btn-notice:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(30,58,43,0.15);
+    }
+    .notice-card .notice-actions .btn-notice-gold {
+      background: var(--gold);
+      color: var(--primary);
+    }
+    .notice-card .notice-actions .btn-notice-gold:hover {
+      background: var(--gold-dark);
+      color: #fff;
+    }
+    .notice-card .notice-actions .btn-notice-outline {
+      background: transparent;
+      color: var(--text-soft);
+      border: 1px solid #ddd;
+    }
+    .notice-card .notice-actions .btn-notice-outline:hover {
+      border-color: var(--gold);
+      color: var(--primary);
+      background: rgba(212,184,122,0.04);
+    }
 
     /* ----- NAVBAR ----- */
     .navbar {
@@ -1052,31 +1160,7 @@
     .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
     .footer-bottom .tagline { font-style: italic; color: var(--gold); opacity: 0.6; font-size: 0.85rem; }
 
-    /* ----- FLOATING BUTTONS ----- */
-    .book-now-float {
-      position: fixed;
-      bottom: 100px;
-      left: 28px;
-      z-index: 9998;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--primary);
-      border: none;
-      border-radius: 60px;
-      padding: 16px 28px;
-      font-weight: 700;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      box-shadow: 0 12px 40px rgba(184,148,76,0.25);
-      transition: all 0.4s var(--transition-smooth);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid rgba(255,255,255,0.05);
-      text-decoration: none;
-    }
-    .book-now-float:hover { transform: scale(1.04) translateY(-3px); box-shadow: 0 16px 56px rgba(184,148,76,0.3); }
-    .book-now-float i { font-size: 1.3rem; }
+    /* ----- FLOATING BUTTONS (only delivery & call remain) ----- */
     .float-buttons {
       position: fixed;
       bottom: 28px;
@@ -1179,9 +1263,6 @@
       .hamburger { display: block; }
       .review-card { min-width: 100%; margin: 0 8px; }
       .review-slider-btn { width: 36px; height: 36px; font-size: 0.8rem; }
-      .book-now-float { bottom: 90px; left: 16px; padding: 12px 18px; font-size: 0.85rem; }
-      .book-now-float span { display: none; }
-      .book-now-float i { font-size: 1.3rem; margin: 0; }
       .float-btn .label { display: none; }
       .float-btn { padding: 12px 14px; border-radius: 50px; }
       .float-btn i { font-size: 1.3rem; margin: 0; }
@@ -1203,7 +1284,6 @@
       .faq-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .book-now-float { bottom: 80px; left: 12px; padding: 10px 14px; }
       .float-buttons { bottom: 16px; right: 16px; gap: 10px; }
       .float-btn { padding: 10px 12px; }
       .float-btn i { font-size: 1.1rem; }
@@ -1217,6 +1297,7 @@
       .room-card .room-body .room-footer { flex-direction: column; align-items: stretch; }
       .room-card .room-body .btn-book-room { justify-content: center; }
       .container { padding: 0 16px; }
+      .notice-card { padding: 32px 20px 28px; }
     }
   </style>
 </head>
@@ -1234,7 +1315,29 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- NAVBAR (Delivery Banner removed)             -->
+  <!-- NOTICE POPUP (appears after intro)           -->
+  <!-- ============================================ -->
+  <div id="notice-popup">
+    <div class="notice-card">
+      <button class="close-notice" id="closeNoticeBtn" aria-label="Close notice"><i class="fas fa-times"></i></button>
+      <span class="notice-icon"><i class="fas fa-bullhorn"></i></span>
+      <h3>🎉 Welcome to Bella Cafe!</h3>
+      <p>
+        <strong>🌟 New Menu Alert!</strong> Try our authentic Nepali thali and freshly brewed coffee. 
+        <br>🚚 <strong>Free delivery within 1 km</strong> — order now via WhatsApp or call us!
+        <br>🏨 Book our cozy rooms for a relaxing stay in Damak.
+      </p>
+      <div class="notice-actions">
+        <a href="#menu" class="btn-notice btn-notice-gold"><i class="fas fa-utensils"></i> Explore Menu</a>
+        <a href="#rooms" class="btn-notice"><i class="fas fa-bed"></i> View Rooms</a>
+        <a href="https://wa.me/9779852630088" target="_blank" class="btn-notice btn-notice-outline"><i class="fab fa-whatsapp"></i> Order Now</a>
+        <button class="btn-notice btn-notice-outline" id="closeNoticeBtn2">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- NAVBAR                                       -->
   <!-- ============================================ -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="container">
@@ -1692,20 +1795,12 @@
   </footer>
 
   <!-- ============================================ -->
-  <!-- FLOATING BUTTONS                             -->
+  <!-- FLOATING BUTTONS (only delivery & call remain) -->
   <!-- ============================================ -->
-  <a href="tel:9852630088" class="book-now-float" id="bookNowBtn" data-en="Book Now" data-ne="बुक गर्नुहोस्">
-    <i class="fas fa-calendar-check"></i>
-    <span>Book Now</span>
-  </a>
   <div class="float-buttons">
     <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener" class="float-btn whatsapp" data-en="Order Delivery" data-ne="डेलिभरी अर्डर गर्नुहोस्">
       <i class="fab fa-whatsapp"></i>
       <span class="label">Order Delivery</span>
-    </a>
-    <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20know%20more%20about%20your%20rooms%20and%20offers." target="_blank" rel="noopener" class="float-btn" style="background:var(--gold); color:var(--primary); border-color:var(--gold-dark);" data-en="Book Room" data-ne="कोठा बुक गर्नुहोस्">
-      <i class="fas fa-bed"></i>
-      <span class="label">Book Room</span>
     </a>
     <a href="tel:9852630088" class="float-btn phone" data-en="Call" data-ne="कल गर्नुहोस्">
       <i class="fas fa-phone-alt"></i>
@@ -1730,7 +1825,19 @@
     setTimeout(function() {
       const overlay = document.getElementById('intro-overlay');
       if (overlay) overlay.remove();
+      // Show notice popup after intro
+      document.getElementById('notice-popup').classList.add('open');
     }, 3100);
+
+    // ---- Notice popup close handlers ----
+    function closeNotice() {
+      document.getElementById('notice-popup').classList.remove('open');
+    }
+    document.getElementById('closeNoticeBtn').addEventListener('click', closeNotice);
+    document.getElementById('closeNoticeBtn2').addEventListener('click', closeNotice);
+    document.getElementById('notice-popup').addEventListener('click', function(e) {
+      if (e.target === this) closeNotice();
+    });
 
     // ---- Slider helpers ----
     function createSlider(trackId, dotsId, prevId, nextId, auto = true) {
@@ -1822,7 +1929,6 @@
         lightboxImg.src = this.dataset.img;
         const captionEn = this.dataset.captionEn || 'Bella Cafe';
         const captionNe = this.dataset.captionNe || 'बेला क्याफे';
-        // show current language
         const currentLang = document.documentElement.lang || 'en';
         lightboxCaption.textContent = currentLang === 'ne' ? captionNe : captionEn;
         lightbox.classList.add('open');
@@ -1865,11 +1971,9 @@
     // ---- BILINGUAL TRANSLATION (English / Nepali) ----
     function setLanguage(lang) {
       document.documentElement.lang = lang;
-      // Update all elements with data-en / data-ne
       document.querySelectorAll('[data-en][data-ne]').forEach(el => {
         const text = el.getAttribute(lang === 'ne' ? 'data-ne' : 'data-en');
         if (text) {
-          // Handle innerHTML for elements that may contain HTML
           if (el.tagName === 'H1' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'LI') {
             el.innerHTML = text;
           } else {
@@ -1877,7 +1981,6 @@
           }
         }
       });
-      // Update nav links specifically
       document.querySelectorAll('.nav-links a').forEach(link => {
         const span = link.querySelector('.nav-text');
         if (span) {
@@ -1886,7 +1989,6 @@
           if (val) span.textContent = val;
         }
       });
-      // Update gallery captions in lightbox
       document.querySelectorAll('.gallery-item').forEach(item => {
         const overlay = item.querySelector('.gallery-overlay .gallery-label');
         if (overlay) {
@@ -1895,16 +1997,14 @@
           if (val) overlay.textContent = val;
         }
       });
-      // Update floating buttons
-      document.querySelectorAll('.float-btn, .book-now-float').forEach(btn => {
-        const span = btn.querySelector('span.label') || btn.querySelector('span:not(.label)');
+      document.querySelectorAll('.float-btn').forEach(btn => {
+        const span = btn.querySelector('span.label');
         if (span) {
           const key = lang === 'ne' ? 'data-ne' : 'data-en';
           const val = btn.getAttribute(key);
           if (val) span.textContent = val;
         }
       });
-      // Update delivery card
       const deliveryCard = document.querySelector('.delivery-info-card');
       if (deliveryCard) {
         const h3 = deliveryCard.querySelector('h3');
@@ -1926,13 +2026,11 @@
           if (val) a.innerHTML = val;
         });
       }
-      // Update language toggle buttons
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
     }
 
-    // Language toggle event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
         const lang = this.dataset.lang;
@@ -1940,7 +2038,6 @@
       });
     });
 
-    // Set default language (English)
     setLanguage('en');
 
     console.log('☕ Bella Cafe · Bilingual (English/Nepali) · Free Delivery 1km');
