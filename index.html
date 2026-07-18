@@ -130,47 +130,40 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* ----- NOTICE POPUP (green theme) ----- */
+    /* ----- NOTICE POPUP (top-right, clear bg) ----- */
     #notice-popup {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      top: 20px;
+      right: 20px;
+      max-width: 420px;
+      width: calc(100% - 40px);
       z-index: 99998;
-      padding: 24px;
-      animation: popupFade 0.4s ease;
+      animation: slideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      display: none;
     }
-    #notice-popup.open { display: flex; }
-    @keyframes popupFade {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    #notice-popup.open { display: block; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .notice-card {
-      max-width: 580px;
-      width: 100%;
-      background: #1e4a2b; /* deep green */
-      background: linear-gradient(145deg, #1e4a2b, #2a6b3a);
-      border-radius: 32px;
-      padding: 32px 32px 28px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-      border: 1px solid rgba(212,184,122,0.3);
-      position: relative;
-      text-align: center;
+      background: rgba(30, 58, 43, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 28px;
+      padding: 28px 28px 24px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.15), 0 0 0 1px rgba(212,184,122,0.1);
+      border: 1px solid rgba(212,184,122,0.15);
       color: #f5f2e0;
+      text-align: left;
     }
     .notice-card .close-notice {
       position: absolute;
       top: 12px;
       right: 16px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
       border: none;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #e6d5a8;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -179,86 +172,88 @@
       line-height: 1;
       backdrop-filter: blur(4px);
     }
-    .notice-card .close-notice:hover { color: #fff; background: rgba(255,255,255,0.15); transform: rotate(90deg); }
+    .notice-card .close-notice:hover { color: #fff; background: rgba(255,255,255,0.12); transform: rotate(90deg); }
     .notice-card .notice-badge {
       display: inline-block;
       background: var(--gold);
       color: var(--primary);
       font-weight: 700;
-      font-size: 0.7rem;
-      padding: 4px 18px;
+      font-size: 0.65rem;
+      padding: 3px 16px;
       border-radius: 40px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .notice-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: #fff;
-      margin: 6px 0 4px;
+      margin: 4px 0 2px;
+      line-height: 1.2;
     }
     .notice-card .notice-sub {
-      font-size: 0.95rem;
-      opacity: 0.85;
-      margin-bottom: 16px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 12px;
     }
     .notice-card .notice-image-grid {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin: 16px 0 18px;
+      gap: 10px;
+      margin: 12px 0 14px;
       flex-wrap: wrap;
     }
     .notice-card .notice-image-grid img {
-      width: 100px;
-      height: 100px;
-      border-radius: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
       object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.15);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border: 2px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
     .notice-card .notice-image-grid img:hover { transform: scale(1.04); }
     .notice-card .offer-tag {
-      background: rgba(212,184,122,0.2);
+      background: rgba(212,184,122,0.12);
       backdrop-filter: blur(4px);
       border-radius: 60px;
-      padding: 8px 18px;
+      padding: 6px 16px;
       display: inline-block;
       font-weight: 600;
-      font-size: 0.9rem;
-      border: 1px solid rgba(212,184,122,0.2);
-      margin-bottom: 12px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(212,184,122,0.1);
+      margin-bottom: 10px;
+      color: var(--gold);
     }
-    .notice-card .offer-tag i { color: var(--gold); margin-right: 8px; }
+    .notice-card .offer-tag i { margin-right: 6px; }
     .notice-card .notice-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      gap: 8px;
       margin-top: 4px;
     }
     .notice-card .notice-actions .btn-notice {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 10px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 20px;
       border-radius: 60px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       text-decoration: none;
       backdrop-filter: blur(4px);
+      flex: 1 1 auto;
+      justify-content: center;
     }
     .notice-card .notice-actions .btn-notice:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
     .notice-card .notice-actions .btn-notice-gold {
       background: var(--gold);
@@ -272,14 +267,14 @@
     }
     .notice-card .notice-actions .btn-notice-outline {
       background: transparent;
-      border-color: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.12);
     }
     .notice-card .notice-actions .btn-notice-outline:hover {
       border-color: var(--gold);
       background: rgba(212,184,122,0.05);
     }
 
-    /* ----- NAVBAR ----- */
+    /* ----- NAVBAR (unchanged) ----- */
     .navbar {
       background: rgba(30,58,43,0.94);
       backdrop-filter: blur(20px);
@@ -379,7 +374,7 @@
     }
     .hamburger:hover { transform: scale(1.05); }
 
-    /* ----- HERO ----- */
+    /* ----- HERO (unchanged) ----- */
     .hero {
       padding: 60px 0 48px;
       background: linear-gradient(160deg, #eaf3e6 0%, var(--cream) 80%);
@@ -543,7 +538,7 @@
     .flex-wrap { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
     .mt-2 { margin-top: 20px; }
 
-    /* ----- SECTIONS ----- */
+    /* ----- SECTIONS (unchanged) ----- */
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
@@ -571,7 +566,7 @@
     }
     .animate-on-scroll.active { opacity: 1; transform: translateY(0); }
 
-    /* ----- DELIVERY INFO CARD ----- */
+    /* ----- DELIVERY INFO CARD (unchanged) ----- */
     .delivery-info-card {
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(16px);
@@ -695,7 +690,7 @@
       transform: translateY(-2px);
     }
 
-    /* ----- ABOUT ----- */
+    /* ----- ABOUT, REVIEWS, GALLERY, MENU, ROOMS, FACILITIES, MAP, BOOK, CONTACT, FAQ, FOOTER (unchanged) ----- */
     .about-grid {
       display: flex;
       flex-wrap: wrap;
@@ -717,7 +712,6 @@
     .about-grid .about-slider-wrapper:hover { transform: scale(1.003); }
     .about-grid .about-slider-wrapper .slider-container { aspect-ratio: 4/3; }
 
-    /* ----- REVIEWS ----- */
     .review-slider-wrap {
       background: rgba(245,242,224,0.5);
       backdrop-filter: blur(12px);
@@ -815,7 +809,6 @@
     .review-dot.active { background: var(--gold-dark); transform: scale(1.3); }
     .review-dot:hover { transform: scale(1.2); }
 
-    /* ----- GALLERY ----- */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -858,7 +851,6 @@
     .gallery-item:hover .gallery-overlay { opacity: 1; }
     .gallery-item .gallery-overlay i { margin-right: 10px; color: var(--gold); }
 
-    /* ----- MENU ----- */
     .menu-section {
       background: rgba(255,255,255,0.4);
       backdrop-filter: blur(12px);
@@ -911,7 +903,6 @@
     .menu-item .price { color: var(--gold-dark); font-weight: 600; white-space: nowrap; }
     .menu-item .desc { font-size: 0.75rem; color: #6d7f5e; display: block; font-weight: 400; margin-top: 2px; }
 
-    /* ----- ROOMS ----- */
     .rooms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1001,7 +992,6 @@
     }
     .room-card .room-body .btn-book-room i { font-size: 0.9rem; }
 
-    /* ----- FACILITIES ----- */
     .facilities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1023,7 +1013,6 @@
     .facility-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 4px; font-weight: 600; }
     .facility-card p { font-size: 0.8rem; color: #6d7f5e; }
 
-    /* ----- MAP ----- */
     .map-container {
       border-radius: 28px;
       overflow: hidden;
@@ -1036,7 +1025,6 @@
     .map-container:hover { transform: scale(1.002); }
     .map-container iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    /* ----- BOOK SECTION ----- */
     .book-section {
       background: rgba(245,242,224,0.3);
       backdrop-filter: blur(12px);
@@ -1050,7 +1038,6 @@
     .book-section:hover { transform: scale(1.002); }
     .book-section h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); }
 
-    /* ----- CONTACT ----- */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1071,7 +1058,6 @@
     .contact-card p, .contact-card a { color: var(--text-soft); text-decoration: none; font-weight: 400; transition: color 0.3s ease; }
     .contact-card a:hover { color: var(--gold-dark); }
 
-    /* ----- FAQ ----- */
     .faq-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1094,7 +1080,6 @@
     .faq-item .faq-a a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
     .faq-item .faq-a a:hover { text-decoration: underline; }
 
-    /* ----- FOOTER ----- */
     .footer {
       background: var(--primary);
       color: #e6d5a8;
@@ -1202,7 +1187,6 @@
     .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
     .footer-bottom .tagline { font-style: italic; color: var(--gold); opacity: 0.6; font-size: 0.85rem; }
 
-    /* ----- FLOATING BUTTONS (only delivery & call) ----- */
     .float-buttons {
       position: fixed;
       bottom: 28px;
@@ -1236,7 +1220,6 @@
     .float-btn.phone { background: var(--gold); color: var(--primary); border-color: var(--gold-dark); }
     .float-btn.phone:hover { background: var(--gold-dark); color: #fff; }
 
-    /* ----- LIGHTBOX ----- */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -1289,7 +1272,6 @@
       border: 1px solid rgba(212,184,122,0.1);
     }
 
-    /* ----- RESPONSIVE ----- */
     @media (max-width: 992px) {
       .hero-content h1 { font-size: 3rem; }
       .review-card { min-width: 50%; }
@@ -1298,6 +1280,7 @@
       .delivery-info-card .delivery-icon-large { margin: 0 auto; }
       .delivery-info-card .delivery-cta { justify-content: center; }
       .delivery-info-card .delivery-text .radius-indicator { justify-content: center; }
+      #notice-popup { top: 16px; right: 16px; max-width: 380px; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; flex-direction: column; width: 100%; padding-top: 16px; gap: 12px; }
@@ -1324,7 +1307,10 @@
       .delivery-info-card .delivery-cta a { font-size: 0.8rem; padding: 8px 16px; }
       .delivery-info-card .delivery-icon-large { width: 48px; height: 48px; font-size: 2rem; }
       .faq-grid { grid-template-columns: 1fr; }
-      .notice-card .notice-image-grid img { width: 80px; height: 80px; }
+      .notice-card .notice-image-grid img { width: 70px; height: 70px; }
+      #notice-popup { top: 12px; right: 12px; max-width: 340px; }
+      .notice-card { padding: 20px 18px 18px; }
+      .notice-card h3 { font-size: 1.3rem; }
     }
     @media (max-width: 480px) {
       .float-buttons { bottom: 16px; right: 16px; gap: 10px; }
@@ -1340,9 +1326,10 @@
       .room-card .room-body .room-footer { flex-direction: column; align-items: stretch; }
       .room-card .room-body .btn-book-room { justify-content: center; }
       .container { padding: 0 16px; }
-      .notice-card { padding: 24px 16px 20px; }
-      .notice-card h3 { font-size: 1.5rem; }
-      .notice-card .notice-image-grid img { width: 70px; height: 70px; }
+      #notice-popup { top: 10px; right: 10px; max-width: 300px; }
+      .notice-card { padding: 16px 14px 14px; }
+      .notice-card h3 { font-size: 1.1rem; }
+      .notice-card .notice-image-grid img { width: 60px; height: 60px; }
     }
   </style>
 </head>
@@ -1360,16 +1347,15 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- NOTICE POPUP (green theme with images & offers) -->
+  <!-- NOTICE POPUP (top-right, clear bg)           -->
   <!-- ============================================ -->
   <div id="notice-popup">
     <div class="notice-card">
       <button class="close-notice" id="closeNoticeBtn" aria-label="Close notice"><i class="fas fa-times"></i></button>
       <span class="notice-badge">🎉 Limited Offer</span>
       <h3>🌿 Welcome to Bella Cafe!</h3>
-      <div class="notice-sub">Enjoy authentic Nepali flavors &amp; premium coffee</div>
+      <div class="notice-sub">Authentic Nepali flavors &amp; premium coffee</div>
 
-      <!-- Image Grid (Cloudinary + local fallback) -->
       <div class="notice-image-grid">
         <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,q_auto,f_auto/sample" alt="Bella Food" id="noticeImg1" />
         <img src="https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,q_auto,f_auto/cafe" alt="Bella Coffee" id="noticeImg2" />
@@ -1377,19 +1363,19 @@
       </div>
 
       <div class="offer-tag"><i class="fas fa-tag"></i> 20% off on first dine-in + free delivery 1km</div>
-      <div style="font-size:0.9rem; opacity:0.9; margin-bottom:12px;">Try our new <strong>Nepali Thali</strong> &amp; <strong>Signature Lattes</strong></div>
+      <div style="font-size:0.85rem; opacity:0.9; margin-bottom:10px;">Try our new <strong>Nepali Thali</strong> &amp; <strong>Signature Lattes</strong></div>
 
       <div class="notice-actions">
-        <a href="#menu" class="btn-notice btn-notice-gold"><i class="fas fa-utensils"></i> Explore Menu</a>
-        <a href="#rooms" class="btn-notice"><i class="fas fa-bed"></i> View Rooms</a>
-        <a href="https://wa.me/9779852630088" target="_blank" class="btn-notice btn-notice-outline"><i class="fab fa-whatsapp"></i> Order Now</a>
+        <a href="#menu" class="btn-notice btn-notice-gold"><i class="fas fa-utensils"></i> Menu</a>
+        <a href="#rooms" class="btn-notice"><i class="fas fa-bed"></i> Rooms</a>
+        <a href="https://wa.me/9779852630088" target="_blank" class="btn-notice btn-notice-outline"><i class="fab fa-whatsapp"></i> Order</a>
         <button class="btn-notice btn-notice-outline" id="closeNoticeBtn2">Close</button>
       </div>
     </div>
   </div>
 
   <!-- ============================================ -->
-  <!-- NAVBAR                                       -->
+  <!-- NAVBAR (unchanged)                           -->
   <!-- ============================================ -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="container">
@@ -1418,7 +1404,7 @@
   </nav>
 
   <!-- ============================================ -->
-  <!-- HERO                                         -->
+  <!-- HERO (unchanged)                             -->
   <!-- ============================================ -->
   <section id="home" class="hero">
     <div class="container hero-grid">
@@ -1456,11 +1442,10 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- MAIN CONTENT                                 -->
+  <!-- MAIN CONTENT (unchanged)                     -->
   <!-- ============================================ -->
   <div class="container">
 
-    <!-- Delivery Info Card -->
     <div class="delivery-info-card animate-on-scroll" id="deliveryCard">
       <div class="delivery-icon-large"><i class="fas fa-motorcycle"></i></div>
       <div class="delivery-text">
@@ -1478,7 +1463,6 @@
       </div>
     </div>
 
-    <!-- About -->
     <section id="about" style="margin: 48px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-info-circle"></i> <span data-en="About Us" data-ne="हाम्रो बारे">About Us</span></div>
       <div class="about-grid">
@@ -1506,7 +1490,6 @@
       </div>
     </section>
 
-    <!-- Reviews -->
     <section id="reviews" style="margin: 24px 0 12px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-star"></i> <span data-en="Google Reviews" data-ne="गुगल समीक्षा">Google Reviews</span></div>
       <p class="section-sub animate-on-scroll" data-en="What our customers say about Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="हाम्रा ग्राहकहरूले बेला क्याफेको बारेमा के भन्छन् — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">What our customers say about Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1533,7 +1516,6 @@
       </div>
     </section>
 
-    <!-- Gallery -->
     <section id="gallery" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-images"></i> <span data-en="Our Gallery" data-ne="हाम्रो ग्यालरी">Our Gallery</span></div>
       <p class="section-sub animate-on-scroll" data-en="A glimpse of our food, ambiance, and moments at Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="बेला क्याफेको खाना, वातावरण र क्षणहरूको झलक — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">A glimpse of our food, ambiance, and moments at Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1573,7 +1555,6 @@
       </div>
     </section>
 
-    <!-- Menu -->
     <section id="menu" style="margin: 20px 0 10px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-utensils"></i> <span data-en="Our Menu" data-ne="हाम्रो मेनु">Our Menu</span></div>
       <p class="section-sub animate-on-scroll" data-en="Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites" data-ne="हाम्रा हातले बनाएका परिकार र पेय पदार्थहरू अन्वेषण गर्नुहोस् — प्रामाणिक नेपाली थालीदेखि कन्टिनेन्टल मनपर्नेहरूसम्म">Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites</p>
@@ -1618,7 +1599,6 @@
       </div>
     </section>
 
-    <!-- Rooms -->
     <section id="rooms" class="rooms-section">
       <div class="section-title animate-on-scroll"><i class="fas fa-bed"></i> <span data-en="Rooms &amp; Suites" data-ne="कोठा र सुइटहरू">Rooms &amp; Suites</span></div>
       <p class="section-sub animate-on-scroll" data-en="Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa." data-ne="आधुनिक सुविधाहरू सहित आरामदायी बसाइ। दमक, झापामा तपाईंको गेटवेको लागि उत्तम।">Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa.</p>
@@ -1697,7 +1677,6 @@
       </div>
     </section>
 
-    <!-- Location -->
     <section id="location" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-map-pin"></i> <span data-en="Find Us" data-ne="हामीलाई फेला पार्नुहोस्">Find Us</span></div>
       <div class="map-container animate-on-scroll">
@@ -1718,7 +1697,6 @@
       </div>
     </section>
 
-    <!-- Facilities -->
     <section id="facilities" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-concierge-bell"></i> <span data-en="Our Facilities" data-ne="हाम्रा सुविधाहरू">Our Facilities</span></div>
       <p class="section-sub animate-on-scroll" data-en="Everything we offer to make your visit comfortable and enjoyable — including free delivery within 1 km!" data-ne="तपाईंको भ्रमणलाई आरामदायी र रमाइलो बनाउन हामीले प्रदान गर्ने सबै कुरा — १ किमि भित्र नि:शुल्क डेलिभरी सहित!">Everything we offer to make your visit comfortable and enjoyable — including free delivery within 1 km!</p>
@@ -1735,7 +1713,6 @@
       </div>
     </section>
 
-    <!-- Book Now -->
     <section id="book-now" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-calendar-check"></i> <span data-en="Book a Table / Room" data-ne="टेबल / कोठा बुक गर्नुहोस्">Book a Table / Room</span></div>
       <div class="book-section animate-on-scroll">
@@ -1747,7 +1724,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-headset"></i> <span data-en="Contact &amp; Hours" data-ne="सम्पर्क र समय">Contact &amp; Hours</span></div>
       <div class="contact-grid">
@@ -1758,7 +1734,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-question-circle"></i> <span data-en="Frequently Asked Questions" data-ne="बारम्बार सोधिने प्रश्नहरू">Frequently Asked Questions</span></div>
       <p class="section-sub animate-on-scroll" data-en="Quick answers to the most common questions about Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="बेला क्याफेको बारेमा सबैभन्दा सामान्य प्रश्नहरूको द्रुत उत्तर — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">Quick answers to the most common questions about Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1792,7 +1767,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- FOOTER                                       -->
+  <!-- FOOTER (unchanged)                           -->
   <!-- ============================================ -->
   <footer class="footer">
     <div class="container">
@@ -1845,7 +1820,7 @@
   </footer>
 
   <!-- ============================================ -->
-  <!-- FLOATING BUTTONS (only delivery & call)      -->
+  <!-- FLOATING BUTTONS (unchanged)                 -->
   <!-- ============================================ -->
   <div class="float-buttons">
     <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener" class="float-btn whatsapp" data-en="Order Delivery" data-ne="डेलिभरी अर्डर गर्नुहोस्">
@@ -1859,7 +1834,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- LIGHTBOX                                     -->
+  <!-- LIGHTBOX (unchanged)                         -->
   <!-- ============================================ -->
   <div class="lightbox" id="lightbox">
     <button class="close-lightbox" id="closeLightbox"><i class="fas fa-times"></i></button>
@@ -1868,24 +1843,19 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- SCRIPTS                                      -->
+  <!-- SCRIPTS (unchanged logic, updated for notice)-->
   <!-- ============================================ -->
   <script>
-    // ---- Cloudinary config (update with your credentials) ----
-    const CLOUDINARY_CONFIG = {
-      cloudName: 'demo', // replace with your cloud name
-      apiKey: '1234567890', // replace with your API key (not required for basic URL generation)
-      apiSecret: 'your-api-secret' // not used in frontend, kept for reference
-    };
+    const CLOUDINARY_CONFIG = { cloudName: 'demo' };
 
-    // ---- Remove intro overlay after 3.1 seconds & show notice ----
+    // Remove intro overlay after 3.1s & show notice
     setTimeout(function() {
       const overlay = document.getElementById('intro-overlay');
       if (overlay) overlay.remove();
       document.getElementById('notice-popup').classList.add('open');
     }, 3100);
 
-    // ---- Notice popup close handlers ----
+    // Notice close handlers
     function closeNotice() {
       document.getElementById('notice-popup').classList.remove('open');
     }
@@ -1895,7 +1865,7 @@
       if (e.target === this) closeNotice();
     });
 
-    // ---- Slider helpers ----
+    // Slider helpers
     function createSlider(trackId, dotsId, prevId, nextId, auto = true) {
       const track = document.getElementById(trackId);
       const slides = track.querySelectorAll('.slider-slide');
@@ -1927,7 +1897,7 @@
     createSlider('heroTrack', 'heroDots', 'heroPrev', 'heroNext', true);
     createSlider('aboutTrack', 'aboutDots', 'aboutPrev', 'aboutNext', true);
 
-    // ---- Review slider ----
+    // Review slider
     function createReviewSlider(trackId, dotsId, prevId, nextId) {
       const track = document.getElementById(trackId);
       const slides = track.querySelectorAll('.review-card');
@@ -1967,7 +1937,7 @@
     }
     createReviewSlider('reviewTrack', 'reviewDots', 'reviewPrev', 'reviewNext');
 
-    // ---- Mobile menu toggle ----
+    // Mobile menu
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
@@ -1975,7 +1945,7 @@
       link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
     });
 
-    // ---- Lightbox ----
+    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -1999,7 +1969,7 @@
     lightbox.addEventListener('click', function(e) { if (e.target === this) closeLightboxFn(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightboxFn(); });
 
-    // ---- Scroll animations ----
+    // Scroll animations
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -2012,7 +1982,7 @@
       document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     });
 
-    // ---- Smooth anchor scroll ----
+    // Smooth anchor scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -2024,7 +1994,7 @@
       });
     });
 
-    // ---- BILINGUAL TRANSLATION (English / Nepali) ----
+    // BILINGUAL TRANSLATION
     function setLanguage(lang) {
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-en][data-ne]').forEach(el => {
@@ -2096,32 +2066,25 @@
 
     setLanguage('en');
 
-    // ---- Notice images with Cloudinary (fallback to demo) ----
+    // Notice images with Cloudinary (fallback)
     function setNoticeImage(id, publicId) {
       const img = document.getElementById(id);
       if (img) {
-        // Use Cloudinary URL with transformations
-        const baseUrl = `https://res.cloudinary.com/${CLOUDINARY_CONFIG.cloudName}/image/upload`;
-        // fallback: if cloudName is 'demo', use demo images; else use your own
         const cloud = CLOUDINARY_CONFIG.cloudName || 'demo';
-        // If cloud is demo, use sample images; else use provided publicId with transformations
         const url = cloud === 'demo' 
           ? `https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,q_auto,f_auto/${publicId || 'sample'}`
           : `https://res.cloudinary.com/${cloud}/image/upload/w_200,h_200,c_fill,q_auto,f_auto/${publicId}`;
         img.src = url;
         img.onerror = function() {
-          // Fallback to picsum if cloudinary fails
           this.src = `https://picsum.photos/seed/notice${id}/200/200`;
         };
       }
     }
-
-    // Set notice images with specific public IDs (or use demo defaults)
     setNoticeImage('noticeImg1', 'sample');
     setNoticeImage('noticeImg2', 'cafe');
     setNoticeImage('noticeImg3', 'coffee');
 
-    console.log('☕ Bella Cafe · Bilingual (English/Nepali) · Free Delivery 1km · Cloudinary configured.');
+    console.log('☕ Bella Cafe · Bilingual · Free Delivery 1km · Notice at top-right.');
   </script>
 </body>
 </html>
