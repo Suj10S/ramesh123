@@ -14,23 +14,25 @@
   <script src="https://cdn.jsdelivr.net/npm/@cloudinary/url-gen@1.19.0/dist/cloudinary-html.min.js"></script>
 
   <style>
-    /* ----- RESET & BASE ----- */
+    /* ----- RESET & BASE (green theme, gold accents) ----- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     :root {
-      --primary: #1e3a2b;
-      --primary-light: #2b523b;
+      --primary: #1e4a2b;
+      --primary-light: #2a6b3a;
+      --primary-dark: #14381f;
       --gold: #d4b87a;
       --gold-dark: #b8944c;
-      --cream: #f9f7f0;
-      --cream-dark: #f5f2e0;
-      --text-dark: #1e2b1f;
-      --text-soft: #3e5a3f;
+      --gold-light: #e8d5a8;
+      --cream: #f5f7f0;
+      --cream-dark: #eef2e6;
+      --text-dark: #1a2e1e;
+      --text-soft: #2d4a2f;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-      --shadow-glow: 0 0 40px rgba(184, 148, 76, 0.12);
+      --shadow-glow: 0 0 40px rgba(184, 148, 76, 0.15);
       --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
       --delivery-green: #2e7d32;
       --delivery-light: #e8f5e9;
@@ -48,8 +50,8 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: repeating-linear-gradient(45deg, rgba(212,184,122,0.02) 0px, rgba(212,184,122,0.02) 2px, transparent 2px, transparent 12px),
-        repeating-linear-gradient(-45deg, rgba(212,184,122,0.02) 0px, rgba(212,184,122,0.02) 2px, transparent 2px, transparent 12px);
+      background-image: repeating-linear-gradient(45deg, rgba(212,184,122,0.03) 0px, rgba(212,184,122,0.03) 2px, transparent 2px, transparent 12px),
+        repeating-linear-gradient(-45deg, rgba(212,184,122,0.03) 0px, rgba(212,184,122,0.03) 2px, transparent 2px, transparent 12px);
       background-size: 24px 24px;
       pointer-events: none;
       z-index: 0;
@@ -62,14 +64,14 @@
       z-index: 1;
     }
 
-    /* ----- INTRO OVERLAY (3s) ----- */
+    /* ----- INTRO OVERLAY (green + gold) ----- */
     #intro-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #1a1a2e;
+      background-color: #0f2b19;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -87,8 +89,9 @@
       margin: 0 auto;
       animation: gentlePulse 3s ease-in-out infinite;
       border-radius: 50%;
-      border: 3px solid var(--gold);
+      border: 4px solid var(--gold);
       object-fit: cover;
+      box-shadow: 0 0 40px rgba(212,184,122,0.2);
     }
     .intro-brand {
       color: #ffffff;
@@ -103,7 +106,7 @@
     }
     .intro-brand span { color: var(--gold); }
     .intro-tagline {
-      color: #e2b47b;
+      color: var(--gold-light);
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       letter-spacing: 5px;
@@ -130,7 +133,7 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* ----- NOTICE POPUP (top-right, clear bg) ----- */
+    /* ----- NOTICE POPUP (green + gold outline) ----- */
     #notice-popup {
       position: fixed;
       top: 20px;
@@ -147,13 +150,13 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .notice-card {
-      background: rgba(30, 58, 43, 0.92);
+      background: rgba(26, 56, 34, 0.95);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-radius: 28px;
       padding: 28px 28px 24px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.15), 0 0 0 1px rgba(212,184,122,0.1);
-      border: 1px solid rgba(212,184,122,0.15);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.2), 0 0 0 2px var(--gold), 0 0 0 4px rgba(212,184,122,0.1);
+      border: 1px solid rgba(212,184,122,0.2);
       color: #f5f2e0;
       text-align: left;
     }
@@ -164,7 +167,7 @@
       background: rgba(255,255,255,0.06);
       border: none;
       font-size: 1.2rem;
-      color: #e6d5a8;
+      color: var(--gold-light);
       cursor: pointer;
       transition: all 0.3s ease;
       padding: 4px 10px;
@@ -176,7 +179,7 @@
     .notice-card .notice-badge {
       display: inline-block;
       background: var(--gold);
-      color: var(--primary);
+      color: var(--primary-dark);
       font-weight: 700;
       font-size: 0.65rem;
       padding: 3px 16px;
@@ -208,8 +211,8 @@
       height: 80px;
       border-radius: 16px;
       object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
       transition: transform 0.3s ease;
     }
     .notice-card .notice-image-grid img:hover { transform: scale(1.04); }
@@ -221,11 +224,11 @@
       display: inline-block;
       font-weight: 600;
       font-size: 0.8rem;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 1px solid var(--gold);
       margin-bottom: 10px;
-      color: var(--gold);
+      color: var(--gold-light);
     }
-    .notice-card .offer-tag i { margin-right: 6px; }
+    .notice-card .offer-tag i { margin-right: 6px; color: var(--gold); }
     .notice-card .notice-actions {
       display: flex;
       flex-wrap: wrap;
@@ -257,7 +260,7 @@
     }
     .notice-card .notice-actions .btn-notice-gold {
       background: var(--gold);
-      color: var(--primary);
+      color: var(--primary-dark);
       border-color: var(--gold);
     }
     .notice-card .notice-actions .btn-notice-gold:hover {
@@ -274,18 +277,18 @@
       background: rgba(212,184,122,0.05);
     }
 
-    /* ----- NAVBAR (unchanged) ----- */
+    /* ----- NAVBAR (green theme, gold outline) ----- */
     .navbar {
-      background: rgba(30,58,43,0.94);
+      background: rgba(26, 56, 34, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       color: #f5f2e0;
       padding: 14px 0;
-      border-bottom: 1px solid rgba(212,184,122,0.15);
+      border-bottom: 2px solid var(--gold);
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     }
     .navbar .container {
       display: flex;
@@ -301,10 +304,11 @@
     .logo-block img {
       height: 46px;
       width: 46px;
-      border-radius: 12px;
-      border: 2px solid var(--gold);
+      border-radius: 50%;
+      border: 3px solid var(--gold);
       object-fit: cover;
       transition: transform 0.4s var(--transition-smooth);
+      box-shadow: 0 0 20px rgba(212,184,122,0.15);
     }
     .logo-block:hover img { transform: rotateY(8deg) scale(1.02); }
     .logo-text {
@@ -335,14 +339,14 @@
       letter-spacing: 0.3px;
     }
     .nav-links a:hover { color: #fff; border-bottom-color: var(--gold); }
-    .nav-links a i { color: var(--gold); font-size: 0.75rem; opacity: 0.7; }
+    .nav-links a i { color: var(--gold); font-size: 0.75rem; opacity: 0.8; }
     .lang-toggle {
       display: flex;
       gap: 4px;
       background: rgba(255,255,255,0.06);
       border-radius: 40px;
       padding: 3px 5px;
-      border: 1px solid rgba(212,184,122,0.15);
+      border: 1px solid var(--gold);
     }
     .lang-btn {
       background: transparent;
@@ -358,7 +362,7 @@
     }
     .lang-btn.active {
       background: var(--gold);
-      color: var(--primary);
+      color: var(--primary-dark);
       box-shadow: 0 4px 16px rgba(212,184,122,0.2);
     }
     .lang-btn:hover:not(.active) { color: #f5f2e0; }
@@ -374,11 +378,11 @@
     }
     .hamburger:hover { transform: scale(1.05); }
 
-    /* ----- HERO (unchanged) ----- */
+    /* ----- HERO (green + gold accents) ----- */
     .hero {
       padding: 60px 0 48px;
-      background: linear-gradient(160deg, #eaf3e6 0%, var(--cream) 80%);
-      border-bottom: 1px solid rgba(212,184,122,0.15);
+      background: linear-gradient(160deg, #dce8d6 0%, var(--cream) 80%);
+      border-bottom: 2px solid var(--gold);
       position: relative;
       overflow: hidden;
     }
@@ -393,7 +397,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 3.8rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--primary-dark);
       line-height: 1.1;
       letter-spacing: -1px;
     }
@@ -414,12 +418,12 @@
       flex-wrap: wrap;
     }
     .stat-item {
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       padding: 8px 24px 8px 20px;
       border-radius: 40px;
-      border: 1px solid rgba(212,184,122,0.2);
+      border: 1px solid var(--gold);
       font-weight: 500;
       font-size: 0.85rem;
       transition: all 0.3s ease;
@@ -427,7 +431,7 @@
     }
     .stat-item:hover {
       transform: translateY(-2px);
-      border-color: var(--gold);
+      border-color: var(--gold-dark);
       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
     .stat-item i { color: var(--gold-dark); margin-right: 10px; }
@@ -435,7 +439,7 @@
       flex: 1 1 420px;
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(212,184,122,0.2);
+      border: 2px solid var(--gold);
       background: #eae3d6;
       min-height: 280px;
       box-shadow: var(--shadow);
@@ -463,10 +467,10 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(30,58,43,0.5);
+      background: rgba(26, 56, 34, 0.6);
       backdrop-filter: blur(8px);
       color: #f5f2e0;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--gold);
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -495,7 +499,7 @@
       height: 8px;
       border-radius: 50%;
       background: rgba(255,255,255,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--gold);
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -512,45 +516,46 @@
       font-weight: 600;
       font-size: 0.9rem;
       transition: all 0.4s var(--transition-smooth);
-      border: 1px solid var(--primary);
+      border: 2px solid var(--gold);
       cursor: pointer;
       letter-spacing: 0.3px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     }
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(30,58,43,0.15);
+      box-shadow: 0 12px 32px rgba(26, 56, 34, 0.2);
       background: var(--primary-light);
-      border-color: var(--primary-light);
+      border-color: var(--gold-light);
     }
     .btn-gold {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--primary);
-      border: none;
+      color: var(--primary-dark);
+      border: 2px solid var(--gold);
       font-weight: 700;
     }
     .btn-gold:hover {
       background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      color: var(--primary);
+      color: var(--primary-dark);
       box-shadow: 0 12px 32px rgba(184,148,76,0.25);
       transform: translateY(-2px);
+      border-color: var(--gold-light);
     }
     .flex-wrap { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
     .mt-2 { margin-top: 20px; }
 
-    /* ----- SECTIONS (unchanged) ----- */
+    /* ----- SECTIONS (green + gold outlines) ----- */
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
       font-weight: 600;
-      color: var(--primary);
+      color: var(--primary-dark);
       margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 16px;
       letter-spacing: -0.5px;
     }
-    .section-title i { color: var(--gold-dark); font-size: 2rem; opacity: 0.7; }
+    .section-title i { color: var(--gold-dark); font-size: 2rem; opacity: 0.8; }
     .section-sub {
       color: var(--text-soft);
       margin-bottom: 32px;
@@ -566,12 +571,12 @@
     }
     .animate-on-scroll.active { opacity: 1; transform: translateY(0); }
 
-    /* ----- DELIVERY INFO CARD (unchanged) ----- */
+    /* ----- DELIVERY INFO CARD (green + gold) ----- */
     .delivery-info-card {
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(16px);
       border-radius: 20px;
-      border: 1px solid rgba(46,125,50,0.15);
+      border: 2px solid var(--gold);
       padding: 24px 28px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.06);
       display: flex;
@@ -581,7 +586,7 @@
       margin: 20px 0 12px;
       transition: all 0.4s ease;
     }
-    .delivery-info-card:hover { border-color: var(--gold); box-shadow: 0 12px 48px rgba(0,0,0,0.08); }
+    .delivery-info-card:hover { border-color: var(--gold-dark); box-shadow: 0 12px 48px rgba(0,0,0,0.08); }
     .delivery-info-card .delivery-icon-large {
       font-size: 2.6rem;
       color: var(--delivery-green);
@@ -593,12 +598,13 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      border: 2px solid var(--gold);
     }
     .delivery-info-card .delivery-text { flex: 1; }
     .delivery-info-card .delivery-text h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      color: var(--primary);
+      color: var(--primary-dark);
       display: flex;
       align-items: center;
       gap: 12px;
@@ -614,6 +620,7 @@
       font-family: 'Inter', sans-serif;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      border: 1px solid var(--gold);
     }
     .delivery-info-card .delivery-text p { color: var(--text-soft); font-size: 0.95rem; margin-top: 4px; }
     .delivery-info-card .delivery-text .radius-indicator {
@@ -631,6 +638,7 @@
       border-radius: 10px;
       overflow: hidden;
       position: relative;
+      border: 1px solid var(--gold);
     }
     .delivery-info-card .delivery-text .radius-indicator .radius-bar .radius-fill {
       width: 20%;
@@ -672,25 +680,27 @@
     .delivery-info-card .delivery-cta .btn-delivery-order {
       background: var(--delivery-green);
       color: #fff;
-      border: 1px solid var(--delivery-green);
+      border: 2px solid var(--gold);
     }
     .delivery-info-card .delivery-cta .btn-delivery-order:hover {
       background: #1b5e20;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(46,125,50,0.2);
+      border-color: var(--gold-light);
     }
     .delivery-info-card .delivery-cta .btn-delivery-call {
       background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
+      color: var(--primary-dark);
+      border: 2px solid var(--gold);
     }
     .delivery-info-card .delivery-cta .btn-delivery-call:hover {
       background: var(--primary);
       color: #fff;
       transform: translateY(-2px);
+      border-color: var(--gold-light);
     }
 
-    /* ----- ABOUT, REVIEWS, GALLERY, MENU, ROOMS, FACILITIES, MAP, BOOK, CONTACT, FAQ, FOOTER (unchanged) ----- */
+    /* ----- ABOUT (green + gold) ----- */
     .about-grid {
       display: flex;
       flex-wrap: wrap;
@@ -703,7 +713,7 @@
       flex: 1 1 300px;
       border-radius: 28px;
       overflow: hidden;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 2px solid var(--gold);
       background: #eae3d6;
       min-height: 200px;
       box-shadow: var(--shadow);
@@ -712,11 +722,12 @@
     .about-grid .about-slider-wrapper:hover { transform: scale(1.003); }
     .about-grid .about-slider-wrapper .slider-container { aspect-ratio: 4/3; }
 
+    /* ----- REVIEWS (green + gold) ----- */
     .review-slider-wrap {
       background: rgba(245,242,224,0.5);
       backdrop-filter: blur(12px);
       border-radius: 32px;
-      border: 1px solid rgba(212,184,122,0.15);
+      border: 2px solid var(--gold);
       padding: 40px 32px 28px;
       margin: 40px 0;
       position: relative;
@@ -734,13 +745,13 @@
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
       border-radius: 20px;
-      border: 1px solid rgba(212,184,122,0.08);
+      border: 1px solid var(--gold);
       margin: 0 14px;
       flex-shrink: 0;
       box-shadow: 0 2px 16px rgba(0,0,0,0.02);
       transition: all 0.4s ease;
     }
-    .review-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,0.04); }
+    .review-card:hover { transform: translateY(-4px); border-color: var(--gold-dark); box-shadow: 0 8px 32px rgba(0,0,0,0.04); }
     .review-card .stars { color: #f5b342; font-size: 0.95rem; margin-bottom: 10px; letter-spacing: 1.5px; }
     .review-card .review-text {
       font-size: 0.95rem;
@@ -764,9 +775,10 @@
       align-items: center;
       justify-content: center;
       font-weight: 600;
-      color: var(--primary);
+      color: var(--primary-dark);
       font-size: 0.9rem;
       flex-shrink: 0;
+      border: 2px solid var(--gold);
     }
     .review-card .reviewer .name { font-weight: 600; font-size: 0.9rem; }
     .review-card .reviewer .date { font-size: 0.7rem; color: #6d7f5e; }
@@ -774,10 +786,10 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(30,58,43,0.5);
+      background: rgba(26, 56, 34, 0.6);
       backdrop-filter: blur(8px);
       color: #f5f2e0;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--gold);
       width: 44px;
       height: 44px;
       border-radius: 50%;
@@ -805,10 +817,12 @@
       background: #c7b694;
       cursor: pointer;
       transition: all 0.3s ease;
+      border: 1px solid var(--gold);
     }
-    .review-dot.active { background: var(--gold-dark); transform: scale(1.3); }
+    .review-dot.active { background: var(--gold-dark); transform: scale(1.3); border-color: var(--gold); }
     .review-dot:hover { transform: scale(1.2); }
 
+    /* ----- GALLERY (green + gold) ----- */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -818,7 +832,7 @@
     .gallery-item {
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 2px solid var(--gold);
       aspect-ratio: 1/1;
       background: #eae3d6;
       cursor: pointer;
@@ -826,7 +840,7 @@
       position: relative;
       box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     }
-    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.06); border-color: var(--gold); }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.06); border-color: var(--gold-dark); }
     .gallery-item img {
       width: 100%;
       height: 100%;
@@ -838,7 +852,7 @@
     .gallery-item .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(0deg, rgba(30,58,43,0.5) 0%, transparent 60%);
+      background: linear-gradient(0deg, rgba(26, 56, 34, 0.6) 0%, transparent 60%);
       opacity: 0;
       transition: opacity 0.4s ease;
       display: flex;
@@ -851,11 +865,12 @@
     .gallery-item:hover .gallery-overlay { opacity: 1; }
     .gallery-item .gallery-overlay i { margin-right: 10px; color: var(--gold); }
 
+    /* ----- MENU (green + gold) ----- */
     .menu-section {
       background: rgba(255,255,255,0.4);
       backdrop-filter: blur(12px);
       border-radius: 32px;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 2px solid var(--gold);
       padding: 48px 40px 40px;
       margin: 24px 0 48px;
       box-shadow: var(--shadow-glow);
@@ -871,16 +886,16 @@
       backdrop-filter: blur(8px);
       border-radius: 24px;
       padding: 28px 24px 20px;
-      border: 1px solid rgba(212,184,122,0.06);
+      border: 1px solid var(--gold);
       transition: all 0.4s ease;
       box-shadow: 0 2px 12px rgba(0,0,0,0.01);
     }
-    .menu-category:hover { transform: translateY(-4px); border-color: rgba(212,184,122,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.03); }
+    .menu-category:hover { transform: translateY(-4px); border-color: var(--gold-dark); box-shadow: 0 12px 40px rgba(0,0,0,0.03); }
     .menu-category h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
-      color: var(--primary);
-      border-bottom: 2px solid rgba(212,184,122,0.15);
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--gold);
       padding-bottom: 14px;
       margin-bottom: 20px;
       display: flex;
@@ -888,12 +903,12 @@
       gap: 12px;
       font-weight: 600;
     }
-    .menu-category h3 i { color: var(--gold-dark); font-size: 1.3rem; opacity: 0.7; }
+    .menu-category h3 i { color: var(--gold-dark); font-size: 1.3rem; opacity: 0.8; }
     .menu-item {
       display: flex;
       justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px dashed rgba(0,0,0,0.04);
+      border-bottom: 1px dashed rgba(212,184,122,0.2);
       font-size: 0.95rem;
       transition: all 0.2s ease;
     }
@@ -903,6 +918,7 @@
     .menu-item .price { color: var(--gold-dark); font-weight: 600; white-space: nowrap; }
     .menu-item .desc { font-size: 0.75rem; color: #6d7f5e; display: block; font-weight: 400; margin-top: 2px; }
 
+    /* ----- ROOMS (green + gold) ----- */
     .rooms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -913,14 +929,14 @@
       background: rgba(255,255,255,0.6);
       backdrop-filter: blur(12px);
       border-radius: 28px;
-      border: 1px solid rgba(212,184,122,0.08);
+      border: 2px solid var(--gold);
       overflow: hidden;
       transition: all 0.5s var(--transition-smooth);
       box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       display: flex;
       flex-direction: column;
     }
-    .room-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.05); border-color: rgba(212,184,122,0.2); }
+    .room-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.05); border-color: var(--gold-dark); }
     .room-card .room-image { height: 220px; overflow: hidden; position: relative; }
     .room-card .room-image img {
       width: 100%;
@@ -934,7 +950,7 @@
       top: 16px;
       right: 16px;
       background: var(--gold);
-      color: var(--primary);
+      color: var(--primary-dark);
       font-weight: 700;
       font-size: 0.65rem;
       padding: 4px 16px;
@@ -942,10 +958,11 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       box-shadow: 0 4px 16px rgba(184,148,76,0.15);
+      border: 1px solid var(--gold);
     }
-    .room-card .room-image .room-badge.popular { background: #e74c3c; color: #fff; }
+    .room-card .room-image .room-badge.popular { background: #e74c3c; color: #fff; border-color: #e74c3c; }
     .room-card .room-body { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
-    .room-card .room-body h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 4px; }
+    .room-card .room-body h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 4px; }
     .room-card .room-body .room-sub { font-size: 0.8rem; color: #6d7f5e; margin-bottom: 12px; }
     .room-card .room-body .room-desc { font-size: 0.92rem; color: var(--text-soft); line-height: 1.7; margin-bottom: 16px; flex: 1; }
     .room-card .room-body .room-amenities {
@@ -954,10 +971,10 @@
       gap: 8px 18px;
       margin-bottom: 18px;
       padding-top: 14px;
-      border-top: 1px solid rgba(0,0,0,0.04);
+      border-top: 1px solid rgba(212,184,122,0.2);
     }
     .room-card .room-body .room-amenities span { font-size: 0.8rem; color: var(--text-soft); display: flex; align-items: center; gap: 6px; }
-    .room-card .room-body .room-amenities span i { color: var(--gold-dark); font-size: 0.85rem; opacity: 0.7; }
+    .room-card .room-body .room-amenities span i { color: var(--gold-dark); font-size: 0.85rem; opacity: 0.8; }
     .room-card .room-body .room-footer {
       display: flex;
       align-items: center;
@@ -966,12 +983,12 @@
       gap: 12px;
       margin-top: 4px;
     }
-    .room-card .room-body .room-price { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+    .room-card .room-body .room-price { font-size: 1.3rem; font-weight: 700; color: var(--primary-dark); }
     .room-card .room-body .room-price small { font-size: 0.75rem; font-weight: 400; color: #6d7f5e; }
     .room-card .room-body .btn-book-room {
       background: var(--gold);
-      color: var(--primary);
-      border: none;
+      color: var(--primary-dark);
+      border: 2px solid var(--gold);
       padding: 10px 28px;
       border-radius: 60px;
       font-weight: 600;
@@ -982,16 +999,17 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      border: 1px solid transparent;
     }
     .room-card .room-body .btn-book-room:hover {
       background: var(--gold-dark);
       color: #fff;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(184,148,76,0.2);
+      border-color: var(--gold-dark);
     }
     .room-card .room-body .btn-book-room i { font-size: 0.9rem; }
 
+    /* ----- FACILITIES (green + gold) ----- */
     .facilities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1004,19 +1022,20 @@
       border-radius: 24px;
       padding: 32px 20px 28px;
       text-align: center;
-      border: 1px solid rgba(212,184,122,0.06);
+      border: 1px solid var(--gold);
       transition: all 0.4s ease;
       box-shadow: 0 2px 12px rgba(0,0,0,0.01);
     }
-    .facility-card:hover { transform: translateY(-4px); border-color: rgba(212,184,122,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.03); }
-    .facility-card i { font-size: 2.4rem; color: var(--gold-dark); margin-bottom: 14px; display: block; opacity: 0.8; }
-    .facility-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 4px; font-weight: 600; }
+    .facility-card:hover { transform: translateY(-4px); border-color: var(--gold-dark); box-shadow: 0 12px 40px rgba(0,0,0,0.03); }
+    .facility-card i { font-size: 2.4rem; color: var(--gold-dark); margin-bottom: 14px; display: block; opacity: 0.9; }
+    .facility-card h4 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 4px; font-weight: 600; }
     .facility-card p { font-size: 0.8rem; color: #6d7f5e; }
 
+    /* ----- MAP (green + gold) ----- */
     .map-container {
       border-radius: 28px;
       overflow: hidden;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 2px solid var(--gold);
       margin: 24px 0;
       height: 380px;
       box-shadow: var(--shadow);
@@ -1025,19 +1044,21 @@
     .map-container:hover { transform: scale(1.002); }
     .map-container iframe { width: 100%; height: 100%; border: 0; display: block; }
 
+    /* ----- BOOK SECTION (green + gold) ----- */
     .book-section {
       background: rgba(245,242,224,0.3);
       backdrop-filter: blur(12px);
       border-radius: 32px;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 2px solid var(--gold);
       padding: 48px 32px;
       text-align: center;
       box-shadow: var(--shadow-glow);
       transition: transform 0.5s ease;
     }
     .book-section:hover { transform: scale(1.002); }
-    .book-section h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); }
+    .book-section h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary-dark); }
 
+    /* ----- CONTACT (green + gold) ----- */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1048,16 +1069,17 @@
       backdrop-filter: blur(8px);
       border-radius: 24px;
       padding: 28px 20px;
-      border: 1px solid rgba(212,184,122,0.06);
+      border: 1px solid var(--gold);
       transition: all 0.4s ease;
       text-align: center;
     }
-    .contact-card:hover { transform: translateY(-4px); border-color: rgba(212,184,122,0.15); box-shadow: 0 12px 40px rgba(0,0,0,0.02); }
-    .contact-card i { font-size: 2rem; color: var(--gold-dark); margin-bottom: 12px; display: inline-block; opacity: 0.8; }
-    .contact-card h3 { margin: 6px 0 4px; font-size: 1rem; color: var(--primary); font-weight: 600; }
+    .contact-card:hover { transform: translateY(-4px); border-color: var(--gold-dark); box-shadow: 0 12px 40px rgba(0,0,0,0.02); }
+    .contact-card i { font-size: 2rem; color: var(--gold-dark); margin-bottom: 12px; display: inline-block; opacity: 0.9; }
+    .contact-card h3 { margin: 6px 0 4px; font-size: 1rem; color: var(--primary-dark); font-weight: 600; }
     .contact-card p, .contact-card a { color: var(--text-soft); text-decoration: none; font-weight: 400; transition: color 0.3s ease; }
     .contact-card a:hover { color: var(--gold-dark); }
 
+    /* ----- FAQ (green + gold) ----- */
     .faq-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1069,23 +1091,24 @@
       backdrop-filter: blur(8px);
       border-radius: 20px;
       padding: 22px 26px;
-      border: 1px solid rgba(212,184,122,0.08);
+      border: 1px solid var(--gold);
       transition: all 0.3s ease;
       cursor: pointer;
     }
-    .faq-item:hover { transform: translateY(-2px); border-color: rgba(212,184,122,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.02); }
-    .faq-item .faq-q { font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+    .faq-item:hover { transform: translateY(-2px); border-color: var(--gold-dark); box-shadow: 0 8px 24px rgba(0,0,0,0.02); }
+    .faq-item .faq-q { font-weight: 600; color: var(--primary-dark); display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
     .faq-item .faq-q i { color: var(--gold-dark); font-size: 0.9rem; }
     .faq-item .faq-a { margin-top: 8px; color: var(--text-soft); font-size: 0.9rem; line-height: 1.7; padding-left: 28px; }
     .faq-item .faq-a a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
     .faq-item .faq-a a:hover { text-decoration: underline; }
 
+    /* ----- FOOTER (green + gold) ----- */
     .footer {
-      background: var(--primary);
+      background: var(--primary-dark);
       color: #e6d5a8;
       padding: 48px 0 24px;
       margin-top: 56px;
-      border-top: 1px solid rgba(212,184,122,0.1);
+      border-top: 3px solid var(--gold);
     }
     .footer .container {
       display: flex;
@@ -1103,15 +1126,16 @@
     .footer-brand .logo-wrap img {
       height: 40px;
       width: 40px;
-      border-radius: 10px;
-      border: 2px solid var(--gold);
+      border-radius: 50%;
+      border: 3px solid var(--gold);
       object-fit: cover;
       transition: transform 0.4s ease;
+      box-shadow: 0 0 20px rgba(212,184,122,0.1);
     }
     .footer-brand .logo-wrap img:hover { transform: rotateY(8deg) scale(1.02); }
     .footer-brand .logo-wrap span { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #f5f2e0; }
     .footer-brand .logo-wrap span small { color: var(--gold); font-weight: 400; }
-    .footer-brand p { opacity: 0.7; font-size: 0.9rem; max-width: 320px; margin-top: 4px; }
+    .footer-brand p { opacity: 0.8; font-size: 0.9rem; max-width: 320px; margin-top: 4px; }
     .footer-social {
       display: flex;
       gap: 16px;
@@ -1119,7 +1143,7 @@
       flex-wrap: wrap;
       align-items: center;
     }
-    .footer-social-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.4; margin-right: 4px; }
+    .footer-social-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.5; margin-right: 4px; }
     .footer-social a {
       display: flex;
       align-items: center;
@@ -1131,15 +1155,15 @@
       color: var(--gold);
       font-size: 1.1rem;
       transition: all 0.4s var(--transition-smooth);
-      border: 1px solid rgba(212,184,122,0.05);
+      border: 2px solid var(--gold);
       text-decoration: none;
     }
     .footer-social a:hover {
       background: var(--gold);
-      color: var(--primary);
+      color: var(--primary-dark);
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 24px rgba(212,184,122,0.15);
-      border-color: var(--gold);
+      border-color: var(--gold-light);
     }
     .footer-links {
       display: flex;
@@ -1171,10 +1195,10 @@
       padding: 6px 0;
       transition: all 0.3s ease;
     }
-    .footer-links-col a:hover { color: var(--gold-light); transform: translateX(4px); }
-    .footer-links-col a i { margin-right: 8px; font-size: 0.65rem; color: var(--gold); opacity: 0.4; }
+    .footer-links-col a:hover { color: var(--gold); transform: translateX(4px); }
+    .footer-links-col a i { margin-right: 8px; font-size: 0.65rem; color: var(--gold); opacity: 0.6; }
     .footer-bottom {
-      border-top: 1px solid rgba(212,184,122,0.06);
+      border-top: 2px solid var(--gold);
       margin-top: 28px;
       padding-top: 20px;
       display: flex;
@@ -1184,9 +1208,10 @@
       gap: 16px;
       width: 100%;
     }
-    .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
-    .footer-bottom .tagline { font-style: italic; color: var(--gold); opacity: 0.6; font-size: 0.85rem; }
+    .footer-bottom p { font-size: 0.8rem; opacity: 0.6; }
+    .footer-bottom .tagline { font-style: italic; color: var(--gold); opacity: 0.8; font-size: 0.85rem; }
 
+    /* ----- FLOATING BUTTONS (green + gold) ----- */
     .float-buttons {
       position: fixed;
       bottom: 28px;
@@ -1208,18 +1233,19 @@
       text-decoration: none;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       transition: all 0.4s var(--transition-smooth);
-      border: 1px solid transparent;
+      border: 2px solid var(--gold);
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
-      color: var(--primary);
+      color: var(--primary-dark);
     }
     .float-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
     .float-btn i { font-size: 1.3rem; flex-shrink: 0; }
     .float-btn.whatsapp { background: #25d366; color: white; border-color: #1ebe5c; }
     .float-btn.whatsapp:hover { background: #20b85a; }
-    .float-btn.phone { background: var(--gold); color: var(--primary); border-color: var(--gold-dark); }
+    .float-btn.phone { background: var(--gold); color: var(--primary-dark); border-color: var(--gold-dark); }
     .float-btn.phone:hover { background: var(--gold-dark); color: #fff; }
 
+    /* ----- LIGHTBOX (green + gold) ----- */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -1239,7 +1265,7 @@
       max-width: 90vw;
       max-height: 85vh;
       border-radius: 20px;
-      border: 2px solid var(--gold);
+      border: 3px solid var(--gold);
       box-shadow: 0 30px 80px rgba(0,0,0,0.3);
       object-fit: contain;
       animation: lightboxZoom 0.5s var(--transition-smooth);
@@ -1264,14 +1290,15 @@
       transform: translateX(-50%);
       color: #f5f2e0;
       font-weight: 400;
-      background: rgba(30,58,43,0.5);
+      background: rgba(26, 56, 34, 0.6);
       backdrop-filter: blur(12px);
       padding: 8px 28px;
       border-radius: 40px;
       font-size: 0.9rem;
-      border: 1px solid rgba(212,184,122,0.1);
+      border: 1px solid var(--gold);
     }
 
+    /* ----- RESPONSIVE (adjusted) ----- */
     @media (max-width: 992px) {
       .hero-content h1 { font-size: 3rem; }
       .review-card { min-width: 50%; }
@@ -1336,7 +1363,7 @@
 <body>
 
   <!-- ============================================ -->
-  <!-- INTRO OVERLAY (3 seconds)                    -->
+  <!-- INTRO OVERLAY (green + gold)                -->
   <!-- ============================================ -->
   <div id="intro-overlay">
     <div class="intro-content">
@@ -1347,7 +1374,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- NOTICE POPUP (top-right, clear bg)           -->
+  <!-- NOTICE POPUP (green + gold outline)          -->
   <!-- ============================================ -->
   <div id="notice-popup">
     <div class="notice-card">
@@ -1375,7 +1402,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- NAVBAR (unchanged)                           -->
+  <!-- NAVBAR (green + gold border)                 -->
   <!-- ============================================ -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="container">
@@ -1404,7 +1431,7 @@
   </nav>
 
   <!-- ============================================ -->
-  <!-- HERO (unchanged)                             -->
+  <!-- HERO (green theme, gold accents)             -->
   <!-- ============================================ -->
   <section id="home" class="hero">
     <div class="container hero-grid">
@@ -1415,12 +1442,12 @@
           <span class="stat-item"><i class="fas fa-star"></i> <span data-en="4.8 ★ (12 reviews)" data-ne="४.८ ★ (१२ समीक्षा)">4.8 ★ (12 reviews)</span></span>
           <span class="stat-item"><i class="fas fa-utensils"></i> <span data-en="Dine-in · Takeaway · Delivery" data-ne="डाइन-इन · टेकअवे · डेलिभरी">Dine-in · Takeaway · Delivery</span></span>
           <span class="stat-item"><i class="fas fa-clock"></i> <span data-en="Open now · 7:30 AM – 9:30 PM" data-ne="अहिले खुला · बिहान ७:३० – राति ९:३०">Open now · 7:30 AM – 9:30 PM</span></span>
-          <span class="stat-item" style="background:var(--delivery-light); border-color:var(--delivery-green);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green); font-weight:700;" data-en="Free Delivery 1km" data-ne="१ किमि नि:शुल्क डेलिभरी">Free Delivery 1km</span></span>
+          <span class="stat-item" style="background:var(--delivery-light); border-color:var(--gold);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green); font-weight:700;" data-en="Free Delivery 1km" data-ne="१ किमि नि:शुल्क डेलिभरी">Free Delivery 1km</span></span>
         </div>
         <div class="flex-wrap mt-2">
           <a href="#reviews" class="btn" data-en="See Reviews" data-ne="समीक्षा हेर्नुहोस्"><i class="fas fa-star"></i> <span>See Reviews</span></a>
           <a href="#rooms" class="btn btn-gold" data-en="View Rooms" data-ne="कोठा हेर्नुहोस्"><i class="fas fa-bed"></i> <span>View Rooms</span></a>
-          <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" class="btn" style="background:#25d366; border-color:#25d366;" data-en="Order Delivery" data-ne="डेलिभरी अर्डर गर्नुहोस्"><i class="fab fa-whatsapp"></i> <span>Order Delivery</span></a>
+          <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" class="btn" style="background:#25d366; border-color:var(--gold);" data-en="Order Delivery" data-ne="डेलिभरी अर्डर गर्नुहोस्"><i class="fab fa-whatsapp"></i> <span>Order Delivery</span></a>
         </div>
       </div>
       <div class="hero-slider animate-on-scroll">
@@ -1442,7 +1469,7 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- MAIN CONTENT (unchanged)                     -->
+  <!-- MAIN CONTENT (all green + gold themed)       -->
   <!-- ============================================ -->
   <div class="container">
 
@@ -1463,6 +1490,7 @@
       </div>
     </div>
 
+    <!-- About -->
     <section id="about" style="margin: 48px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-info-circle"></i> <span data-en="About Us" data-ne="हाम्रो बारे">About Us</span></div>
       <div class="about-grid">
@@ -1470,10 +1498,10 @@
           <p data-en="<strong>Bella Cafe & Restaurant</strong> is the top-rated family restaurant in Damak, Jhapa, offering authentic Nepali cuisine, premium coffee, and a cozy atmosphere. Whether you're looking for a quick bite or a relaxing meal with friends and family, we bring you the best of local and international flavors." data-ne="<strong>बेला क्याफे र रेस्टुरेन्ट</strong> दमक, झापाको उत्कृष्ट पारिवारिक रेस्टुरेन्ट हो, जसले प्रामाणिक नेपाली खाना, उत्कृष्ट कफी र आरामदायी वातावरण प्रदान गर्दछ। चाहे तपाईं छिटो खाजा खोज्दै हुनुहुन्छ वा साथीभाइ र परिवारसँग आरामदायी भोजनको लागि, हामी तपाईंलाई स्थानीय र अन्तर्राष्ट्रिय स्वादको उत्कृष्ट मिश्रण प्रदान गर्छौं।"><strong>Bella Cafe & Restaurant</strong> is the top-rated family restaurant in Damak, Jhapa, offering authentic Nepali cuisine, premium coffee, and a cozy atmosphere. Whether you're looking for a quick bite or a relaxing meal with friends and family, we bring you the best of local and international flavors.</p>
           <p style="margin-top: 16px;" data-en="Visit us at <strong>MM6V+WJH, Damak 57217</strong> to experience the true taste of Jhapa. Our doors are open from 7:30 AM to 9:30 PM, ready to serve you with a smile. We also offer <strong>free delivery within 1 km</strong> — order your favorite dishes and enjoy them at home!" data-ne="हामीलाई <strong>MM6V+WJH, दमक ५७२१७</strong> मा भेट्नुहोस् र झापाको वास्तविक स्वाद अनुभव गर्नुहोस्। हाम्रा ढोकाहरू बिहान ७:३० बजेदेखि राति ९:३० बजेसम्म खुला रहन्छन्, तपाईंलाई मुस्कानका साथ सेवा गर्न तयार। हामी <strong>१ किमि भित्र नि:शुल्क डेलिभरी</strong> पनि प्रदान गर्छौं — आफ्नो मनपर्ने परिकार अर्डर गर्नुहोस् र घरमै आनन्द लिनुहोस्!">Visit us at <strong>MM6V+WJH, Damak 57217</strong> to experience the true taste of Jhapa. Our doors are open from 7:30 AM to 9:30 PM, ready to serve you with a smile. We also offer <strong>free delivery within 1 km</strong> — order your favorite dishes and enjoy them at home!</p>
           <div style="display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap;">
-            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid rgba(212,184,122,0.1); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Fresh Ingredients" data-ne="ताजा सामग्री">Fresh Ingredients</span></span>
-            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid rgba(212,184,122,0.1); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Expert Baristas" data-ne="विज्ञ बारिस्टा">Expert Baristas</span></span>
-            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid rgba(212,184,122,0.1); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Cozy Vibes" data-ne="आरामदायी वातावरण">Cozy Vibes</span></span>
-            <span style="background: var(--delivery-light); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid var(--delivery-green); font-size:0.9rem; color:var(--delivery-green);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span data-en="Free Delivery 1km" data-ne="१ किमि नि:शुल्क डेलिभरी">Free Delivery 1km</span></span>
+            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid var(--gold); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Fresh Ingredients" data-ne="ताजा सामग्री">Fresh Ingredients</span></span>
+            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid var(--gold); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Expert Baristas" data-ne="विज्ञ बारिस्टा">Expert Baristas</span></span>
+            <span style="background: rgba(255,255,255,0.4); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid var(--gold); font-size:0.9rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-en="Cozy Vibes" data-ne="आरामदायी वातावरण">Cozy Vibes</span></span>
+            <span style="background: var(--delivery-light); backdrop-filter:blur(8px); padding: 6px 18px; border-radius: 40px; border: 1px solid var(--gold); font-size:0.9rem; color:var(--delivery-green);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span data-en="Free Delivery 1km" data-ne="१ किमि नि:शुल्क डेलिभरी">Free Delivery 1km</span></span>
           </div>
         </div>
         <div class="about-slider-wrapper animate-on-scroll">
@@ -1490,6 +1518,7 @@
       </div>
     </section>
 
+    <!-- Reviews -->
     <section id="reviews" style="margin: 24px 0 12px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-star"></i> <span data-en="Google Reviews" data-ne="गुगल समीक्षा">Google Reviews</span></div>
       <p class="section-sub animate-on-scroll" data-en="What our customers say about Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="हाम्रा ग्राहकहरूले बेला क्याफेको बारेमा के भन्छन् — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">What our customers say about Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1516,6 +1545,7 @@
       </div>
     </section>
 
+    <!-- Gallery -->
     <section id="gallery" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-images"></i> <span data-en="Our Gallery" data-ne="हाम्रो ग्यालरी">Our Gallery</span></div>
       <p class="section-sub animate-on-scroll" data-en="A glimpse of our food, ambiance, and moments at Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="बेला क्याफेको खाना, वातावरण र क्षणहरूको झलक — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">A glimpse of our food, ambiance, and moments at Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1555,6 +1585,7 @@
       </div>
     </section>
 
+    <!-- Menu -->
     <section id="menu" style="margin: 20px 0 10px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-utensils"></i> <span data-en="Our Menu" data-ne="हाम्रो मेनु">Our Menu</span></div>
       <p class="section-sub animate-on-scroll" data-en="Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites" data-ne="हाम्रा हातले बनाएका परिकार र पेय पदार्थहरू अन्वेषण गर्नुहोस् — प्रामाणिक नेपाली थालीदेखि कन्टिनेन्टल मनपर्नेहरूसम्म">Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites</p>
@@ -1599,6 +1630,7 @@
       </div>
     </section>
 
+    <!-- Rooms -->
     <section id="rooms" class="rooms-section">
       <div class="section-title animate-on-scroll"><i class="fas fa-bed"></i> <span data-en="Rooms &amp; Suites" data-ne="कोठा र सुइटहरू">Rooms &amp; Suites</span></div>
       <p class="section-sub animate-on-scroll" data-en="Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa." data-ne="आधुनिक सुविधाहरू सहित आरामदायी बसाइ। दमक, झापामा तपाईंको गेटवेको लागि उत्तम।">Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa.</p>
@@ -1649,7 +1681,7 @@
         <div class="room-card animate-on-scroll">
           <div class="room-image">
             <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop&crop=center" alt="Executive Suite" loading="lazy" onerror="this.src='https://picsum.photos/seed/suite/600/400';" />
-            <span class="room-badge" style="background:#9b59b6;" data-en="Premium" data-ne="प्रिमियम">Premium</span>
+            <span class="room-badge" style="background:#9b59b6; border-color:var(--gold);" data-en="Premium" data-ne="प्रिमियम">Premium</span>
           </div>
           <div class="room-body">
             <h3 data-en="Executive Suite" data-ne="कार्यकारी सुइट">Executive Suite</h3>
@@ -1677,6 +1709,7 @@
       </div>
     </section>
 
+    <!-- Location -->
     <section id="location" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-map-pin"></i> <span data-en="Find Us" data-ne="हामीलाई फेला पार्नुहोस्">Find Us</span></div>
       <div class="map-container animate-on-scroll">
@@ -1687,16 +1720,17 @@
         <a href="https://www.google.com/maps?q=MM6V%2BWJH%20Damak%2057217&layer=c" target="_blank" rel="noopener" class="btn btn-outline animate-on-scroll" data-en="Street View" data-ne="सडक दृश्य"><i class="fas fa-street-view"></i> <span>Street View</span></a>
         <a href="https://www.google.com/maps/search/?api=1&query=MM6V%2BWJH%20Damak%2057217" target="_blank" rel="noopener" class="btn btn-gold animate-on-scroll" data-en="Open in Google Maps" data-ne="गुगल नक्सामा खोल्नुहोस्"><i class="fas fa-map-marked-alt"></i> <span>Open in Google Maps</span></a>
       </div>
-      <div style="background: rgba(245,242,224,0.3); backdrop-filter:blur(12px); border-radius: 28px; padding: 24px 32px; border: 1px solid rgba(212,184,122,0.06); margin: 16px 0; box-shadow: var(--shadow-glow);" class="animate-on-scroll">
+      <div style="background: rgba(245,242,224,0.3); backdrop-filter:blur(12px); border-radius: 28px; padding: 24px 32px; border: 1px solid var(--gold); margin: 16px 0; box-shadow: var(--shadow-glow);" class="animate-on-scroll">
         <div style="display: flex; flex-wrap: wrap; gap: 16px 40px;">
           <div><i class="fas fa-location-dot" style="color:var(--gold-dark); width:24px;"></i> <span data-en="MM6V+WJH, Damak 57217, Nepal" data-ne="MM6V+WJH, दमक ५७२१७, नेपाल">MM6V+WJH, Damak 57217, Nepal</span></div>
-          <div><i class="fas fa-phone" style="color:var(--gold-dark); width:24px;"></i> <a href="tel:9852630088" style="color:var(--primary); text-decoration:none; font-weight:500;">+977 985-2630088</a> · <a href="tel:023591588" style="color:var(--primary); text-decoration:none; font-weight:500;">023-591588</a></div>
+          <div><i class="fas fa-phone" style="color:var(--gold-dark); width:24px;"></i> <a href="tel:9852630088" style="color:var(--primary-dark); text-decoration:none; font-weight:500;">+977 985-2630088</a> · <a href="tel:023591588" style="color:var(--primary-dark); text-decoration:none; font-weight:500;">023-591588</a></div>
           <div><i class="fas fa-clock" style="color:var(--gold-dark); width:24px;"></i> <span data-en="Mon–Sun: 7:30 AM – 9:30 PM" data-ne="सोम–आइत: बिहान ७:३० – राति ९:३०">Mon–Sun: 7:30 AM – 9:30 PM</span></div>
           <div><i class="fas fa-motorcycle" style="color:var(--delivery-green); width:24px;"></i> <span style="color:var(--delivery-green); font-weight:600;" data-en="Free Delivery within 1 km" data-ne="१ किमि भित्र नि:शुल्क डेलिभरी">Free Delivery within 1 km</span></div>
         </div>
       </div>
     </section>
 
+    <!-- Facilities -->
     <section id="facilities" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-concierge-bell"></i> <span data-en="Our Facilities" data-ne="हाम्रा सुविधाहरू">Our Facilities</span></div>
       <p class="section-sub animate-on-scroll" data-en="Everything we offer to make your visit comfortable and enjoyable — including free delivery within 1 km!" data-ne="तपाईंको भ्रमणलाई आरामदायी र रमाइलो बनाउन हामीले प्रदान गर्ने सबै कुरा — १ किमि भित्र नि:शुल्क डेलिभरी सहित!">Everything we offer to make your visit comfortable and enjoyable — including free delivery within 1 km!</p>
@@ -1709,10 +1743,11 @@
         <div class="facility-card animate-on-scroll"><i class="fas fa-music"></i><h4 data-en="Live Music" data-ne="लाइभ संगीत">Live Music</h4><p data-en="Evenings with local artists" data-ne="स्थानीय कलाकारहरूसँग साँझ">Evenings with local artists</p></div>
         <div class="facility-card animate-on-scroll"><i class="fas fa-coffee"></i><h4 data-en="Takeaway" data-ne="टेकअवे">Takeaway</h4><p data-en="Order &amp; pick up on the go" data-ne="अर्डर गर्नुहोस् र जाँदै लिनुहोस्">Order &amp; pick up on the go</p></div>
         <div class="facility-card animate-on-scroll"><i class="fas fa-credit-card"></i><h4 data-en="Card Payment" data-ne="कार्ड भुक्तानी">Card Payment</h4><p data-en="Visa, Mastercard &amp; mobile" data-ne="भिसा, मास्टरकार्ड र मोबाइल">Visa, Mastercard &amp; mobile</p></div>
-        <div class="facility-card animate-on-scroll" style="border-color:var(--delivery-green); background:var(--delivery-light);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i><h4 style="color:var(--delivery-green);" data-en="Free Delivery" data-ne="नि:शुल्क डेलिभरी">Free Delivery</h4><p data-en="Within 1 km radius" data-ne="१ किमि दायरा भित्र">Within 1 km radius</p></div>
+        <div class="facility-card animate-on-scroll" style="border-color:var(--gold); background:var(--delivery-light);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i><h4 style="color:var(--delivery-green);" data-en="Free Delivery" data-ne="नि:शुल्क डेलिभरी">Free Delivery</h4><p data-en="Within 1 km radius" data-ne="१ किमि दायरा भित्र">Within 1 km radius</p></div>
       </div>
     </section>
 
+    <!-- Book Now -->
     <section id="book-now" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-calendar-check"></i> <span data-en="Book a Table / Room" data-ne="टेबल / कोठा बुक गर्नुहोस्">Book a Table / Room</span></div>
       <div class="book-section animate-on-scroll">
@@ -1720,20 +1755,22 @@
         <p style="max-width: 500px; margin: 16px auto; color: var(--text-soft);" data-en="Planning a visit or a stay? Give us a call to book your table or room in advance and avoid the wait. Or order delivery and enjoy Bella Cafe at home!" data-ne="भ्रमण वा बसाइको योजना बनाउँदै हुनुहुन्छ? अग्रिम रूपमा तपाईंको टेबल वा कोठा बुक गर्न हामीलाई कल गर्नुहोस् र पर्खाइबाट बच्नुहोस्। वा डेलिभरी अर्डर गर्नुहोस् र घरमै बेला क्याफेको आनन्द लिनुहोस्!">Planning a visit or a stay? Give us a call to book your table or room in advance and avoid the wait. Or order delivery and enjoy Bella Cafe at home!</p>
         <a href="tel:9852630088" class="btn btn-gold" style="font-size:1.2rem; padding:16px 48px; margin-top:12px;"><i class="fas fa-phone-alt"></i> +977 985-2630088</a>
         <p style="margin-top:20px; color: #6d7f5e; font-size:0.9rem;" data-en="Or reach out to us on WhatsApp" data-ne="वा हामीलाई ह्वाट्सएपमा सम्पर्क गर्नुहोस्">Or reach out to us on WhatsApp</p>
-        <a href="https://wa.me/9779852630088" target="_blank" class="btn" style="background:#25d366; border-color:#25d366; margin-top:8px;" data-en="WhatsApp" data-ne="ह्वाट्सएप"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://wa.me/9779852630088" target="_blank" class="btn" style="background:#25d366; border-color:var(--gold); margin-top:8px;" data-en="WhatsApp" data-ne="ह्वाट्सएप"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-headset"></i> <span data-en="Contact &amp; Hours" data-ne="सम्पर्क र समय">Contact &amp; Hours</span></div>
       <div class="contact-grid">
         <div class="contact-card animate-on-scroll"><i class="fas fa-phone-alt"></i><h3 data-en="Call us" data-ne="हामीलाई कल गर्नुहोस्">Call us</h3><p>985-2630088 · 023-591588</p></div>
         <div class="contact-card animate-on-scroll"><i class="fas fa-envelope"></i><h3 data-en="Email" data-ne="ईमेल">Email</h3><p>bellacafedamak5@gmail.com</p></div>
-        <div class="contact-card animate-on-scroll"><i class="fab fa-whatsapp"></i><h3 data-en="WhatsApp" data-ne="ह्वाट्सएप">WhatsApp</h3><p><a href="https://wa.me/9779852630088" target="_blank" style="color:var(--primary); font-weight:500;">+977 985-2630088</a></p></div>
-        <div class="contact-card animate-on-scroll" style="border-color:var(--delivery-green); background:var(--delivery-light);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i><h3 style="color:var(--delivery-green);" data-en="Free Delivery" data-ne="नि:शुल्क डेलिभरी">Free Delivery</h3><p data-en="Within 1 km · Call or WhatsApp to order" data-ne="१ किमि भित्र · अर्डर गर्न कल वा ह्वाट्सएप गर्नुहोस्">Within 1 km · Call or WhatsApp to order</p></div>
+        <div class="contact-card animate-on-scroll"><i class="fab fa-whatsapp"></i><h3 data-en="WhatsApp" data-ne="ह्वाट्सएप">WhatsApp</h3><p><a href="https://wa.me/9779852630088" target="_blank" style="color:var(--primary-dark); font-weight:500;">+977 985-2630088</a></p></div>
+        <div class="contact-card animate-on-scroll" style="border-color:var(--gold); background:var(--delivery-light);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i><h3 style="color:var(--delivery-green);" data-en="Free Delivery" data-ne="नि:शुल्क डेलिभरी">Free Delivery</h3><p data-en="Within 1 km · Call or WhatsApp to order" data-ne="१ किमि भित्र · अर्डर गर्न कल वा ह्वाट्सएप गर्नुहोस्">Within 1 km · Call or WhatsApp to order</p></div>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq" style="margin: 40px 0 24px;">
       <div class="section-title animate-on-scroll"><i class="fas fa-question-circle"></i> <span data-en="Frequently Asked Questions" data-ne="बारम्बार सोधिने प्रश्नहरू">Frequently Asked Questions</span></div>
       <p class="section-sub animate-on-scroll" data-en="Quick answers to the most common questions about Bella Cafe — the best restaurant in Damak, Jhapa" data-ne="बेला क्याफेको बारेमा सबैभन्दा सामान्य प्रश्नहरूको द्रुत उत्तर — दमक, झापाको उत्कृष्ट रेस्टुरेन्ट">Quick answers to the most common questions about Bella Cafe — the best restaurant in Damak, Jhapa</p>
@@ -1767,7 +1804,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- FOOTER (unchanged)                           -->
+  <!-- FOOTER (green + gold)                        -->
   <!-- ============================================ -->
   <footer class="footer">
     <div class="container">
@@ -1820,7 +1857,7 @@
   </footer>
 
   <!-- ============================================ -->
-  <!-- FLOATING BUTTONS (unchanged)                 -->
+  <!-- FLOATING BUTTONS (green + gold)              -->
   <!-- ============================================ -->
   <div class="float-buttons">
     <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener" class="float-btn whatsapp" data-en="Order Delivery" data-ne="डेलिभरी अर्डर गर्नुहोस्">
@@ -1834,7 +1871,7 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- LIGHTBOX (unchanged)                         -->
+  <!-- LIGHTBOX                                     -->
   <!-- ============================================ -->
   <div class="lightbox" id="lightbox">
     <button class="close-lightbox" id="closeLightbox"><i class="fas fa-times"></i></button>
@@ -1843,19 +1880,17 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- SCRIPTS (unchanged logic, updated for notice)-->
+  <!-- SCRIPTS (unchanged logic)                    -->
   <!-- ============================================ -->
   <script>
     const CLOUDINARY_CONFIG = { cloudName: 'demo' };
 
-    // Remove intro overlay after 3.1s & show notice
     setTimeout(function() {
       const overlay = document.getElementById('intro-overlay');
       if (overlay) overlay.remove();
       document.getElementById('notice-popup').classList.add('open');
     }, 3100);
 
-    // Notice close handlers
     function closeNotice() {
       document.getElementById('notice-popup').classList.remove('open');
     }
@@ -1865,7 +1900,6 @@
       if (e.target === this) closeNotice();
     });
 
-    // Slider helpers
     function createSlider(trackId, dotsId, prevId, nextId, auto = true) {
       const track = document.getElementById(trackId);
       const slides = track.querySelectorAll('.slider-slide');
@@ -1897,7 +1931,6 @@
     createSlider('heroTrack', 'heroDots', 'heroPrev', 'heroNext', true);
     createSlider('aboutTrack', 'aboutDots', 'aboutPrev', 'aboutNext', true);
 
-    // Review slider
     function createReviewSlider(trackId, dotsId, prevId, nextId) {
       const track = document.getElementById(trackId);
       const slides = track.querySelectorAll('.review-card');
@@ -1937,7 +1970,6 @@
     }
     createReviewSlider('reviewTrack', 'reviewDots', 'reviewPrev', 'reviewNext');
 
-    // Mobile menu
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
@@ -1945,7 +1977,6 @@
       link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
     });
 
-    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -1969,7 +2000,6 @@
     lightbox.addEventListener('click', function(e) { if (e.target === this) closeLightboxFn(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightboxFn(); });
 
-    // Scroll animations
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1982,7 +2012,6 @@
       document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     });
 
-    // Smooth anchor scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -1994,7 +2023,6 @@
       });
     });
 
-    // BILINGUAL TRANSLATION
     function setLanguage(lang) {
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-en][data-ne]').forEach(el => {
@@ -2066,7 +2094,6 @@
 
     setLanguage('en');
 
-    // Notice images with Cloudinary (fallback)
     function setNoticeImage(id, publicId) {
       const img = document.getElementById(id);
       if (img) {
@@ -2084,7 +2111,7 @@
     setNoticeImage('noticeImg2', 'cafe');
     setNoticeImage('noticeImg3', 'coffee');
 
-    console.log('☕ Bella Cafe · Bilingual · Free Delivery 1km · Notice at top-right.');
+    console.log('☕ Bella Cafe · Green theme + Gold outlines · Bilingual · Free Delivery 1km');
   </script>
 </body>
 </html>
