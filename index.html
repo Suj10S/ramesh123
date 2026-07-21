@@ -61,74 +61,8 @@
       z-index: 1;
     }
 
-    /* ----- INTRO OVERLAY (green + gold) ----- */
-    #intro-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #0f2b19;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-      animation: fadeOutOverlay 0.6s ease-in-out 2.4s forwards;
-    }
-    .intro-content {
-      text-align: center;
-      animation: introZoom 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-    .intro-logo {
-      width: 180px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      animation: gentlePulse 3s ease-in-out infinite;
-      border-radius: 50%;
-      border: 4px solid var(--gold);
-      object-fit: cover;
-      box-shadow: 0 0 40px rgba(212,184,122,0.2);
-    }
-    .intro-brand {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 0;
-      letter-spacing: 2px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.3s forwards;
-    }
-    .intro-brand span { color: var(--gold); }
-    .intro-tagline {
-      color: var(--gold-light);
-      font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      margin-top: 8px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out 0.6s forwards;
-    }
-    @keyframes introZoom {
-      0% { transform: scale(0.6) rotate(-3deg); opacity: 0; }
-      70% { transform: scale(1.05) rotate(0.5deg); opacity: 1; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-    @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.06); }
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeOutOverlay {
-      0% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
+    /* ----- INTRO OVERLAY (green + gold) - REMOVED for 0s loading ----- */
+    /* No intro overlay */
 
     /* ----- NOTICE POPUP (green + gold outline) ----- */
     #notice-popup {
@@ -139,9 +73,8 @@
       width: calc(100% - 40px);
       z-index: 99998;
       animation: slideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      display: none;
+      display: block;
     }
-    #notice-popup.open { display: block; }
     @keyframes slideDown {
       from { opacity: 0; transform: translateY(-20px) scale(0.96); }
       to { opacity: 1; transform: translateY(0) scale(1); }
@@ -1361,18 +1294,7 @@
 <body>
 
   <!-- ============================================ -->
-  <!-- INTRO OVERLAY (green + gold)                -->
-  <!-- ============================================ -->
-  <div id="intro-overlay">
-    <div class="intro-content">
-      <img src="fav.jpeg" alt="Hotel Bella Cafe Logo" class="intro-logo" />
-      <h1 class="intro-brand">Bella <span>Cafe</span></h1>
-      <p class="intro-tagline">Time for good food.</p>
-    </div>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- NOTICE POPUP (green + gold outline)          -->
+  <!-- NOTICE POPUP (green + gold outline) - visible immediately -->
   <!-- ============================================ -->
   <div id="notice-popup">
     <div class="notice-card">
@@ -2083,17 +2005,12 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- SCRIPTS (unchanged logic)                    -->
+  <!-- SCRIPTS (unchanged logic, no intro overlay)  -->
   <!-- ============================================ -->
   <script>
     const CLOUDINARY_CONFIG = { cloudName: 'demo' };
 
-    setTimeout(function() {
-      const overlay = document.getElementById('intro-overlay');
-      if (overlay) overlay.remove();
-      document.getElementById('notice-popup').classList.add('open');
-    }, 3100);
-
+    // No intro overlay — removed for 0s loading
     function closeNotice() {
       document.getElementById('notice-popup').classList.remove('open');
     }
@@ -2314,7 +2231,7 @@
     setNoticeImage('noticeImg2', 'cafe');
     setNoticeImage('noticeImg3', 'coffee');
 tent 
-    console.log('☕ Bella Cafe · Green theme + Gold outlines · Bilingual · Free Delivery 1km');
+    console.log('☕ Bella Cafe · Green theme + Gold outlines · Bilingual · Free Delivery 1km · 0s loading');
   </script>
 </body>
 </html>
