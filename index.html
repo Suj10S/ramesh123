@@ -1,11 +1,14 @@
-<!doctype html>
-<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260722-05-f3252b3"}');</script><script src="/_sdk/e358eac22bd01364.telemetry_sdk.js" integrity="sha512-KPxp3rw4K8Nu9ceWJc3gyM7srgaZxiFWOVbyu260EYzzAqdz10mfo5xyXrCx+wEKtGo77JbtmwXvFLbwrGzwvw=="></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Bella Cafe &amp; Restaurant - Damak, Jhapa</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- favicon -->
+  <link rel="icon" href="fav.jpg" type="image/jpeg">
   <style>
     :root {
       --gold: #d4af37;
@@ -16,7 +19,7 @@
       --delivery-green: #16a34a;
       --delivery-light: #dcfce7;
     }
-    body { font-family: 'DM Sans', sans-serif; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--green); color: #fff; }
     h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
 
     #intro-overlay {
@@ -26,7 +29,7 @@
       animation: fadeOut 0.8s ease 2.8s forwards;
     }
     .intro-content { text-align: center; color: #fff; animation: scaleIn 0.6s ease; }
-    .intro-logo { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--gold); margin: 0 auto 16px; }
+    .intro-logo { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--gold); margin: 0 auto 16px; object-fit: cover; }
     .intro-brand { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; }
     .intro-brand span { color: var(--gold); }
     .intro-tagline { color: var(--gold); font-size: 1.1rem; margin-top: 8px; }
@@ -43,7 +46,7 @@
       background: #fff; border-radius: 24px; padding: 32px; max-width: 420px; width: 100%;
       position: relative; border: 2px solid var(--gold); box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
-    .notice-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 12px 0 8px; }
+    .notice-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 12px 0 8px; color: #222; }
     .notice-badge { background: var(--gold); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
     .close-notice { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666; }
     .notice-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -53,12 +56,12 @@
 
     .navbar {
       position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      background: rgba(212,175,55,0.95); backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--gold); padding: 12px 0;
     }
     .navbar .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
     .logo-block { display: flex; align-items: center; gap: 10px; }
-    .logo-block img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); }
+    .logo-block img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
     .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--green); }
     .logo-text span { color: var(--gold-dark); }
     .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
@@ -183,7 +186,7 @@
     .site-footer { background: var(--green); color: #fff; padding: 48px 0 24px; margin-top: 48px; }
     .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
     .footer-brand .logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .footer-brand .logo-wrap img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); }
+    .footer-brand .logo-wrap img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
     .footer-brand .logo-wrap span { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
     .footer-social { display: flex; gap: 10px; margin-top: 12px; }
     .footer-social a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
@@ -209,579 +212,348 @@
     .animate-on-scroll.active, .animate-from-left.active, .animate-from-right.active { opacity: 1; transform: translate(0); }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
-  <script src="/_sdk/935a53bc2e11fb8d.data_sdk.js" type="text/javascript" integrity="sha512-qr2oyPnEys1WebcOABaRh6hG77r5PWpqeWW6JTKbRJqly/INsfBi31CVNlTmHqjgeLpkVmmHZJUdxSx/32tOFQ=="></script>
-  <script src="/_sdk/7831c9b82769a23f.resizing_sdk.js" type="text/javascript" integrity="sha512-8T/qhF3yB5dtqHof6yvY2492zFsme1nYV1+FuXfYvPz63uo2L30fnKiOabmH0Sl3qhplMLgxjytDR8IvycRwKQ=="></script>
- </head>
- <body data-template-id="__page-root" class="w-full min-h-screen" style="background: rgb(27, 77, 46);"><!-- Intro -->
+</head>
+<body data-template-id="__page-root" class="w-full min-h-screen">
+  <!-- Intro -->
   <div id="intro-overlay">
-   <div class="intro-content"><img data-template-id="intro-logo" class="canva-image intro-logo" loading="lazy" src="https://images.pexels.com/photos/37514017/pexels-photo-37514017.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Bella Cafe Logo">
-    <h1 class="intro-brand">Bella <span>Cafe</span></h1>
-    <p class="intro-tagline" data-i18n="intro-tagline">Time for good food.</p>
-   </div>
-  </div><!-- Notice -->
-  <div id="notice-popup">
-   <div class="notice-card"><button class="close-notice" id="closeNoticeBtn" aria-label="Close notice"><i class="fas fa-times"></i></button> <span class="notice-badge">🎉 <span data-i18n="notice-badge">Limited Offer</span></span>
-    <h3 data-i18n="notice-heading">🌿 Welcome to Bella Cafe!</h3>
-    <p style="font-size:0.85rem;color:#555;margin:8px 0;" data-i18n="notice-sub">Authentic Nepali flavors &amp; premium coffee</p>
-    <div style="display:flex;gap:8px;margin:12px 0;"><img data-template-id="notice-img-1" class="canva-image" style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="https://images.pexels.com/photos/36460904/pexels-photo-36460904.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Traditional Nepali thali"> <img data-template-id="notice-img-2" class="canva-image" style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="https://images.pexels.com/photos/15100116/pexels-photo-15100116.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Latte art coffee"> <img data-template-id="notice-img-3" class="canva-image" style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="https://images.pexels.com/photos/31708714/pexels-photo-31708714.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Cheesecake dessert">
+    <div class="intro-content">
+      <img class="intro-logo" loading="lazy" src="fav.jpg" alt="Bella Cafe Logo">
+      <h1 class="intro-brand">Bella <span>Cafe</span></h1>
+      <p class="intro-tagline" data-i18n="intro-tagline">Time for good food.</p>
     </div>
-    <p style="font-size:0.8rem;color:var(--gold-dark);font-weight:600;"><i class="fas fa-tag"></i> <span data-i18n="notice-offer">20% off on first dine-in + free delivery 1km</span></p>
-    <div class="notice-actions"><a href="#menu" class="btn-notice btn-notice-gold" id="noticeMenuBtn"><i class="fas fa-utensils"></i> <span data-i18n="nav-menu">Menu</span></a> <a href="#rooms" class="btn-notice" id="noticeRoomsBtn"><i class="fas fa-bed"></i> <span data-i18n="nav-rooms">Rooms</span></a> <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" class="btn-notice btn-notice-outline"><i class="fab fa-whatsapp"></i> <span data-i18n="order">Order</span></a> <button class="btn-notice btn-notice-outline" id="closeNoticeBtn2" data-i18n="close">Close</button>
-    </div>
-   </div>
-  </div><!-- Navbar -->
-  <nav class="navbar" aria-label="Main navigation">
-   <div class="nav-container">
-    <div class="logo-block"><img data-template-id="nav-logo" class="canva-image" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);" loading="lazy" src="https://images.pexels.com/photos/37514017/pexels-photo-37514017.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Bella Cafe Logo">
-     <div class="logo-text">
-      Bella <span>Cafe</span>
-     </div>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;"><button class="hamburger" id="menuToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button> <button class="lang-toggle" id="langToggle">NE</button>
-    </div>
-    <div class="nav-links" id="navLinks"><a href="#home"><i class="fas fa-home"></i> <span data-i18n="nav-home">Home</span></a> <a href="#about"><i class="fas fa-info-circle"></i> <span data-i18n="nav-about">About</span></a> <a href="#reviews"><i class="fas fa-star"></i> <span data-i18n="nav-reviews">Reviews</span></a> <a href="#gallery"><i class="fas fa-images"></i> <span data-i18n="nav-gallery">Gallery</span></a> <a href="#menu"><i class="fas fa-utensils"></i> <span data-i18n="nav-menu">Menu</span></a> <a href="#rooms"><i class="fas fa-bed"></i> <span data-i18n="nav-rooms">Rooms</span></a> <a href="#location"><i class="fas fa-map-pin"></i> <span data-i18n="nav-location">Location</span></a> <a href="#facilities"><i class="fas fa-concierge-bell"></i> <span data-i18n="nav-facilities">Facilities</span></a> <a href="#contact"><i class="fas fa-phone"></i> <span data-i18n="nav-contact">Contact</span></a>
-    </div>
-   </div>
-  </nav><!-- Hero -->
-  <section id="home" class="hero">
-   <div class="hero-grid">
-    <div class="hero-content animate-from-left">
-     <h1 data-template-id="hero-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 32px;">Bella Cafe &amp; Restaurant</h1>
-     <div data-template-id="hero-tagline" class="canva-text tagline" style="color: rgb(212, 175, 55); font-weight: 500; font-style: normal; font-size: 16px;">Time for good food. · MM6V+WJH, Damak 57217, Nepal · Free Delivery 1km</div>
-     <div class="hero-stats"><span class="stat-item"><i class="fas fa-star"></i> 4.8 ★ (12 <span data-i18n="reviews-word">reviews</span>)</span> <span class="stat-item"><i class="fas fa-utensils"></i> <span data-i18n="service-types">Dine-in · Takeaway · Delivery</span></span> <span class="stat-item"><i class="fas fa-clock"></i> <span data-i18n="hours">Mon–Sun: 7:30 AM – 9:30 PM</span></span> <span class="stat-item" style="background:var(--delivery-light);border-color:var(--gold);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green);font-weight:700;" data-i18n="free-delivery">Free Delivery 1km</span></span>
-     </div>
-     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;"><a href="#reviews" class="btn"><i class="fas fa-star"></i> <span data-i18n="see-reviews">See Reviews</span></a> <a href="#rooms" class="btn btn-gold"><i class="fas fa-bed"></i> <span data-i18n="view-rooms">View Rooms</span></a> <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;border-color:var(--gold);"><i class="fab fa-whatsapp"></i> <span data-i18n="order-delivery">Order Delivery</span></a>
-     </div>
-    </div>
-    <div class="hero-slider animate-from-right">
-     <div class="slider-container">
-      <div class="slider-track" id="heroTrack"><img data-template-id="hero-slide-1" class="canva-image slider-slide" loading="lazy" src="https://images.pexels.com/photos/827528/pexels-photo-827528.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Warm and inviting cafe interior featuring modern pendant lighting"> <img data-template-id="hero-slide-2" class="canva-image slider-slide" loading="lazy" src="https://images.pexels.com/photos/36460904/pexels-photo-36460904.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Traditional Nepali thali with rice, vegetables, and curry"> <img data-template-id="hero-slide-3" class="canva-image slider-slide" loading="lazy" src="https://images.pexels.com/photos/15100116/pexels-photo-15100116.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Frothy coffee with latte art on rustic wooden table"> <img data-template-id="hero-slide-4" class="canva-image slider-slide" loading="lazy" src="https://images.pexels.com/photos/279805/pexels-photo-279805.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Stylish hotel room with elegant bedding and modern furnishings">
-      </div><button class="slider-btn prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button> <button class="slider-btn next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
-      <div class="slider-dots" id="heroDots"></div>
-     </div>
-    </div>
-   </div>
-  </section>
-  <div class="main-container"><!-- Delivery -->
-   <div class="delivery-card animate-on-scroll">
-    <div class="delivery-icon-large">
-     <i class="fas fa-motorcycle"></i>
-    </div>
-    <div class="delivery-text">
-     <h3 data-template-id="delivery-title" class="canva-text" style="color: rgb(45, 80, 22); font-weight: 600; font-style: normal; font-size: 19px;">Free Delivery Within 1km</h3>
-     <p data-template-id="delivery-desc" class="canva-text" style="font-size: 15px; color: rgb(85, 85, 85); margin-top: 6px; font-weight: 500; font-style: normal;">Order your favorite meals and get them delivered to your doorstep at no extra cost.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;"><a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;"><i class="fab fa-whatsapp"></i> <span data-i18n="order-now">Order Now</span></a> <a href="tel:9852630088" class="btn btn-outline"><i class="fas fa-phone"></i> <span data-i18n="call-order">Call to Order</span></a>
-    </div>
-   </div><!-- About -->
-   <section id="about" style="margin:48px 0 24px;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-info-circle"></i> <span data-i18n="about-title">About Us</span>
-    </div>
-    <div class="about-grid">
-     <div class="animate-from-left">
-      <p data-template-id="about-text-1" class="canva-text" style="line-height: 1.7; color: rgb(212, 175, 55); font-weight: 500; font-style: normal; font-size: 16px;">Bella Cafe &amp; Restaurant is the top-rated family restaurant in Damak, Jhapa, offering authentic Nepali cuisine, premium coffee, and a cozy atmosphere. Whether you're looking for a quick bite or a relaxing meal, we bring you the best of local and international flavors.</p>
-      <p data-template-id="about-text-2" class="canva-text" style="line-height: 1.7; margin-top: 14px; color: rgb(212, 175, 55); font-weight: 500; font-style: normal; font-size: 16px;">Visit us at MM6V+WJH, Damak 57217 to experience the true taste of Jhapa. Open 7:30 AM – 9:30 PM daily. We also offer free delivery within 1km — order your favorite dishes and enjoy them at home!</p>
-      <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;"><span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="fresh-ingredients">Fresh Ingredients</span></span> <span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="expert-baristas">Expert Baristas</span></span> <span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="cozy-vibes">Cozy Vibes</span></span> <span style="background:var(--delivery-light);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;color:var(--delivery-green);"><i class="fas fa-motorcycle"></i> <span data-i18n="free-delivery">Free Delivery 1km</span></span>
-      </div>
-     </div>
-     <div class="animate-from-right"><iframe src="https://www.youtube.com/embed/_u_MGPOV-8k?si=ricwLhiTa56OXVD5&amp;autoplay=0&amp;rel=0" title="Tour of Hotel Bella Cafe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy"></iframe>
-     </div>
-    </div>
-   </section><!-- Reviews -->
-   <section id="reviews" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-star"></i> <span data-i18n="reviews-title">Google Reviews</span>
-    </div>
-    <p class="section-sub animate-on-scroll" data-i18n="reviews-sub">What our customers say about Bella Cafe</p>
-    <div class="review-slider-wrap animate-on-scroll">
-     <div style="overflow:hidden;">
-      <div class="review-track" id="reviewTrack">
-       <div class="review-card">
-        <div class="stars">
-         ★★★★★
-        </div>
-        <div class="review-text" data-i18n="review-1">
-         Amazing food and great ambiance! The Nepali thali is a must-try.
-        </div>
-        <div class="reviewer">
-         <div class="avatar">
-          R
-         </div>
-         <div>
-          <div class="name">
-           Rajesh K.
-          </div>
-          <div class="date">
-           2 weeks ago
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="review-card">
-        <div class="stars">
-         ★★★★★
-        </div>
-        <div class="review-text" data-i18n="review-2">
-         Best coffee in Damak. The staff is incredibly friendly and welcoming.
-        </div>
-        <div class="reviewer">
-         <div class="avatar">
-          S
-         </div>
-         <div>
-          <div class="name">
-           Sunita M.
-          </div>
-          <div class="date">
-           1 month ago
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="review-card">
-        <div class="stars">
-         ★★★★☆
-        </div>
-        <div class="review-text" data-i18n="review-3">
-         Great place for family dinners. Rooms are clean and comfortable too.
-        </div>
-        <div class="reviewer">
-         <div class="avatar">
-          A
-         </div>
-         <div>
-          <div class="name">
-           Anil B.
-          </div>
-          <div class="date">
-           3 weeks ago
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="review-card">
-        <div class="stars">
-         ★★★★★
-        </div>
-        <div class="review-text" data-i18n="review-4">
-         Free delivery was quick and the food arrived hot. Highly recommend!
-        </div>
-        <div class="reviewer">
-         <div class="avatar">
-          P
-         </div>
-         <div>
-          <div class="name">
-           Priya S.
-          </div>
-          <div class="date">
-           1 week ago
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="review-card">
-        <div class="stars">
-         ★★★★★
-        </div>
-        <div class="review-text" data-i18n="review-5">
-         The momos here are simply divine. Perfect spice level.
-        </div>
-        <div class="reviewer">
-         <div class="avatar">
-          K
-         </div>
-         <div>
-          <div class="name">
-           Kumar T.
-          </div>
-          <div class="date">
-           5 days ago
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div><button class="review-nav-btn prev" id="reviewPrev"><i class="fas fa-chevron-left"></i></button> <button class="review-nav-btn next" id="reviewNext"><i class="fas fa-chevron-right"></i></button>
-    </div>
-   </section><!-- Gallery -->
-   <section id="gallery" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-images"></i> <span data-i18n="gallery-title">Our Gallery</span>
-    </div>
-    <p class="section-sub animate-on-scroll" data-i18n="gallery-sub">A glimpse of our food, ambiance, and moments at Bella Cafe</p>
-    <div class="gallery-grid">
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-1" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/7243881/pexels-photo-7243881.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Elegant gourmet dishes beautifully presented on stylish plates">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-1">Gourmet Plating</span>
-      </div>
-     </div>
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-2" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/34006322/pexels-photo-34006322.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Cozy indoor cafe corner with lush green plants and wooden furniture">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-2">Cozy Interior</span>
-      </div>
-     </div>
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-3" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/619328/pexels-photo-619328.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="French breakfast with croissants, coffee, and fruits">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-3">Breakfast Spread</span>
-      </div>
-     </div>
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-4" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/18823960/pexels-photo-18823960.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Intimate outdoor dining with candlelit tables on a charming terrace">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-4">Evening Terrace</span>
-      </div>
-     </div>
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-5" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/24357593/pexels-photo-24357593.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Chef in a cozy kitchen preparing food">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-5">Our Kitchen</span>
-      </div>
-     </div>
-     <div class="gallery-item animate-on-scroll">
-      <img data-template-id="gallery-6" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/12743269/pexels-photo-12743269.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Variety of cakes on display in a bakery">
-      <div class="gallery-overlay">
-       <i class="fas fa-expand"></i> <span data-i18n="gal-6">Sweet Treats</span>
-      </div>
-     </div>
-    </div>
-   </section><!-- Menu -->
-   <section id="menu" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-utensils"></i> <span data-i18n="menu-title">Our Menu</span>
-    </div>
-    <p class="section-sub animate-on-scroll" data-i18n="menu-sub">From authentic Nepali thali to continental favorites</p>
-    <div class="menu-grid animate-on-scroll">
-     <div class="menu-category">
-      <h3><i class="fas fa-mug-hot"></i> <span data-i18n="cat-hot">Hot Beverages</span></h3>
-      <div class="menu-item">
-       <span data-i18n="m-americano">Americano</span><span class="price">Rs. 180</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-cappuccino">Cappuccino</span><span class="price">Rs. 220</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-masala-tea">Masala Tea</span><span class="price">Rs. 80</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-hot-choco">Hot Chocolate</span><span class="price">Rs. 200</span>
-      </div>
-     </div>
-     <div class="menu-category">
-      <h3><i class="fas fa-bowl-food"></i> <span data-i18n="cat-nepali">Nepali Cuisine</span></h3>
-      <div class="menu-item">
-       <span data-i18n="m-thali">Nepali Thali</span><span class="price">Rs. 350</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-momo">Chicken Momo (10pc)</span><span class="price">Rs. 200</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-sekuwa">Buff Sekuwa</span><span class="price">Rs. 300</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-dalbhat">Dal Bhat Set</span><span class="price">Rs. 280</span>
-      </div>
-     </div>
-     <div class="menu-category">
-      <h3><i class="fas fa-pizza-slice"></i> <span data-i18n="cat-continental">Continental</span></h3>
-      <div class="menu-item">
-       <span data-i18n="m-pizza">Margherita Pizza</span><span class="price">Rs. 450</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-burger">Chicken Burger</span><span class="price">Rs. 280</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-pasta">Pasta Alfredo</span><span class="price">Rs. 320</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-sandwich">Club Sandwich</span><span class="price">Rs. 250</span>
-      </div>
-     </div>
-     <div class="menu-category">
-      <h3><i class="fas fa-ice-cream"></i> <span data-i18n="cat-desserts">Desserts</span></h3>
-      <div class="menu-item">
-       <span data-i18n="m-brownie">Chocolate Brownie</span><span class="price">Rs. 180</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-sundae">Ice Cream Sundae</span><span class="price">Rs. 220</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-gulab">Gulab Jamun</span><span class="price">Rs. 120</span>
-      </div>
-      <div class="menu-item">
-       <span data-i18n="m-cheesecake">Cheesecake</span><span class="price">Rs. 250</span>
-      </div>
-     </div>
-    </div>
-   </section><!-- Rooms -->
-   <section id="rooms" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-bed"></i> <span data-i18n="rooms-title">Rooms &amp; Suites</span>
-    </div>
-    <p class="section-sub animate-on-scroll" data-i18n="rooms-sub">Comfortable stays with modern amenities in Damak, Jhapa</p>
-    <div class="rooms-grid">
-     <div class="room-card animate-on-scroll">
-      <div class="room-image">
-       <img data-template-id="standard-room" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/26840829/pexels-photo-26840829.png?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Clean and contemporary hotel room with minimalist bedding"><span class="room-badge">Standard</span>
-      </div>
-      <div class="room-body">
-       <h3 data-template-id="standard-room-name" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 600; font-style: normal; font-size: 19px;">Standard Room</h3>
-       <p style="font-size:0.8rem;color:#aaa;" data-i18n="std-desc">2 Guests · Clean &amp; Comfortable</p>
-       <div class="room-amenities">
-        <span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-shower"></i> <span data-i18n="attached-bath">Attached Bath</span></span>
-       </div>
-       <div class="room-footer">
-        <div class="room-price">
-         Rs. 4,500 <small>/ <span data-i18n="night">night</span></small>
-        </div><a href="https://wa.me/9779852630088?text=Is%20the%20Standard%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a>
-       </div>
-      </div>
-     </div>
-     <div class="room-card animate-on-scroll">
-      <div class="room-image">
-       <img data-template-id="deluxe-room" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/17836120/pexels-photo-17836120.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Elegant vintage hotel room with ornate decor and luxurious furnishings"><span class="room-badge">Deluxe</span>
-      </div>
-      <div class="room-body">
-       <h3 data-template-id="deluxe-room-name" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 600; font-style: normal; font-size: 19px;">Deluxe Room</h3>
-       <p style="font-size:0.8rem;color:#aaa;" data-i18n="dlx-desc">2 Guests · Premium Comfort</p>
-       <div class="room-amenities">
-        <span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-coffee"></i> Coffee</span>
-       </div>
-       <div class="room-footer">
-        <div class="room-price">
-         Rs. 4,000 <small>/ <span data-i18n="night">night</span></small>
-        </div><a href="https://wa.me/9779852630088?text=Is%20the%20Deluxe%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a>
-       </div>
-      </div>
-     </div>
-     <div class="room-card animate-on-scroll">
-      <div class="room-image">
-       <img data-template-id="suite-room" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/35868592/pexels-photo-35868592.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Spacious modern bedroom with elegant furniture"><span class="room-badge premium">Suite</span>
-      </div>
-      <div class="room-body">
-       <h3 data-template-id="suite-room-name" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 600; font-style: normal; font-size: 19px;">Premium Suite</h3>
-       <p style="font-size:0.8rem;color:#aaa;" data-i18n="suite-desc">3 Guests · Luxury Experience</p>
-       <div class="room-amenities">
-        <span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-hot-tub-person"></i> Jacuzzi</span>
-       </div>
-       <div class="room-footer">
-        <div class="room-price">
-         Rs. 5,000 <small>/ <span data-i18n="night">night</span></small>
-        </div><a href="https://wa.me/9779852630088?text=Is%20the%20Suite%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a>
-       </div>
-      </div>
-     </div>
-     <div class="room-card animate-on-scroll">
-      <div class="room-image">
-       <img data-template-id="family-room" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/29000006/pexels-photo-29000006.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Spacious hotel room with two beds and natural light"><span class="room-badge">Family</span>
-      </div>
-      <div class="room-body">
-       <h3 data-template-id="family-room-name" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 600; font-style: normal; font-size: 19px;">Family Room</h3>
-       <p style="font-size:0.8rem;color:#aaa;" data-i18n="fam-desc">4 Guests · Spacious &amp; Bright</p>
-       <div class="room-amenities">
-        <span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-utensils"></i> Minibar</span>
-       </div>
-       <div class="room-footer">
-        <div class="room-price">
-         Rs. 5,500 <small>/ <span data-i18n="night">night</span></small>
-        </div><a href="https://wa.me/9779852630088?text=Is%20the%20Family%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div style="text-align:center;margin-top:28px;"><a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20inquire%20about%20room%20availability." target="_blank" rel="noopener noreferrer" class="btn btn-gold animate-on-scroll"><i class="fas fa-calendar-check"></i> <span data-i18n="check-availability">Check Availability</span></a>
-    </div>
-   </section><!-- Location -->
-   <section id="location" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-map-pin"></i> <span data-i18n="location-title">Find Us</span>
-    </div>
-    <div class="map-container animate-on-scroll"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.123456!2d87.68!3d26.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBella+Cafe+Damak!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bella Cafe location"></iframe>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:20px 0;" class="animate-on-scroll"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=MM6V%2BWJH%20Damak%2057217" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-directions"></i> <span data-i18n="get-directions">Get Directions</span></a> <a href="https://www.google.com/maps?q=MM6V%2BWJH%20Damak%2057217&amp;layer=c" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-street-view"></i> <span data-i18n="street-view">Street View</span></a>
-    </div>
-    <div style="background:rgba(245,242,224,0.4);backdrop-filter:blur(8px);border-radius:20px;padding:20px 28px;border:1px solid var(--gold);margin-top:16px;" class="animate-on-scroll">
-     <div style="display:flex;flex-wrap:wrap;gap:14px 32px;font-size:0.85rem;color:#444;">
-      <div>
-       <i class="fas fa-location-dot" style="color:var(--gold-dark);"></i> MM6V+WJH, Damak 57217, Nepal
-      </div>
-      <div>
-       <i class="fas fa-phone" style="color:var(--gold-dark);"></i> <a href="tel:9852630088" style="color:var(--green);text-decoration:none;font-weight:500;">+977 9852630088</a> · <a href="tel:023591588" style="color:var(--green);text-decoration:none;">023591588</a>
-      </div>
-      <div>
-       <i class="fas fa-clock" style="color:var(--gold-dark);"></i> <span data-i18n="hours">Mon–Sun: 7:30 AM – 9:30 PM</span>
-      </div>
-      <div>
-       <i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green);font-weight:600;" data-i18n="free-delivery">Free Delivery within 1km</span>
-      </div>
-     </div>
-    </div>
-   </section><!-- Facilities -->
-   <section id="facilities" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-concierge-bell"></i> <span data-i18n="facilities-title">Our Facilities</span>
-    </div>
-    <p class="section-sub animate-on-scroll" data-i18n="facilities-sub">Everything for a comfortable visit</p>
-    <div class="facilities-grid animate-on-scroll">
-     <div class="facility-card">
-      <i class="fas fa-wifi"></i>
-      <h4 data-i18n="fac-wifi">Free WiFi</h4>
-      <p data-i18n="fac-wifi-d">High-speed internet throughout</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-parking"></i>
-      <h4 data-i18n="fac-parking">Parking</h4>
-      <p data-i18n="fac-parking-d">Spacious parking available</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-snowflake"></i>
-      <h4 data-i18n="fac-ac">Air Conditioning</h4>
-      <p data-i18n="fac-ac-d">Climate-controlled rooms</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-motorcycle"></i>
-      <h4 data-i18n="fac-delivery">Free Delivery</h4>
-      <p data-i18n="fac-delivery-d">Within 1km radius</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-utensils"></i>
-      <h4 data-i18n="fac-restaurant">Restaurant</h4>
-      <p data-i18n="fac-restaurant-d">Multi-cuisine dining</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-mug-hot"></i>
-      <h4 data-i18n="fac-cafe">Cafe &amp; Bar</h4>
-      <p data-i18n="fac-cafe-d">Premium coffee &amp; beverages</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-tv"></i>
-      <h4 data-i18n="fac-tv">Entertainment</h4>
-      <p data-i18n="fac-tv-d">TV in all rooms</p>
-     </div>
-     <div class="facility-card">
-      <i class="fas fa-shield-halved"></i>
-      <h4 data-i18n="fac-security">24/7 Security</h4>
-      <p data-i18n="fac-security-d">CCTV monitored premises</p>
-     </div>
-    </div>
-   </section><!-- Book Now -->
-   <section id="book-now" style="margin:40px 0;">
-    <div class="book-section animate-on-scroll">
-     <h3 data-template-id="book-title" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 700; font-style: normal; font-size: 19px;">Reserve Your Spot</h3>
-     <p data-template-id="book-desc" class="canva-text" style="max-width: 500px; margin: 16px auto; color: rgb(212, 175, 55); font-weight: 500; font-style: normal; font-size: 16px;">Planning a visit or a stay? Give us a call to book your table or room in advance. Or order delivery and enjoy Bella Cafe at home!</p><a href="tel:9852630088" class="btn btn-gold" style="font-size:1.1rem;padding:14px 40px;margin-top:12px;"><i class="fas fa-phone-alt"></i> +977 9852630088</a>
-     <p style="margin-top:16px;color:#6d7f5e;font-size:0.85rem;" data-i18n="or-whatsapp">Or reach out on WhatsApp</p><a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;margin-top:8px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-   </section><!-- Contact -->
-   <section id="contact" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-headset"></i> <span data-i18n="contact-title">Contact &amp; Hours</span>
-    </div>
-    <div class="contact-grid animate-on-scroll">
-     <div class="contact-card">
-      <i class="fas fa-phone-alt"></i>
-      <h3 data-i18n="call-us">Call Us</h3>
-      <p>9852630088 · 023591588</p>
-     </div>
-     <div class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <h3 data-i18n="email">Email</h3>
-      <p><a href="mailto:bellacafedamak5@gmail.com">bellacafedamak5@gmail.com</a></p>
-     </div>
-     <div class="contact-card">
-      <i class="fab fa-whatsapp"></i>
-      <h3>WhatsApp</h3>
-      <p><a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer">+977 9852630088</a></p>
-     </div>
-     <div class="contact-card" style="border-color:var(--gold);background:var(--delivery-light);">
-      <i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i>
-      <h3 style="color:var(--delivery-green);" data-i18n="fac-delivery">Free Delivery</h3>
-      <p data-i18n="delivery-contact">Within 1km · Call or WhatsApp</p>
-     </div>
-    </div>
-   </section><!-- FAQ -->
-   <section id="faq" style="margin:40px 0;">
-    <div class="section-title animate-on-scroll">
-     <i class="fas fa-question-circle"></i> <span data-i18n="faq-title">FAQ</span>
-    </div>
-    <div class="faq-grid animate-on-scroll">
-     <div class="faq-item">
-      <div class="faq-q">
-       <i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q1">What are your opening hours?</span>
-      </div>
-      <div class="faq-a" data-i18n="faq-a1">
-       We are open every day from 7:30 AM to 9:30 PM.
-      </div>
-     </div>
-     <div class="faq-item">
-      <div class="faq-q">
-       <i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q2">Do you offer free delivery?</span>
-      </div>
-      <div class="faq-a" data-i18n="faq-a2">
-       Yes! We offer free delivery within a 1km radius of our location. Just call or WhatsApp us.
-      </div>
-     </div>
-     <div class="faq-item">
-      <div class="faq-q">
-       <i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q3">How do I book a room?</span>
-      </div>
-      <div class="faq-a" data-i18n="faq-a3">
-       You can book a room by calling us at 9852630088 or messaging us on WhatsApp.
-      </div>
-     </div>
-     <div class="faq-item">
-      <div class="faq-q">
-       <i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q4">Is parking available?</span>
-      </div>
-      <div class="faq-a" data-i18n="faq-a4">
-       Yes, we have spacious parking available for all guests free of charge.
-      </div>
-     </div>
-     <div class="faq-item">
-      <div class="faq-q">
-       <i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q5">Do you cater for events?</span>
-      </div>
-      <div class="faq-a" data-i18n="faq-a5">
-       Absolutely! We host birthday parties, anniversaries, and corporate events. Contact us for details.
-      </div>
-     </div>
-    </div>
-   </section>
-  </div><!-- Footer -->
-  <footer class="site-footer">
-   <div class="footer-grid">
-    <div class="footer-brand">
-     <div class="logo-wrap"><img data-template-id="footer-logo" class="canva-image" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);" loading="lazy" src="https://images.pexels.com/photos/37514017/pexels-photo-37514017.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Bella Cafe Logo"> <span>Bella <small>Cafe</small></span>
-     </div>
-     <p style="font-size:0.85rem;color:rgba(255,255,255,0.7);margin-top:8px;">MM6V+WJH, Damak 57217, Nepal · <span data-i18n="free-delivery">Free Delivery 1km</span></p>
-     <div class="footer-social"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a> <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-     </div>
-    </div>
-    <div class="footer-links-col">
-     <h4 data-i18n="quick-links">Quick Links</h4><a href="#home"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-home">Home</span></a> <a href="#about"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-about">About</span></a> <a href="#menu"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-menu">Menu</span></a> <a href="#rooms"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-rooms">Rooms</span></a> <a href="#gallery"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-gallery">Gallery</span></a>
-    </div>
-    <div class="footer-links-col">
-     <h4 data-i18n="services">Services</h4><a href="#facilities"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-facilities">Facilities</span></a> <a href="#book-now"><i class="fas fa-chevron-right"></i> <span data-i18n="book-table">Book a Table</span></a> <a href="#book-now"><i class="fas fa-chevron-right"></i> <span data-i18n="book-room">Book a Room</span></a> <a href="#location"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-location">Location</span></a>
-    </div>
-    <div class="footer-links-col">
-     <h4 data-i18n="nav-contact">Contact</h4><a href="tel:9852630088"><i class="fas fa-phone"></i> +977 9852630088</a> <a href="tel:023591588"><i class="fas fa-phone"></i> 023591588</a> <a href="mailto:bellacafedamak5@gmail.com"><i class="fas fa-envelope"></i> Email Us</a> <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-   </div>
-   <div class="footer-bottom">
-    <p data-template-id="footer-copyright" class="canva-text" style="color: rgb(212, 175, 55); font-weight: 500; font-style: normal; font-size: 14px;">© 2026 Bella Cafe &amp; Restaurant. All rights reserved. · Best restaurant in Damak, Jhapa, Nepal</p>
-   </div>
-  </footer><!-- Float Buttons -->
-  <div class="float-buttons"><a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="float-btn whatsapp" aria-label="WhatsApp Order"><i class="fab fa-whatsapp"></i></a> <a href="tel:9852630088" class="float-btn phone" aria-label="Call"><i class="fas fa-phone-alt"></i></a>
-  </div><!-- Lightbox -->
-  <div class="lightbox" id="lightbox"><button class="close-lb" id="closeLightbox" aria-label="Close"><i class="fas fa-times"></i></button> <img id="lightboxImg" src="" alt="Gallery">
-   <div id="lightboxCaption" style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;font-size:0.9rem;"></div>
   </div>
-  <script src="/_sdk/47669dc8496955be.editing_sdk.js" integrity="sha512-SXgqvNdy3CX4R90Kr2d0cSNYZOv6KbcxTq/tprZCtYPHhvtgc5Aagp95xl8W/LNBFpixAlLGqjQW133qbh1QAg=="></script>
+
+  <!-- Notice -->
+  <div id="notice-popup">
+    <div class="notice-card">
+      <button class="close-notice" id="closeNoticeBtn" aria-label="Close notice"><i class="fas fa-times"></i></button>
+      <span class="notice-badge">🎉 <span data-i18n="notice-badge">Limited Offer</span></span>
+      <h3 data-i18n="notice-heading">🌿 Welcome to Bella Cafe!</h3>
+      <p style="font-size:0.85rem;color:#555;margin:8px 0;" data-i18n="notice-sub">Authentic Nepali flavors &amp; premium coffee</p>
+      <div style="display:flex;gap:8px;margin:12px 0;">
+        <img style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="hotelbella.jpg" alt="Hotel Bella Cafe">
+        <img style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="hotelbella.jpg" alt="Delicious food">
+        <img style="width:80px;height:80px;border-radius:12px;object-fit:cover;" loading="lazy" src="hotelbella.jpg" alt="Coffee">
+      </div>
+      <p style="font-size:0.8rem;color:var(--gold-dark);font-weight:600;"><i class="fas fa-tag"></i> <span data-i18n="notice-offer">20% off on first dine-in + free delivery 1km</span></p>
+      <div class="notice-actions">
+        <a href="#menu" class="btn-notice btn-notice-gold" id="noticeMenuBtn"><i class="fas fa-utensils"></i> <span data-i18n="nav-menu">Menu</span></a>
+        <a href="#rooms" class="btn-notice" id="noticeRoomsBtn"><i class="fas fa-bed"></i> <span data-i18n="nav-rooms">Rooms</span></a>
+        <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" class="btn-notice btn-notice-outline"><i class="fab fa-whatsapp"></i> <span data-i18n="order">Order</span></a>
+        <button class="btn-notice btn-notice-outline" id="closeNoticeBtn2" data-i18n="close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="logo-block">
+        <img style="width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;" loading="lazy" src="fav.jpg" alt="Bella Cafe Logo">
+        <div class="logo-text">Bella <span>Cafe</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        <button class="lang-toggle" id="langToggle">NE</button>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home"><i class="fas fa-home"></i> <span data-i18n="nav-home">Home</span></a>
+        <a href="#about"><i class="fas fa-info-circle"></i> <span data-i18n="nav-about">About</span></a>
+        <a href="#reviews"><i class="fas fa-star"></i> <span data-i18n="nav-reviews">Reviews</span></a>
+        <a href="#gallery"><i class="fas fa-images"></i> <span data-i18n="nav-gallery">Gallery</span></a>
+        <a href="#menu"><i class="fas fa-utensils"></i> <span data-i18n="nav-menu">Menu</span></a>
+        <a href="#rooms"><i class="fas fa-bed"></i> <span data-i18n="nav-rooms">Rooms</span></a>
+        <a href="#location"><i class="fas fa-map-pin"></i> <span data-i18n="nav-location">Location</span></a>
+        <a href="#facilities"><i class="fas fa-concierge-bell"></i> <span data-i18n="nav-facilities">Facilities</span></a>
+        <a href="#contact"><i class="fas fa-phone"></i> <span data-i18n="nav-contact">Contact</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-grid">
+      <div class="hero-content animate-from-left">
+        <h1 style="color: #fff; font-weight: 700; font-size: 32px;">Bella Cafe &amp; Restaurant</h1>
+        <div style="color: var(--gold); font-weight: 500; font-size: 16px;">Time for good food. · MM6V+WJH, Damak 57217, Nepal · Free Delivery 1km</div>
+        <div class="hero-stats">
+          <span class="stat-item"><i class="fas fa-star"></i> 4.8 ★ (12 <span data-i18n="reviews-word">reviews</span>)</span>
+          <span class="stat-item"><i class="fas fa-utensils"></i> <span data-i18n="service-types">Dine-in · Takeaway · Delivery</span></span>
+          <span class="stat-item"><i class="fas fa-clock"></i> <span data-i18n="hours">Mon–Sun: 7:30 AM – 9:30 PM</span></span>
+          <span class="stat-item" style="background:var(--delivery-light);border-color:var(--gold);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green);font-weight:700;" data-i18n="free-delivery">Free Delivery 1km</span></span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+          <a href="#reviews" class="btn"><i class="fas fa-star"></i> <span data-i18n="see-reviews">See Reviews</span></a>
+          <a href="#rooms" class="btn btn-gold"><i class="fas fa-bed"></i> <span data-i18n="view-rooms">View Rooms</span></a>
+          <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;border-color:var(--gold);"><i class="fab fa-whatsapp"></i> <span data-i18n="order-delivery">Order Delivery</span></a>
+        </div>
+      </div>
+      <div class="hero-slider animate-from-right">
+        <div class="slider-container">
+          <div class="slider-track" id="heroTrack">
+            <img class="slider-slide" loading="lazy" src="hotelbella.jpg" alt="Hotel Bella Cafe">
+            <img class="slider-slide" loading="lazy" src="hotelbella.jpg" alt="Bella Cafe Interior">
+            <img class="slider-slide" loading="lazy" src="hotelbella.jpg" alt="Delicious Food">
+            <img class="slider-slide" loading="lazy" src="hotelbella.jpg" alt="Hotel Room">
+          </div>
+          <button class="slider-btn prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+          <button class="slider-btn next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+          <div class="slider-dots" id="heroDots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="main-container">
+    <!-- Delivery -->
+    <div class="delivery-card animate-on-scroll">
+      <div class="delivery-icon-large"><i class="fas fa-motorcycle"></i></div>
+      <div class="delivery-text">
+        <h3 style="color: var(--green); font-weight: 600; font-size: 19px;">Free Delivery Within 1km</h3>
+        <p style="font-size: 15px; color: #555; margin-top: 6px; font-weight: 500;">Order your favorite meals and get them delivered to your doorstep at no extra cost.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;"><i class="fab fa-whatsapp"></i> <span data-i18n="order-now">Order Now</span></a>
+        <a href="tel:9852630088" class="btn btn-outline"><i class="fas fa-phone"></i> <span data-i18n="call-order">Call to Order</span></a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" style="margin:48px 0 24px;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-info-circle"></i> <span data-i18n="about-title">About Us</span></div>
+      <div class="about-grid">
+        <div class="animate-from-left">
+          <p style="line-height: 1.7; color: var(--gold); font-weight: 500; font-size: 16px;">Bella Cafe &amp; Restaurant is the top-rated family restaurant in Damak, Jhapa, offering authentic Nepali cuisine, premium coffee, and a cozy atmosphere. Whether you're looking for a quick bite or a relaxing meal, we bring you the best of local and international flavors.</p>
+          <p style="line-height: 1.7; margin-top: 14px; color: var(--gold); font-weight: 500; font-size: 16px;">Visit us at MM6V+WJH, Damak 57217 to experience the true taste of Jhapa. Open 7:30 AM – 9:30 PM daily. We also offer free delivery within 1km — order your favorite dishes and enjoy them at home!</p>
+          <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;">
+            <span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="fresh-ingredients">Fresh Ingredients</span></span>
+            <span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="expert-baristas">Expert Baristas</span></span>
+            <span style="background:rgba(255,255,255,0.6);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;"><i class="fas fa-check-circle" style="color:var(--gold-dark);"></i> <span data-i18n="cozy-vibes">Cozy Vibes</span></span>
+            <span style="background:var(--delivery-light);padding:6px 16px;border-radius:30px;border:1px solid var(--gold);font-size:0.8rem;color:var(--delivery-green);"><i class="fas fa-motorcycle"></i> <span data-i18n="free-delivery">Free Delivery 1km</span></span>
+          </div>
+        </div>
+        <div class="animate-from-right">
+          <iframe src="https://www.youtube.com/embed/_u_MGPOV-8k?si=ricwLhiTa56OXVD5&amp;autoplay=0&amp;rel=0" title="Tour of Hotel Bella Cafe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-star"></i> <span data-i18n="reviews-title">Google Reviews</span></div>
+      <p class="section-sub animate-on-scroll" data-i18n="reviews-sub">What our customers say about Bella Cafe</p>
+      <div class="review-slider-wrap animate-on-scroll">
+        <div style="overflow:hidden;">
+          <div class="review-track" id="reviewTrack">
+            <div class="review-card"><div class="stars">★★★★★</div><div class="review-text" data-i18n="review-1">Amazing food and great ambiance! The Nepali thali is a must-try.</div><div class="reviewer"><div class="avatar">R</div><div><div class="name">Rajesh K.</div><div class="date">2 weeks ago</div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><div class="review-text" data-i18n="review-2">Best coffee in Damak. The staff is incredibly friendly and welcoming.</div><div class="reviewer"><div class="avatar">S</div><div><div class="name">Sunita M.</div><div class="date">1 month ago</div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★☆</div><div class="review-text" data-i18n="review-3">Great place for family dinners. Rooms are clean and comfortable too.</div><div class="reviewer"><div class="avatar">A</div><div><div class="name">Anil B.</div><div class="date">3 weeks ago</div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><div class="review-text" data-i18n="review-4">Free delivery was quick and the food arrived hot. Highly recommend!</div><div class="reviewer"><div class="avatar">P</div><div><div class="name">Priya S.</div><div class="date">1 week ago</div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><div class="review-text" data-i18n="review-5">The momos here are simply divine. Perfect spice level.</div><div class="reviewer"><div class="avatar">K</div><div><div class="name">Kumar T.</div><div class="date">5 days ago</div></div></div></div>
+          </div>
+        </div>
+        <button class="review-nav-btn prev" id="reviewPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="review-nav-btn next" id="reviewNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-images"></i> <span data-i18n="gallery-title">Our Gallery</span></div>
+      <p class="section-sub animate-on-scroll" data-i18n="gallery-sub">A glimpse of our food, ambiance, and moments at Bella Cafe</p>
+      <div class="gallery-grid">
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Hotel Bella Cafe"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-1">Bella Cafe</span></div></div>
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Bella Cafe Interior"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-2">Cozy Interior</span></div></div>
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Delicious Food"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-3">Breakfast Spread</span></div></div>
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Evening Terrace"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-4">Evening Terrace</span></div></div>
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Our Kitchen"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-5">Our Kitchen</span></div></div>
+        <div class="gallery-item animate-on-scroll"><img loading="lazy" src="hotelbella.jpg" alt="Sweet Treats"><div class="gallery-overlay"><i class="fas fa-expand"></i> <span data-i18n="gal-6">Sweet Treats</span></div></div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-utensils"></i> <span data-i18n="menu-title">Our Menu</span></div>
+      <p class="section-sub animate-on-scroll" data-i18n="menu-sub">From authentic Nepali thali to continental favorites</p>
+      <div class="menu-grid animate-on-scroll">
+        <div class="menu-category"><h3><i class="fas fa-mug-hot"></i> <span data-i18n="cat-hot">Hot Beverages</span></h3>
+          <div class="menu-item"><span data-i18n="m-americano">Americano</span><span class="price">Rs. 180</span></div>
+          <div class="menu-item"><span data-i18n="m-cappuccino">Cappuccino</span><span class="price">Rs. 220</span></div>
+          <div class="menu-item"><span data-i18n="m-masala-tea">Masala Tea</span><span class="price">Rs. 80</span></div>
+          <div class="menu-item"><span data-i18n="m-hot-choco">Hot Chocolate</span><span class="price">Rs. 200</span></div>
+        </div>
+        <div class="menu-category"><h3><i class="fas fa-bowl-food"></i> <span data-i18n="cat-nepali">Nepali Cuisine</span></h3>
+          <div class="menu-item"><span data-i18n="m-thali">Nepali Thali</span><span class="price">Rs. 350</span></div>
+          <div class="menu-item"><span data-i18n="m-momo">Chicken Momo (10pc)</span><span class="price">Rs. 200</span></div>
+          <div class="menu-item"><span data-i18n="m-sekuwa">Buff Sekuwa</span><span class="price">Rs. 300</span></div>
+          <div class="menu-item"><span data-i18n="m-dalbhat">Dal Bhat Set</span><span class="price">Rs. 280</span></div>
+        </div>
+        <div class="menu-category"><h3><i class="fas fa-pizza-slice"></i> <span data-i18n="cat-continental">Continental</span></h3>
+          <div class="menu-item"><span data-i18n="m-pizza">Margherita Pizza</span><span class="price">Rs. 450</span></div>
+          <div class="menu-item"><span data-i18n="m-burger">Chicken Burger</span><span class="price">Rs. 280</span></div>
+          <div class="menu-item"><span data-i18n="m-pasta">Pasta Alfredo</span><span class="price">Rs. 320</span></div>
+          <div class="menu-item"><span data-i18n="m-sandwich">Club Sandwich</span><span class="price">Rs. 250</span></div>
+        </div>
+        <div class="menu-category"><h3><i class="fas fa-ice-cream"></i> <span data-i18n="cat-desserts">Desserts</span></h3>
+          <div class="menu-item"><span data-i18n="m-brownie">Chocolate Brownie</span><span class="price">Rs. 180</span></div>
+          <div class="menu-item"><span data-i18n="m-sundae">Ice Cream Sundae</span><span class="price">Rs. 220</span></div>
+          <div class="menu-item"><span data-i18n="m-gulab">Gulab Jamun</span><span class="price">Rs. 120</span></div>
+          <div class="menu-item"><span data-i18n="m-cheesecake">Cheesecake</span><span class="price">Rs. 250</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-bed"></i> <span data-i18n="rooms-title">Rooms &amp; Suites</span></div>
+      <p class="section-sub animate-on-scroll" data-i18n="rooms-sub">Comfortable stays with modern amenities in Damak, Jhapa</p>
+      <div class="rooms-grid">
+        <!-- Standard -->
+        <div class="room-card animate-on-scroll">
+          <div class="room-image"><img loading="lazy" src="standard.jpg" alt="Standard Room"><span class="room-badge">Standard</span></div>
+          <div class="room-body"><h3 style="color: var(--gold); font-weight: 600; font-size: 19px;">Standard Room</h3><p style="font-size:0.8rem;color:#aaa;" data-i18n="std-desc">2 Guests · Clean &amp; Comfortable</p>
+            <div class="room-amenities"><span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-shower"></i> <span data-i18n="attached-bath">Attached Bath</span></span></div>
+            <div class="room-footer"><div class="room-price">Rs. 4,500 <small>/ <span data-i18n="night">night</span></small></div><a href="https://wa.me/9779852630088?text=Is%20the%20Standard%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a></div>
+          </div>
+        </div>
+        <!-- Deluxe -->
+        <div class="room-card animate-on-scroll">
+          <div class="room-image"><img loading="lazy" src="deluxe.jpg" alt="Deluxe Room"><span class="room-badge">Deluxe</span></div>
+          <div class="room-body"><h3 style="color: var(--gold); font-weight: 600; font-size: 19px;">Deluxe Room</h3><p style="font-size:0.8rem;color:#aaa;" data-i18n="dlx-desc">2 Guests · Premium Comfort</p>
+            <div class="room-amenities"><span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-coffee"></i> Coffee</span></div>
+            <div class="room-footer"><div class="room-price">Rs. 4,000 <small>/ <span data-i18n="night">night</span></small></div><a href="https://wa.me/9779852630088?text=Is%20the%20Deluxe%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a></div>
+          </div>
+        </div>
+        <!-- Suite -->
+        <div class="room-card animate-on-scroll">
+          <div class="room-image"><img loading="lazy" src="suite.jpg" alt="Suite Room"><span class="room-badge premium">Suite</span></div>
+          <div class="room-body"><h3 style="color: var(--gold); font-weight: 600; font-size: 19px;">Premium Suite</h3><p style="font-size:0.8rem;color:#aaa;" data-i18n="suite-desc">3 Guests · Luxury Experience</p>
+            <div class="room-amenities"><span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-hot-tub-person"></i> Jacuzzi</span></div>
+            <div class="room-footer"><div class="room-price">Rs. 5,000 <small>/ <span data-i18n="night">night</span></small></div><a href="https://wa.me/9779852630088?text=Is%20the%20Suite%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a></div>
+          </div>
+        </div>
+        <!-- Family -->
+        <div class="room-card animate-on-scroll">
+          <div class="room-image"><img loading="lazy" src="family.jpg" alt="Family Room"><span class="room-badge">Family</span></div>
+          <div class="room-body"><h3 style="color: var(--gold); font-weight: 600; font-size: 19px;">Family Room</h3><p style="font-size:0.8rem;color:#aaa;" data-i18n="fam-desc">4 Guests · Spacious &amp; Bright</p>
+            <div class="room-amenities"><span><i class="fas fa-wifi"></i> WiFi</span><span><i class="fas fa-tv"></i> TV</span><span><i class="fas fa-snowflake"></i> AC</span><span><i class="fas fa-utensils"></i> Minibar</span></div>
+            <div class="room-footer"><div class="room-price">Rs. 5,500 <small>/ <span data-i18n="night">night</span></small></div><a href="https://wa.me/9779852630088?text=Is%20the%20Family%20Room%20available?" target="_blank" rel="noopener noreferrer" class="btn-book-room"><i class="fas fa-calendar-check"></i> <span data-i18n="book">Book</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe!%20I%20would%20like%20to%20inquire%20about%20room%20availability." target="_blank" rel="noopener noreferrer" class="btn btn-gold animate-on-scroll"><i class="fas fa-calendar-check"></i> <span data-i18n="check-availability">Check Availability</span></a>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-map-pin"></i> <span data-i18n="location-title">Find Us</span></div>
+      <div class="map-container animate-on-scroll">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.123456!2d87.68!3d26.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBella+Cafe+Damak!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bella Cafe location"></iframe>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:20px 0;" class="animate-on-scroll">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=MM6V%2BWJH%20Damak%2057217" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-directions"></i> <span data-i18n="get-directions">Get Directions</span></a>
+        <a href="https://www.google.com/maps?q=MM6V%2BWJH%20Damak%2057217&amp;layer=c" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-street-view"></i> <span data-i18n="street-view">Street View</span></a>
+      </div>
+      <div style="background:rgba(245,242,224,0.4);backdrop-filter:blur(8px);border-radius:20px;padding:20px 28px;border:1px solid var(--gold);margin-top:16px;" class="animate-on-scroll">
+        <div style="display:flex;flex-wrap:wrap;gap:14px 32px;font-size:0.85rem;color:#444;">
+          <div><i class="fas fa-location-dot" style="color:var(--gold-dark);"></i> MM6V+WJH, Damak 57217, Nepal</div>
+          <div><i class="fas fa-phone" style="color:var(--gold-dark);"></i> <a href="tel:9852630088" style="color:var(--green);text-decoration:none;font-weight:500;">+977 9852630088</a> · <a href="tel:023591588" style="color:var(--green);text-decoration:none;">023591588</a></div>
+          <div><i class="fas fa-clock" style="color:var(--gold-dark);"></i> <span data-i18n="hours">Mon–Sun: 7:30 AM – 9:30 PM</span></div>
+          <div><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i> <span style="color:var(--delivery-green);font-weight:600;" data-i18n="free-delivery">Free Delivery within 1km</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section id="facilities" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-concierge-bell"></i> <span data-i18n="facilities-title">Our Facilities</span></div>
+      <p class="section-sub animate-on-scroll" data-i18n="facilities-sub">Everything for a comfortable visit</p>
+      <div class="facilities-grid animate-on-scroll">
+        <div class="facility-card"><i class="fas fa-wifi"></i><h4 data-i18n="fac-wifi">Free WiFi</h4><p data-i18n="fac-wifi-d">High-speed internet throughout</p></div>
+        <div class="facility-card"><i class="fas fa-parking"></i><h4 data-i18n="fac-parking">Parking</h4><p data-i18n="fac-parking-d">Spacious parking available</p></div>
+        <div class="facility-card"><i class="fas fa-snowflake"></i><h4 data-i18n="fac-ac">Air Conditioning</h4><p data-i18n="fac-ac-d">Climate-controlled rooms</p></div>
+        <div class="facility-card"><i class="fas fa-motorcycle"></i><h4 data-i18n="fac-delivery">Free Delivery</h4><p data-i18n="fac-delivery-d">Within 1km radius</p></div>
+        <div class="facility-card"><i class="fas fa-utensils"></i><h4 data-i18n="fac-restaurant">Restaurant</h4><p data-i18n="fac-restaurant-d">Multi-cuisine dining</p></div>
+        <div class="facility-card"><i class="fas fa-mug-hot"></i><h4 data-i18n="fac-cafe">Cafe &amp; Bar</h4><p data-i18n="fac-cafe-d">Premium coffee &amp; beverages</p></div>
+        <div class="facility-card"><i class="fas fa-tv"></i><h4 data-i18n="fac-tv">Entertainment</h4><p data-i18n="fac-tv-d">TV in all rooms</p></div>
+        <div class="facility-card"><i class="fas fa-shield-halved"></i><h4 data-i18n="fac-security">24/7 Security</h4><p data-i18n="fac-security-d">CCTV monitored premises</p></div>
+      </div>
+    </section>
+
+    <!-- Book Now -->
+    <section id="book-now" style="margin:40px 0;">
+      <div class="book-section animate-on-scroll">
+        <h3 style="color: var(--gold); font-weight: 700; font-size: 19px;">Reserve Your Spot</h3>
+        <p style="max-width: 500px; margin: 16px auto; color: var(--gold); font-weight: 500; font-size: 16px;">Planning a visit or a stay? Give us a call to book your table or room in advance. Or order delivery and enjoy Bella Cafe at home!</p>
+        <a href="tel:9852630088" class="btn btn-gold" style="font-size:1.1rem;padding:14px 40px;margin-top:12px;"><i class="fas fa-phone-alt"></i> +977 9852630088</a>
+        <p style="margin-top:16px;color:#6d7f5e;font-size:0.85rem;" data-i18n="or-whatsapp">Or reach out on WhatsApp</p>
+        <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" class="btn" style="background:#25d366;margin-top:8px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-headset"></i> <span data-i18n="contact-title">Contact &amp; Hours</span></div>
+      <div class="contact-grid animate-on-scroll">
+        <div class="contact-card"><i class="fas fa-phone-alt"></i><h3 data-i18n="call-us">Call Us</h3><p>9852630088 · 023591588</p></div>
+        <div class="contact-card"><i class="fas fa-envelope"></i><h3 data-i18n="email">Email</h3><p><a href="mailto:bellacafedamak5@gmail.com">bellacafedamak5@gmail.com</a></p></div>
+        <div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p><a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer">+977 9852630088</a></p></div>
+        <div class="contact-card" style="border-color:var(--gold);background:var(--delivery-light);"><i class="fas fa-motorcycle" style="color:var(--delivery-green);"></i><h3 style="color:var(--delivery-green);" data-i18n="fac-delivery">Free Delivery</h3><p data-i18n="delivery-contact">Within 1km · Call or WhatsApp</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="margin:40px 0;">
+      <div class="section-title animate-on-scroll"><i class="fas fa-question-circle"></i> <span data-i18n="faq-title">FAQ</span></div>
+      <div class="faq-grid animate-on-scroll">
+        <div class="faq-item"><div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q1">What are your opening hours?</span></div><div class="faq-a" data-i18n="faq-a1">We are open every day from 7:30 AM to 9:30 PM.</div></div>
+        <div class="faq-item"><div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q2">Do you offer free delivery?</span></div><div class="faq-a" data-i18n="faq-a2">Yes! We offer free delivery within a 1km radius of our location. Just call or WhatsApp us.</div></div>
+        <div class="faq-item"><div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q3">How do I book a room?</span></div><div class="faq-a" data-i18n="faq-a3">You can book a room by calling us at 9852630088 or messaging us on WhatsApp.</div></div>
+        <div class="faq-item"><div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q4">Is parking available?</span></div><div class="faq-a" data-i18n="faq-a4">Yes, we have spacious parking available for all guests free of charge.</div></div>
+        <div class="faq-item"><div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-i18n="faq-q5">Do you cater for events?</span></div><div class="faq-a" data-i18n="faq-a5">Absolutely! We host birthday parties, anniversaries, and corporate events. Contact us for details.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-wrap"><img style="width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;" loading="lazy" src="fav.jpg" alt="Bella Cafe Logo"> <span>Bella <small>Cafe</small></span></div>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.7);margin-top:8px;">MM6V+WJH, Damak 57217, Nepal · <span data-i18n="free-delivery">Free Delivery 1km</span></p>
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links-col"><h4 data-i18n="quick-links">Quick Links</h4><a href="#home"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-home">Home</span></a><a href="#about"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-about">About</span></a><a href="#menu"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-menu">Menu</span></a><a href="#rooms"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-rooms">Rooms</span></a><a href="#gallery"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-gallery">Gallery</span></a></div>
+      <div class="footer-links-col"><h4 data-i18n="services">Services</h4><a href="#facilities"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-facilities">Facilities</span></a><a href="#book-now"><i class="fas fa-chevron-right"></i> <span data-i18n="book-table">Book a Table</span></a><a href="#book-now"><i class="fas fa-chevron-right"></i> <span data-i18n="book-room">Book a Room</span></a><a href="#location"><i class="fas fa-chevron-right"></i> <span data-i18n="nav-location">Location</span></a></div>
+      <div class="footer-links-col"><h4 data-i18n="nav-contact">Contact</h4><a href="tel:9852630088"><i class="fas fa-phone"></i> +977 9852630088</a><a href="tel:023591588"><i class="fas fa-phone"></i> 023591588</a><a href="mailto:bellacafedamak5@gmail.com"><i class="fas fa-envelope"></i> Email Us</a><a href="https://wa.me/9779852630088" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p style="color: var(--gold); font-weight: 500; font-size: 14px;">© 2026 Bella Cafe &amp; Restaurant. All rights reserved. · Best restaurant in Damak, Jhapa, Nepal</p>
+    </div>
+  </footer>
+
+  <!-- Float Buttons -->
+  <div class="float-buttons">
+    <a href="https://wa.me/9779852630088?text=Hello%20Bella%20Cafe%2C%20I'd%20like%20to%20place%20a%20delivery%20order." target="_blank" rel="noopener noreferrer" class="float-btn whatsapp" aria-label="WhatsApp Order"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:9852630088" class="float-btn phone" aria-label="Call"><i class="fas fa-phone-alt"></i></a>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="close-lb" id="closeLightbox" aria-label="Close"><i class="fas fa-times"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery">
+    <div id="lightboxCaption" style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;font-size:0.9rem;"></div>
+  </div>
+
   <script>
-(function() {
+  (function() {
     // ===== BILINGUAL SYSTEM =====
     const translations = {
       ne: {
@@ -823,7 +595,7 @@
         "review-5": "यहाँको मोमो अलौकिक छ। मसलाको स्तर उत्तम।",
         "gallery-title": "हाम्रो ग्यालरी",
         "gallery-sub": "हाम्रो खाना, वातावरण र बेला क्याफेका क्षणहरूको झलक",
-        "gal-1": "उत्कृष्ट प्रस्तुति",
+        "gal-1": "बेला क्याफे",
         "gal-2": "आरामदायी भित्री भाग",
         "gal-3": "बिहानको नाश्ता",
         "gal-4": "साँझको छत",
@@ -907,7 +679,6 @@
 
     let currentLang = 'en';
     const langBtn = document.getElementById('langToggle');
-    // Store original English text
     const originals = {};
     document.querySelectorAll('[data-i18n]').forEach(el => {
       originals[el] = el.textContent;
@@ -1020,7 +791,7 @@
         if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }
       });
     });
-})();
+  })();
   </script>
- 
-</body></html>
+</body>
+</html>
