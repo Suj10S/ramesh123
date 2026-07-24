@@ -962,8 +962,8 @@
     }
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
       margin-top: 12px;
     }
     .menu-category {
@@ -992,9 +992,9 @@
     .menu-item {
       display: flex;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px dashed rgba(212,184,122,0.2);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       transition: all 0.2s ease;
     }
     .menu-item:last-child { border-bottom: none; }
@@ -1708,41 +1708,217 @@
       <p class="section-sub animate-on-scroll" data-en="Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites" data-ne="हाम्रा हातले बनाएका परिकार र पेय पदार्थहरू अन्वेषण गर्नुहोस् — प्रामाणिक नेपाली थालीदेखि कन्टिनेन्टल मनपर्नेहरूसम्म">Explore our handcrafted dishes and beverages — from authentic Nepali thali to continental favorites</p>
       <div class="menu-section animate-on-scroll">
         <div class="menu-grid">
+          <!-- Pizza -->
           <div class="menu-category animate-from-left">
-            <h3><i class="fas fa-mug-hot"></i> <span data-en="Coffee" data-ne="कफी">Coffee</span></h3>
-            <div class="menu-item"><span class="name"><span data-en="Espresso" data-ne="एस्प्रेसो">Espresso</span> <span class="desc" data-en="Rich &amp; bold" data-ne="गाढा र बलियो">Rich &amp; bold</span></span><span class="price">Rs. 250</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Cappuccino" data-ne="क्यापुचिनो">Cappuccino</span> <span class="desc" data-en="Creamy foam" data-ne="क्रीमी फोम">Creamy foam</span></span><span class="price">Rs. 350</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Latte" data-ne="ल्याटे">Latte</span> <span class="desc" data-en="Smooth &amp; silky" data-ne="चिल्लो र रेशमी">Smooth &amp; silky</span></span><span class="price">Rs. 380</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Mocha" data-ne="मोचा">Mocha</span> <span class="desc" data-en="Chocolate twist" data-ne="चकलेट ट्विस्ट">Chocolate twist</span></span><span class="price">Rs. 420</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Caramel Macchiato" data-ne="क्यारामेल माकियाटो">Caramel Macchiato</span> <span class="desc" data-en="Sweet &amp; indulgent" data-ne="मिठो र लज्जतदार">Sweet &amp; indulgent</span></span><span class="price">Rs. 450</span></div>
+            <h3><i class="fas fa-pizza-slice"></i> Pizza</h3>
+            <div class="menu-item"><span class="name">Margherita</span><span class="price">Rs. 550</span></div>
+            <div class="menu-item"><span class="name">Mix-Veg</span><span class="price">Rs. 600</span></div>
+            <div class="menu-item"><span class="name">Chicken</span><span class="price">Rs. 650</span></div>
+            <div class="menu-item"><span class="name">Pepperoni</span><span class="price">Rs. 700</span></div>
+            <div class="menu-item"><span class="name">Meat Lover</span><span class="price">Rs. 750</span></div>
           </div>
+          
+          <!-- Bella's Snacks -->
           <div class="menu-category animate-from-right">
-            <h3><i class="fas fa-sun"></i> <span data-en="Breakfast" data-ne="बिहानको खाजा">Breakfast</span></h3>
-            <div class="menu-item"><span class="name"><span data-en="Avocado Toast" data-ne="एभोकाडो टोस्ट">Avocado Toast</span> <span class="desc" data-en="Sourdough, avocado, poached egg" data-ne="सावरडो, एभोकाडो, पोच्ड अण्डा">Sourdough, avocado, poached egg</span></span><span class="price">Rs. 550</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Pancakes" data-ne="प्यानकेक">Pancakes</span> <span class="desc" data-en="Maple syrup &amp; berries" data-ne="मेपल सिरप र जामुन">Maple syrup &amp; berries</span></span><span class="price">Rs. 500</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Omelette" data-ne="अमलेट">Omelette</span> <span class="desc" data-en="Three eggs, cheese, herbs" data-ne="तीन अण्डा, चिज, जडीबुटी">Three eggs, cheese, herbs</span></span><span class="price">Rs. 600</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Croissant" data-ne="क्रोइसन्ट">Croissant</span> <span class="desc" data-en="Butter, flaky perfection" data-ne="बटर, फ्लेकी परफेक्शन">Butter, flaky perfection</span></span><span class="price">Rs. 350</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Fruit Bowl" data-ne="फलफूलको कचौरा">Fruit Bowl</span> <span class="desc" data-en="Fresh seasonal fruits" data-ne="ताजा मौसमी फलफूल">Fresh seasonal fruits</span></span><span class="price">Rs. 400</span></div>
+            <h3><i class="fas fa-utensil-spoon"></i> Bella's Snacks</h3>
+            <div class="menu-item"><span class="name">Roasted Cashewnut</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Peanuts</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Sadeko Wai-Wai</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Sadeko French Fries</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Crispy Onion Rings</span><span class="price">Rs. 220</span></div>
+            <div class="menu-item"><span class="name">Corn-Dog</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Veg Pakoda</span><span class="price">Rs. 175</span></div>
+            <div class="menu-item"><span class="name">Paneer Pakoda Chilly</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Potato Cheese Ball</span><span class="price">Rs. 300</span></div>
+            <div class="menu-item"><span class="name">Corn Salt & Pepper</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Veg Tempura</span><span class="price">Rs. 245</span></div>
           </div>
+          
+          <!-- Non-Veg Snacks -->
           <div class="menu-category animate-from-left delay-1">
-            <h3><i class="fas fa-utensil-spoon"></i> <span data-en="Mains" data-ne="मुख्य परिकार">Mains</span></h3>
-            <div class="menu-item"><span class="name"><span data-en="Chicken Biryani" data-ne="चिकन बिर्यानी">Chicken Biryani</span> <span class="desc" data-en="Aromatic basmati rice" data-ne="सुगन्धित बासमती चामल">Aromatic basmati rice</span></span><span class="price">Rs. 750</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Pasta Alfredo" data-ne="पास्ता अल्फ्रेडो">Pasta Alfredo</span> <span class="desc" data-en="Creamy parmesan sauce" data-ne="क्रीमी परमेसन सस">Creamy parmesan sauce</span></span><span class="price">Rs. 680</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Margherita Pizza" data-ne="मार्गेरिटा पिज्जा">Margherita Pizza</span> <span class="desc" data-en="Mozzarella, basil, tomato" data-ne="मोजारेला, तुलसी, टमाटर">Mozzarella, basil, tomato</span></span><span class="price">Rs. 600</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Momo (10 pcs)" data-ne="मःम (१० पिस)">Momo (10 pcs)</span> <span class="desc" data-en="Steamed or fried, chutney" data-ne="स्टिम वा फ्राइ, चटनी">Steamed or fried, chutney</span></span><span class="price">Rs. 450</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Grilled Sandwich" data-ne="ग्रिल गरिएको स्यान्डविच">Grilled Sandwich</span> <span class="desc" data-en="Chicken, cheese, veggies" data-ne="चिकन, चिज, तरकारी">Chicken, cheese, veggies</span></span><span class="price">Rs. 520</span></div>
+            <h3><i class="fas fa-drumstick-bite"></i> Non-Veg Snacks</h3>
+            <div class="menu-item"><span class="name">Timur Chicken</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Chicken Chilly</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Chicken Roast</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Chicken 65</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Dragon Chicken</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Hot Wings</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Chicken Choila</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Wings Poleko</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Chicken Tikka</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Chicken Sekuwa</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Chicken Sadeko (Fry/Boil)</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Pork (Chilly/Tawa/Sekuwa)</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Badel (Chilly/Tawa/Sekuwa)</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Mutton (Fry/Sekuwa)</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Mutton Jhaneko Sekuwa</span><span class="price">Rs. 550</span></div>
+            <div class="menu-item"><span class="name">Fish Finger</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Fish & Chips</span><span class="price">Rs. 450</span></div>
           </div>
+          
+          <!-- Burgers & Sandwiches -->
           <div class="menu-category animate-from-right delay-1">
-            <h3><i class="fas fa-cake"></i> <span data-en="Desserts &amp; Drinks" data-ne="मिठाई र पेय पदार्थ">Desserts &amp; Drinks</span></h3>
-            <div class="menu-item"><span class="name"><span data-en="Cheesecake" data-ne="चिजकेक">Cheesecake</span> <span class="desc" data-en="New York style" data-ne="न्यु योर्क स्टाइल">New York style</span></span><span class="price">Rs. 450</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Chocolate Lava Cake" data-ne="चकलेट लाभा केक">Chocolate Lava Cake</span> <span class="desc" data-en="Warm, gooey center" data-ne="न्यानो, टाँसिने केन्द्र">Warm, gooey center</span></span><span class="price">Rs. 500</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Milkshake" data-ne="मिल्कसेक">Milkshake</span> <span class="desc" data-en="Chocolate, vanilla, strawberry" data-ne="चकलेट, भेनिला, स्ट्रबेरी">Chocolate, vanilla, strawberry</span></span><span class="price">Rs. 350</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Fresh Juice" data-ne="ताजा जुस">Fresh Juice</span> <span class="desc" data-en="Orange, apple, mixed" data-ne="सुन्तला, स्याउ, मिक्स">Orange, apple, mixed</span></span><span class="price">Rs. 280</span></div>
-            <div class="menu-item"><span class="name"><span data-en="Ice Cream Sundae" data-ne="आइसक्रिम सन्डे">Ice Cream Sundae</span> <span class="desc" data-en="With toppings &amp; sauce" data-ne="टपिङ र ससको साथ">With toppings &amp; sauce</span></span><span class="price">Rs. 380</span></div>
+            <h3><i class="fas fa-hamburger"></i> Burgers &amp; Sandwiches</h3>
+            <div class="menu-item"><span class="name">Veg Burger</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Chicken Burger</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Crunchy Burger</span><span class="price">Rs. 300</span></div>
+            <div class="menu-item"><span class="name">Veg Sandwich</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Chicken Sandwich</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Club Sandwich</span><span class="price">Rs. 300</span></div>
           </div>
-        </div>
-        <div style="text-align:center; margin-top:32px;">
-          <a href="#" class="btn btn-gold" style="font-size:0.9rem; padding: 12px 32px;" data-en="Download Full Menu" data-ne="पूरा मेनु डाउनलोड गर्नुहोस्"><i class="fas fa-download"></i> <span>Download Full Menu</span></a>
+          
+          <!-- Pasta -->
+          <div class="menu-category animate-from-left delay-2">
+            <h3><i class="fas fa-utensils"></i> Pasta</h3>
+            <div class="menu-item"><span class="name">White Sauce (Veg)</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">White Sauce (Chicken)</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Red Sauce (Veg)</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Red Sauce (Chicken)</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Carbonara (Veg)</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Carbonara (Chicken)</span><span class="price">Rs. 550</span></div>
+          </div>
+          
+          <!-- Sizzlers -->
+          <div class="menu-category animate-from-right delay-2">
+            <h3><i class="fas fa-fire"></i> Sizzlers</h3>
+            <div class="menu-item"><span class="name">Paneer Sizzler</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Chicken Sizzler</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Paneer Tikka Sizzler</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Mix Veg Tikka Sizzler</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Chicken Tandoor (Half)</span><span class="price">Rs. 700</span></div>
+            <div class="menu-item"><span class="name">Chicken Tandoor (Full)</span><span class="price">Rs. 1200</span></div>
+            <div class="menu-item"><span class="name">Baked Grill (Half)</span><span class="price">Rs. 700</span></div>
+            <div class="menu-item"><span class="name">Baked Grill (Full)</span><span class="price">Rs. 1200</span></div>
+          </div>
+          
+          <!-- Biryani & Rice -->
+          <div class="menu-category animate-from-left delay-3">
+            <h3><i class="fas fa-utensil-spoon"></i> Biryani &amp; Rice</h3>
+            <div class="menu-item"><span class="name">Veg Biryani</span><span class="price">Rs. 300</span></div>
+            <div class="menu-item"><span class="name">Chicken Biryani</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Mutton Biryani</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Plain Rice</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Jeera Rice</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Veg Fried Rice</span><span class="price">Rs. 180</span></div>
+            <div class="menu-item"><span class="name">Egg Fried Rice</span><span class="price">Rs. 220</span></div>
+            <div class="menu-item"><span class="name">Chicken Fried Rice</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Pork Fried Rice</span><span class="price">Rs. 270</span></div>
+            <div class="menu-item"><span class="name">Mix Fried Rice</span><span class="price">Rs. 300</span></div>
+          </div>
+          
+          <!-- Noodles & Soups -->
+          <div class="menu-category animate-from-right delay-3">
+            <h3><i class="fas fa-utensils"></i> Noodles &amp; Soups</h3>
+            <div class="menu-item"><span class="name">Chowmein (Veg)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Chowmein (Egg)</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Chowmein (Chicken)</span><span class="price">Rs. 220</span></div>
+            <div class="menu-item"><span class="name">Chowmein (Pork)</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Thukpa (Veg)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Thukpa (Egg)</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Thukpa (Chicken)</span><span class="price">Rs. 220</span></div>
+            <div class="menu-item"><span class="name">Thukpa (Pork)</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Keema Noodles (Veg)</span><span class="price">Rs. 300</span></div>
+            <div class="menu-item"><span class="name">Keema Noodles (Chicken)</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Hot & Sour Soup (Veg)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Hot & Sour Soup (Chicken)</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Clear Soup (Veg)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Clear Soup (Chicken)</span><span class="price">Rs. 200</span></div>
+          </div>
+          
+          <!-- Curries -->
+          <div class="menu-category animate-from-left">
+            <h3><i class="fas fa-utensil-spoon"></i> Curries (Veg)</h3>
+            <div class="menu-item"><span class="name">Daal (Fry/Tadka)</span><span class="price">Rs. 200</span></div>
+            <div class="menu-item"><span class="name">Mix-Veg Curry</span><span class="price">Rs. 300</span></div>
+            <div class="menu-item"><span class="name">Aloo Govi Matar</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Paneer Kadai</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Paneer Butter Masala</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Malai Kofta</span><span class="price">Rs. 400</span></div>
+          </div>
+          
+          <div class="menu-category animate-from-right">
+            <h3><i class="fas fa-utensil-spoon"></i> Curries (Non-Veg)</h3>
+            <div class="menu-item"><span class="name">Chicken Kadai</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Chicken Butter Masala</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Chicken Curry (Nepali Style)</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Chicken Dopiyaza</span><span class="price">Rs. 400</span></div>
+            <div class="menu-item"><span class="name">Egg Curry</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Mutton Curry</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Mutton Rogan Josh</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Mutton Curry (Nepali Style)</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Mustard Fish Curry</span><span class="price">Rs. 350</span></div>
+            <div class="menu-item"><span class="name">Tawa Fish</span><span class="price">Rs. 400</span></div>
+          </div>
+          
+          <!-- Breads -->
+          <div class="menu-category animate-from-left delay-1">
+            <h3><i class="fas fa-bread-slice"></i> Breads</h3>
+            <div class="menu-item"><span class="name">Naan (Plain)</span><span class="price">Rs. 85</span></div>
+            <div class="menu-item"><span class="name">Naan (Butter)</span><span class="price">Rs. 100</span></div>
+            <div class="menu-item"><span class="name">Naan (Garlic)</span><span class="price">Rs. 120</span></div>
+            <div class="menu-item"><span class="name">Naan (Kashmiri)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Roti (Tawa)</span><span class="price">Rs. 45</span></div>
+            <div class="menu-item"><span class="name">Roti (Tandoori)</span><span class="price">Rs. 70</span></div>
+            <div class="menu-item"><span class="name">Laccha Paratha</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Paratha (Aloo/Paneer)</span><span class="price">Rs. 150</span></div>
+            <div class="menu-item"><span class="name">Toasted Bread (Butter & Jam)</span><span class="price">Rs. 145</span></div>
+          </div>
+          
+          <!-- Breakfast -->
+          <div class="menu-category animate-from-right delay-1">
+            <h3><i class="fas fa-sun"></i> Breakfast</h3>
+            <div class="menu-item"><span class="name">American Breakfast</span><span class="price">Rs. 650</span></div>
+            <div class="menu-item"><span class="name">Indian Breakfast</span><span class="price">Rs. 450</span></div>
+            <div class="menu-item"><span class="name">Healthy Breakfast</span><span class="price">Rs. 500</span></div>
+            <div class="menu-item"><span class="name">Muesli with Curd</span><span class="price">Rs. 195</span></div>
+            <div class="menu-item"><span class="name">Fruits Salad (Seasonal)</span><span class="price">Rs. 300</span></div>
+          </div>
+          
+          <!-- Beverages -->
+          <div class="menu-category animate-from-left delay-2">
+            <h3><i class="fas fa-mug-hot"></i> Beverages</h3>
+            <div class="menu-item"><span class="name">Coffee Based</span><span class="price">Rs. 245</span></div>
+            <div class="menu-item"><span class="name">Hot Chocolate</span><span class="price">Rs. 195</span></div>
+            <div class="menu-item"><span class="name">Dark Chocolate</span><span class="price">Rs. 245</span></div>
+            <div class="menu-item"><span class="name">Hot Lemon (Plain)</span><span class="price">Rs. 95</span></div>
+            <div class="menu-item"><span class="name">Hot Lemon (Honey)</span><span class="price">Rs. 145</span></div>
+            <div class="menu-item"><span class="name">Hot Lemon (Ginger)</span><span class="price">Rs. 175</span></div>
+            <div class="menu-item"><span class="name">Iced Tea (Peach/Lemon/Green Apple)</span><span class="price">Rs. 175</span></div>
+          </div>
+          
+          <!-- Shakes & Smoothies -->
+          <div class="menu-category animate-from-right delay-2">
+            <h3><i class="fas fa-glass-whiskey"></i> Shakes &amp; Smoothies</h3>
+            <div class="menu-item"><span class="name">Milk Shake (Chocolate/Vanilla)</span><span class="price">Rs. 245</span></div>
+            <div class="menu-item"><span class="name">Strawberry Shake</span><span class="price">Rs. 265</span></div>
+            <div class="menu-item"><span class="name">Kitkat Milkshake</span><span class="price">Rs. 265</span></div>
+            <div class="menu-item"><span class="name">Double Fun Shake</span><span class="price">Rs. 295</span></div>
+            <div class="menu-item"><span class="name">Smoothie (Vanilla/Strawberry/Kiwi)</span><span class="price">Rs. 245</span></div>
+            <div class="menu-item"><span class="name">Lassi (Plain/Banana)</span><span class="price">Rs. 115</span></div>
+            <div class="menu-item"><span class="name">Mango Lassi (Seasonal)</span><span class="price">Rs. 195</span></div>
+            <div class="menu-item"><span class="name">Flavored Lassi (Butter Scotch/Strawberry/Vanilla/Hazelnut)</span><span class="price">Rs. 195</span></div>
+          </div>
+          
+          <!-- Soft Drinks -->
+          <div class="menu-category animate-from-left delay-3">
+            <h3><i class="fas fa-wine-bottle"></i> Soft Drinks</h3>
+            <div class="menu-item"><span class="name">Coke/Fanta/Sprite/Coke Diet</span><span class="price">Rs. 95</span></div>
+            <div class="menu-item"><span class="name">Ginger Ale</span><span class="price">Rs. 275</span></div>
+            <div class="menu-item"><span class="name">Soda</span><span class="price">Rs. 95</span></div>
+            <div class="menu-item"><span class="name">Tonic Water</span><span class="price">Rs. 175</span></div>
+            <div class="menu-item"><span class="name">Red Bull</span><span class="price">Rs. 275</span></div>
+            <div class="menu-item"><span class="name">Masala Coke & Sprite</span><span class="price">Rs. 175</span></div>
+          </div>
+          
+          <!-- Desserts -->
+          <div class="menu-category animate-from-right delay-3">
+            <h3><i class="fas fa-cake"></i> Desserts</h3>
+            <div class="menu-item"><span class="name">Sizzling Brownie</span><span class="price">Rs. 250</span></div>
+            <div class="menu-item"><span class="name">Brownie with Ice Cream</span><span class="price">Rs. 220</span></div>
+            <div class="menu-item"><span class="name">Gagari Ko Halwa</span><span class="price">Rs. 180</span></div>
+            <div class="menu-item"><span class="name">Warm Gulab Jamun</span><span class="price">Rs. 50</span></div>
+            <div class="menu-item"><span class="name">Fruits with Curd</span><span class="price">Rs. 200</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1752,9 +1928,10 @@
       <div class="section-title animate-on-scroll"><i class="fas fa-bed"></i> <span data-en="Rooms &amp; Suites" data-ne="कोठा र सुइटहरू">Rooms &amp; Suites</span></div>
       <p class="section-sub animate-on-scroll" data-en="Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa." data-ne="आधुनिक सुविधाहरू सहित आरामदायी बसाइ। दमक, झापामा तपाईंको गेटवेको लागि उत्तम।">Comfortable stays with modern amenities. Perfect for your getaway in Damak, Jhapa.</p>
       <div class="rooms-grid">
+        <!-- Standard Room -->
         <div class="room-card animate-from-left">
           <div class="room-image">
-            <img src="standard.jpeg" alt="Standard Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/standard/600/400';" />
+            <img src="firstroom.jpeg" alt="Standard Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/standard/600/400';" />
             <span class="room-badge" data-en="Standard" data-ne="स्ट्यान्डर्ड">Standard</span>
           </div>
           <div class="room-body">
@@ -1768,18 +1945,20 @@
               <span><i class="fas fa-shower"></i> <span data-en="Attached Bath" data-ne="संलग्न बाथरुम">Attached Bath</span></span>
             </div>
             <div class="room-footer">
-              <div class="room-price">Rs. 4,000 <small data-en="/ night" data-ne="/ रात">/ night</small></div>
+              <div class="room-price">Rs. 3,500 <small data-en="/ night" data-ne="/ रात">/ night</small></div>
               <a href="https://wa.me/9779852630088?text=Is%20This%20Room%20available?%20(Standard%20Room)" class="btn-book-room" data-en="Book Now" data-ne="बुक गर्नुहोस्"><i class="fas fa-calendar-check"></i> Book Now</a>
             </div>
           </div>
         </div>
+        
+        <!-- Deluxe Double Room -->
         <div class="room-card animate-from-right">
           <div class="room-image">
-            <img src="deluxe.jpeg" alt="Deluxe Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/deluxe/600/400';" />
+            <img src="deluxe.jpeg" alt="Deluxe Double Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/deluxe/600/400';" />
             <span class="room-badge popular" data-en="Popular" data-ne="लोकप्रिय">Popular</span>
           </div>
           <div class="room-body">
-            <h3 data-en="Double Deluxe Room" data-ne="डबल डिलक्स कोठा">Double Deluxe Room</h3>
+            <h3 data-en="Deluxe Double Room" data-ne="डिलक्स डबल कोठा">Deluxe Double Room</h3>
             <div class="room-sub" data-en="Spacious · 3 Guests" data-ne="विशाल · ३ पाहुना">Spacious · 3 Guests</div>
             <div class="room-desc" data-en="Enjoy extra space and premium comfort. Features a king-size bed, work desk, and a beautiful view of Damak city." data-ne="अतिरिक्त स्थान र प्रिमियम आरामको आनन्द लिनुहोस्। किङ-साइज बेड, कार्य डेस्क, र दमक शहरको सुन्दर दृश्यको सुविधा।">Enjoy extra space and premium comfort. Features a king-size bed, work desk, and a beautiful view of Damak city.</div>
             <div class="room-amenities">
@@ -1791,10 +1970,12 @@
             </div>
             <div class="room-footer">
               <div class="room-price">Rs. 4,500 <small data-en="/ night" data-ne="/ रात">/ night</small></div>
-              <a href="https://wa.me/9779852630088?text=Is%20This%20Room%20available?%20(Deluxe%20Room)" class="btn-book-room" data-en="Book Now" data-ne="बुक गर्नुहोस्"><i class="fas fa-calendar-check"></i> Book Now</a>
+              <a href="https://wa.me/9779852630088?text=Is%20This%20Room%20available?%20(Deluxe%20Double%20Room)" class="btn-book-room" data-en="Book Now" data-ne="बुक गर्नुहोस्"><i class="fas fa-calendar-check"></i> Book Now</a>
             </div>
           </div>
         </div>
+        
+        <!-- Suite Room -->
         <div class="room-card animate-from-left delay-1">
           <div class="room-image">
             <img src="suit.jpeg" alt="Suite Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/suite/600/400';" />
@@ -1818,6 +1999,8 @@
             </div>
           </div>
         </div>
+        
+        <!-- Family Room -->
         <div class="room-card animate-from-right delay-1">
           <div class="room-image">
             <img src="family.jpeg" alt="Family Room" loading="lazy" onerror="this.src='https://picsum.photos/seed/family/600/400';" />
@@ -1928,7 +2111,7 @@
         </div>
         <div class="faq-item animate-from-right delay-1">
           <div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-en="Does Bella Cafe have hotel rooms?" data-ne="के बेला क्याफेमा होटल कोठाहरू छन्?">Does Bella Cafe have hotel rooms?</span></div>
-          <div class="faq-a" data-en="Yes! Standard, Deluxe, Suite, and Family rooms with modern amenities including free Wi-Fi, AC, smart TV, and attached bathrooms. <a href='#rooms'>Book your stay →</a>" data-ne="हो! स्ट्यान्डर्ड, डिलक्स, सुइट र पारिवारिक कोठाहरू नि:शुल्क वाइफाई, एसी, स्मार्ट टिभी र संलग्न बाथरुम सहित आधुनिक सुविधाहरूको साथ। <a href='#rooms'>आफ्नो बसाइ बुक गर्नुहोस् →</a>">Yes! Standard, Deluxe, Suite, and Family rooms with modern amenities including free Wi-Fi, AC, smart TV, and attached bathrooms. <a href="#rooms">Book your stay →</a></div>
+          <div class="faq-a" data-en="Yes! Standard, Deluxe Double, Suite, and Family rooms with modern amenities including free Wi-Fi, AC, smart TV, and attached bathrooms. <a href='#rooms'>Book your stay →</a>" data-ne="हो! स्ट्यान्डर्ड, डिलक्स डबल, सुइट र पारिवारिक कोठाहरू नि:शुल्क वाइफाई, एसी, स्मार्ट टिभी र संलग्न बाथरुम सहित आधुनिक सुविधाहरूको साथ। <a href='#rooms'>आफ्नो बसाइ बुक गर्नुहोस् →</a>">Yes! Standard, Deluxe Double, Suite, and Family rooms with modern amenities including free Wi-Fi, AC, smart TV, and attached bathrooms. <a href="#rooms">Book your stay →</a></div>
         </div>
         <div class="faq-item animate-from-left delay-2">
           <div class="faq-q"><i class="fas fa-chevron-circle-right"></i> <span data-en="What cuisines does Bella Cafe serve?" data-ne="बेला क्याफेले कस्तो खाना सेवा गर्दछ?">What cuisines does Bella Cafe serve?</span></div>
